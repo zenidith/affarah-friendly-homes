@@ -1,8 +1,8 @@
-
 import { useState } from 'react';
 import { Menu, X, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LanguageToggle from './LanguageToggle';
+import ThemeToggle from './ThemeToggle';
 import { useLanguage } from '@/context/LanguageContext';
 
 const NavBar = () => {
@@ -14,7 +14,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="bg-white py-4 shadow-sm sticky top-0 z-50">
+    <nav className="bg-background/80 backdrop-blur-sm py-4 shadow-sm sticky top-0 z-50">
       <div className="container-custom flex items-center justify-between">
         <div className="flex items-center">
           <a href="/" className="flex items-center">
@@ -50,14 +50,16 @@ const NavBar = () => {
             <Instagram size={24} />
           </a>
           <LanguageToggle />
+          <ThemeToggle />
           <Button className="btn-primary">{t('getStarted')}</Button>
         </div>
 
         {/* Mobile Navigation Toggle */}
         <div className="md:hidden flex items-center space-x-4">
           <LanguageToggle />
+          <ThemeToggle />
           <button
-            className="text-navy p-2"
+            className="text-foreground p-2"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
