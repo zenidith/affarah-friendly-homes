@@ -29,30 +29,30 @@ const NavBar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#services" className="text-navy hover:text-navy-light font-medium transition-colors">
+          <a href="#services" className="text-foreground hover:text-primary/80 font-medium transition-colors">
             {t('services')}
           </a>
-          <a href="#about" className="text-navy hover:text-navy-light font-medium transition-colors">
+          <a href="#about" className="text-foreground hover:text-primary/80 font-medium transition-colors">
             {t('about')}
           </a>
-          <a href="#testimonials" className="text-navy hover:text-navy-light font-medium transition-colors">
+          <a href="#testimonials" className="text-foreground hover:text-primary/80 font-medium transition-colors">
             {t('testimonials')}
           </a>
-          <a href="#contact" className="text-navy hover:text-navy-light font-medium transition-colors">
+          <a href="#contact" className="text-foreground hover:text-primary/80 font-medium transition-colors">
             {t('contact')}
           </a>
           <a 
             href="https://www.instagram.com/affarah_tomodachintai/" 
             target="_blank"
             rel="noopener noreferrer"
-            className="text-navy hover:text-gold transition-colors"
+            className="text-foreground hover:text-gold transition-colors"
             aria-label="Instagram"
           >
             <Instagram size={24} />
           </a>
           <LanguageToggle />
           <ThemeToggle />
-          <Button className="btn-primary">{t('getStarted')}</Button>
+          <Button className="bg-navy hover:bg-navy-light text-white">{t('getStarted')}</Button>
         </div>
 
         {/* Mobile Navigation Toggle */}
@@ -71,32 +71,32 @@ const NavBar = () => {
 
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-md py-4 px-6 z-50 animate-fade-in">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-background shadow-md py-4 px-6 z-50 animate-fade-in">
           <div className="flex flex-col space-y-4">
             <a 
               href="#services" 
-              className="text-navy hover:text-navy-light font-medium transition-colors"
+              className="text-foreground hover:text-primary/80 font-medium transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('services')}
             </a>
             <a 
               href="#about" 
-              className="text-navy hover:text-navy-light font-medium transition-colors"
+              className="text-foreground hover:text-primary/80 font-medium transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('about')}
             </a>
             <a 
               href="#testimonials" 
-              className="text-navy hover:text-navy-light font-medium transition-colors"
+              className="text-foreground hover:text-primary/80 font-medium transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('testimonials')}
             </a>
             <a 
               href="#contact" 
-              className="text-navy hover:text-navy-light font-medium transition-colors"
+              className="text-foreground hover:text-primary/80 font-medium transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('contact')}
@@ -106,12 +106,12 @@ const NavBar = () => {
                 href="https://www.instagram.com/affarah_tomodachintai/" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-navy hover:text-gold transition-colors"
+                className="text-foreground hover:text-gold transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram size={24} />
               </a>
-              <Button className="btn-primary w-full">{t('getStarted')}</Button>
+              <Button className="bg-navy hover:bg-navy-light text-white w-full">{t('getStarted')}</Button>
             </div>
           </div>
         </div>
