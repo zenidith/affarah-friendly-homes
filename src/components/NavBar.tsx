@@ -1,8 +1,9 @@
+
 import { useState } from 'react';
 import { Menu, X, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LanguageToggle from './LanguageToggle';
-import ThemeToggle from './ThemeToggle';
+import { ThemeToggle } from './ThemeToggle';
 import { useLanguage } from '@/context/LanguageContext';
 
 const NavBar = () => {
