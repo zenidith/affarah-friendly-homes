@@ -13,11 +13,11 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} forcedTheme="dark">
+  <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
         <TooltipProvider>
-          <div className="aurora-bg min-h-screen">
+          <div className="min-h-screen">
             <Toaster />
             <Sonner />
             <BrowserRouter>

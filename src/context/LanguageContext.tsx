@@ -1,5 +1,5 @@
 
-import React, { createContext, useState, useContext, ReactNode } from 'react';
+import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 
 type Language = 'en' | 'ja';
 
@@ -115,6 +115,11 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   const t = (key: TranslationKey): string => {
     return translations[key]?.[language] || key;
   };
+
+  // Force re-render of all components when language changes
+  useEffect(() => {
+    document.documentElement.setAttribute('lang', language);
+  }, [language]);
 
   return (
     <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
