@@ -1,12 +1,9 @@
 
-import { useState } from 'react';
+import React from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const LanguageToggle = () => {
-  const [language, setLanguage] = useState<'en' | 'ja'>('en');
-
-  const toggleLanguage = () => {
-    setLanguage(prevLang => prevLang === 'en' ? 'ja' : 'en');
-  };
+  const { language, toggleLanguage } = useLanguage();
 
   return (
     <div className="flex items-center text-sm">
@@ -20,7 +17,7 @@ const LanguageToggle = () => {
       >
         <div className="language-toggle-slider"></div>
       </div>
-      <span className={`ml-2 ${language === 'ja' ? 'font-semibold text-navy' : 'text-gray-400'}`}>JA</span>
+      <span className={`ml-2 ${language === 'ja' ? 'font-semibold text-navy' : 'text-gray-400'}`}>日本語</span>
     </div>
   );
 };
