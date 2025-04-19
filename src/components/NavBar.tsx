@@ -3,9 +3,11 @@ import { useState } from 'react';
 import { Menu, X, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LanguageToggle from './LanguageToggle';
+import { useLanguage } from '@/context/LanguageContext';
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -27,16 +29,16 @@ const NavBar = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           <a href="#services" className="text-navy hover:text-navy-light font-medium transition-colors">
-            Services
+            {t('services')}
           </a>
           <a href="#about" className="text-navy hover:text-navy-light font-medium transition-colors">
-            About
+            {t('about')}
           </a>
           <a href="#testimonials" className="text-navy hover:text-navy-light font-medium transition-colors">
-            Testimonials
+            {t('testimonials')}
           </a>
           <a href="#contact" className="text-navy hover:text-navy-light font-medium transition-colors">
-            Contact
+            {t('contact')}
           </a>
           <a 
             href="https://www.instagram.com/affarah_tomodachintai/" 
@@ -48,7 +50,7 @@ const NavBar = () => {
             <Instagram size={24} />
           </a>
           <LanguageToggle />
-          <Button className="btn-primary">Get Started</Button>
+          <Button className="btn-primary">{t('getStarted')}</Button>
         </div>
 
         {/* Mobile Navigation Toggle */}
@@ -73,28 +75,28 @@ const NavBar = () => {
               className="text-navy hover:text-navy-light font-medium transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Services
+              {t('services')}
             </a>
             <a 
               href="#about" 
               className="text-navy hover:text-navy-light font-medium transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              About
+              {t('about')}
             </a>
             <a 
               href="#testimonials" 
               className="text-navy hover:text-navy-light font-medium transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Testimonials
+              {t('testimonials')}
             </a>
             <a 
               href="#contact" 
               className="text-navy hover:text-navy-light font-medium transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Contact
+              {t('contact')}
             </a>
             <div className="flex items-center gap-4">
               <a 
@@ -106,7 +108,7 @@ const NavBar = () => {
               >
                 <Instagram size={24} />
               </a>
-              <Button className="btn-primary w-full">Get Started</Button>
+              <Button className="btn-primary w-full">{t('getStarted')}</Button>
             </div>
           </div>
         </div>

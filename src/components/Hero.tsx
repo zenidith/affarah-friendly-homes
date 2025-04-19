@@ -1,25 +1,28 @@
 
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Hero = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="relative bg-gradient-to-b from-white to-gray-50 overflow-hidden py-16 md:py-24">
       <div className="container-custom grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-6 md:space-y-8 max-w-xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-navy leading-tight">
-            Let's find your next home in Japan
+            {t('findHome')}
           </h1>
           <p className="text-lg text-gray-600">
-            Affarah is your friendly guide to renting in Tokyo and Chiba. We speak your language and make finding a home in Japan simple and stress-free.
+            {t('nextHome')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button className="btn-primary group">
-              Start Your Search
+              {t('startYourSearch')}
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button variant="outline" className="border-gold text-gold hover:bg-gold hover:text-navy">
-              Learn More
+              {t('learnMore')}
             </Button>
           </div>
         </div>
@@ -50,8 +53,8 @@ const Hero = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-navy mb-2">Language Support</h3>
-            <p className="text-gray-600">Full English and Japanese support throughout the entire rental process.</p>
+            <h3 className="text-xl font-bold text-navy mb-2">{t('languageSupport')}</h3>
+            <p className="text-gray-600">{t('fullEnglishSupport')}</p>
           </div>
           
           <div className="text-center">
@@ -60,8 +63,8 @@ const Hero = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-navy mb-2">No Hidden Fees</h3>
-            <p className="text-gray-600">Transparent pricing with no surprises or additional charges.</p>
+            <h3 className="text-xl font-bold text-navy mb-2">{t('noHiddenFees')}</h3>
+            <p className="text-gray-600">{t('transparentPricing')}</p>
           </div>
           
           <div className="text-center">
@@ -70,8 +73,8 @@ const Hero = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-navy mb-2">Real-Person Guidance</h3>
-            <p className="text-gray-600">A dedicated agent guiding you through every step of the process.</p>
+            <h3 className="text-xl font-bold text-navy mb-2">{t('realPersonGuidance')}</h3>
+            <p className="text-gray-600">{t('dedicatedAgent')}</p>
           </div>
         </div>
       </div>
