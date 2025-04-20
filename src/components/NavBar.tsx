@@ -38,7 +38,7 @@ const NavBar = () => {
               <img 
                 src="/lovable-uploads/b3393a11-aa38-494e-a899-dcbc95e48f45.png" 
                 alt="Affarah Logo" 
-                className="h-12 md:h-16 mr-2"
+                className="h-12 md:h-16 mr-2 border-2 border-navy dark:border-gold rounded-full"
               />
             </a>
           </div>

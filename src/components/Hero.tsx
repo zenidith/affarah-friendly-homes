@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -29,8 +28,8 @@ const Hero = () => {
         <div className="relative">
           <div className="relative z-10 h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl">
             <img
-              src="/lovable-uploads/5.png"
-              alt="Traditional Japanese tatami room with shoji screens"
+              src="/lovable-uploads/a1e60171-2606-4ab9-b05a-a1b81de32dd5.png"
+              alt="Traditional Japanese apartment interior"
               className="w-full h-full object-cover"
             />
           </div>
