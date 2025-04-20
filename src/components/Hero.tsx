@@ -10,7 +10,7 @@ const Hero = () => {
     <section className="relative bg-white dark:bg-gray-900 overflow-hidden py-16 md:py-24">
       <div className="container-custom grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-6 md:space-y-8 max-w-xl">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-serif text-navy leading-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-serif text-navy dark:text-white leading-tight">
             {t('findHome')}
           </h1>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300">
@@ -29,8 +29,8 @@ const Hero = () => {
         <div className="relative">
           <div className="relative z-10 h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl">
             <img
-              src="/lovable-uploads/7fc09dcb-258e-43a0-8f06-176328c5ffb3.png"
-              alt="Sunset landscape view"
+              src="/lovable-uploads/84cd8625-1cde-4450-a144-9c4f21bc4222.png"
+              alt="Sunset landscape view of Japan"
               className="w-full h-full object-cover"
             />
           </div>
