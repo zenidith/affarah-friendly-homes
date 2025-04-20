@@ -1,3 +1,4 @@
+
 import { TranslationKey } from '@/types/translations';
 
 export const translations: Partial<Record<TranslationKey, { en: string; ja: string }>> = {
@@ -55,11 +56,11 @@ export const translations: Partial<Record<TranslationKey, { en: string; ja: stri
   },
   findHome: {
     en: 'Find Your Home',
-    ja: '家を見つける'
+    ja: 'あなたの住まいを見つける'
   },
   nextHome: {
-    en: 'Next Home',
-    ja: '次の家'
+    en: 'Your trusted partner in finding your ideal home in Japan',
+    ja: '日本での理想の住まい探しにおける信頼できるパートナー'
   },
   aboutAffarah: {
     en: 'About Affarah',
