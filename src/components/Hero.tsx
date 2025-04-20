@@ -29,8 +29,8 @@ const Hero = () => {
         <div className="relative">
           <div className="relative z-10 h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl">
             <img
-              src="/lovable-uploads/84cd8625-1cde-4450-a144-9c4f21bc4222.png"
-              alt="Sunset landscape view of Japan"
+              src="/lovable-uploads/729c89f5-58cf-4800-9405-53cbe799805c.png"
+              alt="Modern Japanese apartment interior"
               className="w-full h-full object-cover"
             />
           </div>
