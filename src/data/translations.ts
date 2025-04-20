@@ -54,12 +54,12 @@ export const translations: Partial<Record<TranslationKey, { en: string; ja: stri
     ja: '専任のエージェント'
   },
   findHome: {
-    en: 'Your Friend in Finding a Home in Japan',
-    ja: '日本での住まい探しの心強い味方'
+    en: 'Your Home in Japan, Simplified',
+    ja: '日本での住まい探し、シンプルに'
   },
   nextHome: {
-    en: "With an Australian background and firsthand experience as an expat, Ibuki understands your challenges. Let's make your transition to Japan smooth and stress-free.",
-    ja: 'オーストラリアでの生活経験を持つイブキが、外国人として日本で暮らす際の課題を理解し、あなたの日本での新生活をスムーズにサポートします。'
+    en: "Having lived abroad in Australia as an expat, I deeply understand the challenges of finding a home in a new country. Let me be your trusted guide to make your transition to Japan smooth and stress-free.",
+    ja: 'オーストラリアで海外生活を経験した私が、新しい国で住まいを見つける難しさを痛感しています。あなたの日本での移住を、スムーズかつストレスフリーにサポートします。'
   },
   aboutAffarah: {
     en: 'About Affarah',
