@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { MapPin, Mail, Phone, Clock, HelpCircle } from 'lucide-react';
@@ -234,7 +233,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-medium text-gold">{t('addressText')}</h4>
-                    <p className="text-white/80">Chiba City, Chiba Prefecture, Japan</p>
+                    <p className="text-white/80">{t('chibaAddress')}</p>
                   </div>
                 </div>
                 <div className="flex items-start">

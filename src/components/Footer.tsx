@@ -1,8 +1,10 @@
 
 import { Instagram } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t, language } = useLanguage();
 
   return (
     <footer className="bg-navy text-white pt-16 pb-8">
@@ -15,7 +17,7 @@ const Footer = () => {
               className="h-16 mb-4 invert" 
             />
             <p className="text-white/80 mb-4">
-              Your friendly guide to renting a home in Japan. We make the process simple and stress-free for English speakers.
+              {t('footerDescription')}
             </p>
             <div className="flex space-x-4">
               <a 
@@ -31,43 +33,43 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-bold mb-4 text-gold">Services</h3>
+            <h3 className="text-lg font-bold mb-4 text-gold">{t('services')}</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Property Search</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Application Support</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Move-in Assistance</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Rental Consultations</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Neighborhood Guides</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('propertySearch')}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('applicationSupport')}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('moveInAssistance')}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('rentalConsultations')}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('neighborhoodGuides')}</a></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-bold mb-4 text-gold">Company</h3>
+            <h3 className="text-lg font-bold mb-4 text-gold">{t('about')}</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Our Team</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Testimonials</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Blog</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Careers</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('aboutUs')}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('ourTeam')}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('testimonials')}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('blog')}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('careers')}</a></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-bold mb-4 text-gold">Legal</h3>
+            <h3 className="text-lg font-bold mb-4 text-gold">{t('legal')}</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">Cookie Policy</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('termsService')}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('privacyPolicy')}</a></li>
+              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('cookiePolicy')}</a></li>
             </ul>
           </div>
         </div>
         
         <div className="pt-8 border-t border-white/20 text-center md:flex md:justify-between md:text-left">
           <p className="text-white/60 mb-2 md:mb-0">
-            &copy; {currentYear} Affarah. All rights reserved.
+            &copy; {currentYear} Affarah. {t('allRightsReserved')}
           </p>
           <p className="text-white/60">
-            A Friend who is Familiar About Renting A House
+            {t('affarahMeaning')}
           </p>
         </div>
       </div>

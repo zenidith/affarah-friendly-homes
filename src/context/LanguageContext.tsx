@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 
 type Language = 'en' | 'ja';
@@ -56,7 +55,24 @@ type TranslationKey =
   | 'saturday'
   | 'scheduleConsultation'
   | 'notSureStart'
-  | 'bookConsultation';
+  | 'bookConsultation'
+  | 'footerDescription'
+  | 'propertySearch'
+  | 'applicationSupport'
+  | 'moveInAssistance'
+  | 'rentalConsultations'
+  | 'neighborhoodGuides'
+  | 'aboutUs'
+  | 'ourTeam'
+  | 'testimonials'
+  | 'blog'
+  | 'careers'
+  | 'termsService'
+  | 'privacyPolicy'
+  | 'cookiePolicy'
+  | 'allRightsReserved'
+  | 'affarahMeaning'
+  | 'chibaAddress';
 
 // Define translations
 const translations: Partial<Record<TranslationKey, { en: string; ja: string }>> = {
@@ -267,6 +283,70 @@ const translations: Partial<Record<TranslationKey, { en: string; ja: string }>> 
   bookConsultation: {
     en: 'Book Consultation',
     ja: '相談を予約'
+  },
+  footerDescription: {
+    en: 'Your friendly guide to renting a home in Japan. We make the process simple and stress-free for English speakers.',
+    ja: '日本での住居賃貸のためのフレンドリーなガイド。英語話者のためにプロセスをシンプルでストレスフリーにします。'
+  },
+  propertySearch: {
+    en: 'Property Search',
+    ja: '物件検索'
+  },
+  applicationSupport: {
+    en: 'Application Support',
+    ja: '申込サポート'
+  },
+  moveInAssistance: {
+    en: 'Move-in Assistance',
+    ja: '入居サポート'
+  },
+  rentalConsultations: {
+    en: 'Rental Consultations',
+    ja: '賃貸相談'
+  },
+  neighborhoodGuides: {
+    en: 'Neighborhood Guides',
+    ja: '近隣ガイド'
+  },
+  aboutUs: {
+    en: 'About Us',
+    ja: '会社概要'
+  },
+  ourTeam: {
+    en: 'Our Team',
+    ja: 'チーム紹介'
+  },
+  blog: {
+    en: 'Blog',
+    ja: 'ブログ'
+  },
+  careers: {
+    en: 'Careers',
+    ja: '採用情報'
+  },
+  termsService: {
+    en: 'Terms of Service',
+    ja: '利用規約'
+  },
+  privacyPolicy: {
+    en: 'Privacy Policy',
+    ja: 'プライバシーポリシー'
+  },
+  cookiePolicy: {
+    en: 'Cookie Policy',
+    ja: 'クッキーポリシー'
+  },
+  allRightsReserved: {
+    en: 'All rights reserved.',
+    ja: '全著作権所有。'
+  },
+  affarahMeaning: {
+    en: 'A Friend who is Familiar About Renting A House',
+    ja: '家を借りることに詳しい友人'
+  },
+  chibaAddress: {
+    en: 'Chiba City, Chiba Prefecture, Japan',
+    ja: '千葉県千葉市'
   }
 };
 
