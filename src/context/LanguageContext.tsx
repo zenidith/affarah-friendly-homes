@@ -105,10 +105,20 @@ const LanguageContext = createContext<LanguageContextType>({
 });
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  // Check for stored preference
+  const getInitialLanguage = (): Language => {
+    const savedLanguage = localStorage.getItem('preferredLanguage');
+    return (savedLanguage === 'ja' || savedLanguage === 'en') ? savedLanguage : 'en';
+  };
+
+  const [language, setLanguage] = useState<Language>(getInitialLanguage);
 
   const toggleLanguage = () => {
-    setLanguage(prevLang => prevLang === 'en' ? 'ja' : 'en');
+    setLanguage(prevLang => {
+      const newLang = prevLang === 'en' ? 'ja' : 'en';
+      localStorage.setItem('preferredLanguage', newLang);
+      return newLang;
+    });
   };
 
   // Translation function
@@ -116,9 +126,12 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     return translations[key]?.[language] || key;
   };
 
-  // Force re-render of all components when language changes
+  // Update document language attribute when language changes
   useEffect(() => {
     document.documentElement.setAttribute('lang', language);
+    
+    // Force a re-render by updating a data attribute on the body
+    document.body.setAttribute('data-language', language);
   }, [language]);
 
   return (
