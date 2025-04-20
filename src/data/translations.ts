@@ -241,10 +241,6 @@ export const translations: Partial<Record<TranslationKey, { en: string; ja: stri
     en: "Our Team",
     ja: "私たちのチーム"
   },
-  testimonials: {
-    en: "Testimonials",
-    ja: "お客様の声"
-  },
   blog: {
     en: "Blog",
     ja: "ブログ"
