@@ -1,26 +1,29 @@
 
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/context/LanguageContext';
 
 const About = () => {
+  const { t, language } = useLanguage();
+  
   return (
-    <section id="about" className="py-16 md:py-24 bg-white">
+    <section id="about" className="py-16 md:py-24 bg-white dark:bg-gray-900">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
-            <h2 className="section-title">About Affarah</h2>
-            <p className="text-lg text-gray-600 mb-6">
-              Affarah stands for "A Friend who is Familiar About Renting A House" because that's exactly what we are - your friendly guide to finding a home in Japan.
+            <h2 className="section-title">{t('aboutAffarah')}</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+              {t('aboutDescription1')}
             </p>
-            <p className="text-lg text-gray-600 mb-6">
-              Founded by Ibuki, a bilingual real estate agent who understands the challenges that non-Japanese speakers face in the Tokyo and Chiba rental markets, we bridge the gap between foreign renters and Japanese property owners.
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+              {t('aboutDescription2')}
             </p>
-            <p className="text-lg text-gray-600 mb-8">
-              Our mission is simple: make the rental process transparent, stress-free, and even enjoyable for English speakers in Japan.
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+              {t('aboutDescription3')}
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button className="btn-primary">Our Story</Button>
-              <Button variant="outline" className="border-navy text-navy hover:bg-navy hover:text-white">
-                Meet the Team
+              <Button className="btn-primary">{t('ourStory')}</Button>
+              <Button variant="outline" className="border-navy text-navy dark:border-white dark:text-white hover:bg-navy hover:text-white dark:hover:bg-white dark:hover:text-navy">
+                {t('meetTheTeam')}
               </Button>
             </div>
           </div>
@@ -33,7 +36,7 @@ const About = () => {
                   className="w-full rounded-sm"
                 />
                 <div className="p-4 text-center">
-                  <p className="text-lg font-medium">Helping you find your new home</p>
+                  <p className="text-lg font-medium dark:text-gray-800">{t('helpingYou')}</p>
                 </div>
               </div>
             </div>
@@ -45,21 +48,21 @@ const About = () => {
         </div>
 
         <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="bg-gray-50 rounded-2xl p-6 text-center hover:shadow-md transition-shadow">
+          <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 text-center hover:shadow-md transition-shadow">
             <h3 className="text-5xl font-bold text-gold mb-2">5+</h3>
-            <p className="text-navy">Years of Experience</p>
+            <p className="text-navy dark:text-white">{t('yearsExperience')}</p>
           </div>
-          <div className="bg-gray-50 rounded-2xl p-6 text-center hover:shadow-md transition-shadow">
+          <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 text-center hover:shadow-md transition-shadow">
             <h3 className="text-5xl font-bold text-gold mb-2">100%</h3>
-            <p className="text-navy">English Support</p>
+            <p className="text-navy dark:text-white">{t('englishSupport')}</p>
           </div>
-          <div className="bg-gray-50 rounded-2xl p-6 text-center hover:shadow-md transition-shadow">
+          <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 text-center hover:shadow-md transition-shadow">
             <h3 className="text-5xl font-bold text-gold mb-2">200+</h3>
-            <p className="text-navy">Happy Clients</p>
+            <p className="text-navy dark:text-white">{t('happyClients')}</p>
           </div>
-          <div className="bg-gray-50 rounded-2xl p-6 text-center hover:shadow-md transition-shadow">
+          <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 text-center hover:shadow-md transition-shadow">
             <h3 className="text-5xl font-bold text-gold mb-2">24/7</h3>
-            <p className="text-navy">Client Support</p>
+            <p className="text-navy dark:text-white">{t('clientSupport')}</p>
           </div>
         </div>
       </div>

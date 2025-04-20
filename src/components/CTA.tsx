@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 const CTA = () => {
-  const { language } = useLanguage();
+  const { t, language } = useLanguage();
   
   const content = {
     en: {
