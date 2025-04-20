@@ -1,4 +1,3 @@
-
 import { TranslationKey } from '@/types/translations';
 
 export const translations: Partial<Record<TranslationKey, { en: string; ja: string }>> = {
@@ -55,12 +54,12 @@ export const translations: Partial<Record<TranslationKey, { en: string; ja: stri
     ja: '専任のエージェント'
   },
   findHome: {
-    en: 'Find Your Home',
-    ja: 'あなたの住まいを見つける'
+    en: 'Your Friend in Finding a Home in Japan',
+    ja: '日本での住まい探しの心強い味方'
   },
   nextHome: {
-    en: 'Your trusted partner in finding your ideal home in Japan',
-    ja: '日本での理想の住まい探しにおける信頼できるパートナー'
+    en: "With an Australian background and firsthand experience as an expat, Ibuki understands your challenges. Let's make your transition to Japan smooth and stress-free.",
+    ja: 'オーストラリアでの生活経験を持つイブキが、外国人として日本で暮らす際の課題を理解し、あなたの日本での新生活をスムーズにサポートします。'
   },
   aboutAffarah: {
     en: 'About Affarah',
