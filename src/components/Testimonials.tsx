@@ -50,10 +50,10 @@ const Testimonials = () => {
     },
     {
       id: 4,
-      name: "Alex Johnson",
+      name: "Kayne Sheenan",
       location: language === 'en' ? "Tokyo, from UK" : "東京、イギリス出身",
       quote: {
-        en: "What sets Affarah apart is their dedication to helping you even after you've moved in. They're truly a friend in the rental process.",
+        en: "Ibuki went above and beyond. Picked me up, showed me through a bunch of fantastic places and even negotiated a better deal for me!",
         ja: "アファラーが他と異なる点は、引っ越した後もサポートしてくれる献身さです。彼らは本当に賃貸プロセスにおける友人です。"
       },
       image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
