@@ -265,23 +265,30 @@ const Contact = () => {
             </div>
 
             <div className="bg-gold/10 dark:bg-gold/5 rounded-2xl p-8 border border-gold/30">
-              <h3 className="text-xl font-bold text-navy dark:text-white mb-4">
-                {language === 'en' ? 'Need Help Getting Started?' : '🏠 最初の一歩を踏み出そう'}
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
-                {language === 'en' 
-                  ? "Answer a few quick questions and we’ll guide you toward the right rental options."
-                  : "どこから始めればいいか分からない？"}
-              </p>
-              <a
-                href="https://app.youform.com/forms/1taqrobw"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gold text-navy hover:bg-gold-dark w-full flex items-center justify-center rounded-md py-3 px-4 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
-              >
-                {language === 'en' ? 'Start the Quiz' : 'クイック診断を始める'}
-              </a>
-            </div>
+  <h3 className="text-xl font-bold text-navy dark:text-white mb-4">
+    {language === 'en' ? 'Need Help Getting Started?' : '🏠 最初の一歩を踏み出そう'}
+  </h3>
+  <p className="text-gray-600 dark:text-gray-300 mb-6">
+    {language === 'en' 
+      ? "Answer a few quick questions and we’ll guide you toward the right rental options."
+      : "どこから始めればいいか分からない？"}
+  </p>
+  <a
+    href="https://app.youform.com/forms/1taqrobw"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-gold text-navy hover:bg-gold-dark w-full flex items-center justify-center rounded-md py-3 px-4 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold mb-8"
+  >
+    {language === 'en' ? 'Start the Quiz' : 'クイック診断を始める'}
+  </a>
+  {/* Decorative property types image for desktop only, inside the card below the button */}
+  <img
+    src="/renter-quiz-helper-ibuki-style.png"
+    alt="Quiz Helper Illustration"
+    className="hidden lg:block mx-auto mt-8 max-w-xs rounded-xl shadow-lg border border-navy/10 bg-white/70"
+    style={{ objectFit: 'contain' }}
+  />
+</div>
           </div>
         </div>
       </div>
