@@ -27,32 +27,7 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setLoading(false);
-      toast({
-        title: language === 'en' ? "Message sent!" : "メッセージが送信されました！",
-        description: language === 'en' 
-          ? "Thank you for contacting Affarah. We'll get back to you shortly."
-          : "アファラーにお問い合わせいただきありがとうございます。まもなくご連絡いたします。",
-      });
-      
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        moveDate: '',
-        budget: '',
-        location: '',
-        message: ''
-      });
-    }, 1500);
-  };
+  
 
   // Budget options based on language
   const budgetOptions = {
@@ -90,7 +65,11 @@ const Contact = () => {
           <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-navy dark:text-white mb-6">{t('getInTouch')}</h3>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form action="https://formsubmit.co/k.sheenan@gmail.com" method="POST">
+              {/* Hidden fields for customization */}
+              <input type="hidden" name="_subject" value="New Contact Submission from Affarah" />
+              <input type="hidden" name="_next" value="https://affarah.com/thanks" />
+              <input type="hidden" name="_captcha" value="false" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
@@ -100,8 +79,6 @@ const Contact = () => {
                     type="text"
                     id="name"
                     name="name"
-                    value={formData.name}
-                    onChange={handleChange}
                     required
                     className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy focus:border-navy dark:bg-gray-700 dark:text-white"
                     placeholder={language === 'en' ? "John Smith" : "山田太郎"}
@@ -272,13 +249,22 @@ const Contact = () => {
             </div>
 
             <div className="bg-gold/10 dark:bg-gold/5 rounded-2xl p-8 border border-gold/30">
-              <h3 className="text-xl font-bold text-navy dark:text-white mb-4">{t('scheduleConsultation')}</h3>
+              <h3 className="text-xl font-bold text-navy dark:text-white mb-4">
+                {language === 'en' ? 'Need Help Getting Started?' : '🏠 最初の一歩を踏み出そう'}
+              </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
-                {t('notSureStart')}
+                {language === 'en' 
+                  ? "Answer a few quick questions and we’ll guide you toward the right rental options."
+                  : "どこから始めればいいか分からない？"}
               </p>
-              <Button className="bg-gold text-navy hover:bg-gold-dark w-full">
-                {t('bookConsultation')}
-              </Button>
+              <a
+                href="https://app.youform.com/forms/1taqrobw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gold text-navy hover:bg-gold-dark w-full flex items-center justify-center rounded-md py-3 px-4 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
+              >
+                {language === 'en' ? 'Start the Quiz' : 'クイック診断を始める'}
+              </a>
             </div>
           </div>
         </div>
@@ -288,3 +274,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
+
