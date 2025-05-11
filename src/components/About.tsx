@@ -31,7 +31,7 @@ const About = () => {
             <div className="relative z-10">
               <div className="polaroid -rotate-3 max-w-md mx-auto">
                 <img
-                  src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  src="/about-affarah.png"
                   alt="Ibuki helping a client"
                   className="w-full rounded-sm"
                 />
