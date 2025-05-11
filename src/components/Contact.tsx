@@ -8,6 +8,10 @@ const Contact = () => {
   const { toast } = useToast();
   const { t, language } = useLanguage();
   
+  // Track preferred contact method and whether to show the ID field
+  const [contactMethod, setContactMethod] = useState('Email');
+  const [showContactId, setShowContactId] = useState(false);
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -71,9 +75,10 @@ const Contact = () => {
               <input type="hidden" name="_next" value="https://affarah.com/thanks" />
               <input type="hidden" name="_captcha" value="false" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* 1. Your Name */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    {t('yourName')}
+                    Your Name <span className="text-xs text-gray-400 block">「田中ジェーン」</span>
                   </label>
                   <input
                     type="text"
@@ -81,121 +86,132 @@ const Contact = () => {
                     name="name"
                     required
                     className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy focus:border-navy dark:bg-gray-700 dark:text-white"
-                    placeholder={language === 'en' ? "John Smith" : "山田太郎"}
+                    placeholder="Jane Tanaka"
                   />
                 </div>
+                {/* 2. Email Address */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    {t('emailAddress')}
+                    Email Address <span className="text-xs text-gray-400 block">「name@example.com」</span>
                   </label>
                   <input
                     type="email"
                     id="email"
                     name="email"
-                    value={formData.email}
-                    onChange={handleChange}
                     required
                     className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy focus:border-navy dark:bg-gray-700 dark:text-white"
-                    placeholder={language === 'en' ? "john@example.com" : "taro@example.com"}
+                    placeholder="name@example.com"
                   />
                 </div>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    {t('phoneNumber')}
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy focus:border-navy dark:bg-gray-700 dark:text-white"
-                    placeholder="+81 90 1234 5678"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="moveDate" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    {t('movingDate')}
-                    <span className="text-xs text-gray-500 dark:text-gray-400 ml-1">{t('approxDate')}</span>
-                  </label>
-                  <input
-                    type="date"
-                    id="moveDate"
-                    name="moveDate"
-                    value={formData.moveDate}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy focus:border-navy dark:bg-gray-700 dark:text-white"
-                  />
-                </div>
+              {/* 3. Preferred Contact Method */}
+              <div className="mt-6">
+                <label htmlFor="contactMethod" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Preferred Contact Method <span className="text-xs text-gray-400 block">「メール / 電話 / LINE / WhatsApp」</span>
+                </label>
+                <select
+                  id="contactMethod"
+                  name="contactMethod"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy focus:border-navy appearance-none dark:bg-gray-700 dark:text-white"
+                  value={contactMethod}
+                  onChange={e => {
+                    setContactMethod(e.target.value);
+                    setShowContactId(["Phone", "LINE", "WhatsApp"].includes(e.target.value));
+                  }}
+                >
+                  <option value="Email">Email</option>
+                  <option value="Phone">Phone</option>
+                  <option value="LINE">LINE</option>
+                  <option value="WhatsApp">WhatsApp</option>
+                </select>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="budget" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    {t('monthlyBudget')}
-                  </label>
-                  <select
-                    id="budget"
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy focus:border-navy appearance-none dark:bg-gray-700 dark:text-white"
-                  >
-                    {currentBudgetOptions.map((option, index) => (
-                      <option key={index} value={option.value}>{option.label}</option>
-                    ))}
-                  </select>
-                  <div className="flex items-center mt-1">
-                    <HelpCircle className="w-4 h-4 text-navy dark:text-gold mr-1" />
-                    <span className="text-xs text-gray-500 dark:text-gray-400">
-                      {t('helpsBudget')}
-                    </span>
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="location" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    {t('preferredLocation')}
+              {/* 4. Phone / Messaging ID (conditional) */}
+              {showContactId && (
+                <div className="mt-6">
+                  <label htmlFor="contactId" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Phone / Messaging ID <span className="text-xs text-gray-400 block">「+81 90‑… / @yourline」</span>
                   </label>
                   <input
                     type="text"
-                    id="location"
-                    name="location"
-                    value={formData.location}
-                    onChange={handleChange}
+                    id="contactId"
+                    name="contactId"
                     className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy focus:border-navy dark:bg-gray-700 dark:text-white"
-                    placeholder={language === 'en' ? "Tokyo, Chiba, etc." : "東京、千葉など"}
+                    placeholder="+81 90‑… / @yourline"
                   />
                 </div>
+              )}
+              {/* 5. Move-in Window */}
+              <div className="mt-6">
+                <label htmlFor="moveWindow" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Move-in Window <span className="text-xs text-gray-400 block">「30日以内 / 1‑3か月 / 3‑6か月 / まだ調査中」</span>
+                </label>
+                <select
+                  id="moveWindow"
+                  name="moveWindow"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy focus:border-navy appearance-none dark:bg-gray-700 dark:text-white"
+                  defaultValue=""
+                >
+                  <option value="">Select</option>
+                  <option value="Next 30 days">Next 30 days</option>
+                  <option value="1-3 months">1-3 months</option>
+                  <option value="3-6 months">3-6 months</option>
+                  <option value="Just researching">Just researching</option>
+                </select>
               </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  {t('yourMessage')}
+              {/* 6. Monthly Budget */}
+              <div className="mt-6">
+                <label htmlFor="budget" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Monthly Budget <span className="text-xs text-gray-400 block">「家賃予算」</span>
+                </label>
+                <select
+                  id="budget"
+                  name="budget"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy focus:border-navy appearance-none dark:bg-gray-700 dark:text-white"
+                  defaultValue=""
+                >
+                  {currentBudgetOptions.map((option, index) => (
+                    <option key={index} value={option.value}>{option.label}</option>
+                  ))}
+                </select>
+                <div className="flex items-center mt-1">
+                  <HelpCircle className="w-4 h-4 text-navy dark:text-gold mr-1" />
+                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                    Helps us filter listings. / 物件を絞り込むのに役立ちます。
+                  </span>
+                </div>
+              </div>
+              {/* 7. Preferred Area(s) */}
+              <div className="mt-6">
+                <label htmlFor="areas" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Preferred Area(s) <span className="text-xs text-gray-400 block">「千葉、横浜、23区など」</span>
+                </label>
+                <input
+                  type="text"
+                  id="areas"
+                  name="areas"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy focus:border-navy dark:bg-gray-700 dark:text-white"
+                  placeholder="Chiba, Yokohama, open to 23-wards"
+                />
+              </div>
+              {/* 8. Question or Requirement */}
+              <div className="mt-6">
+                <label htmlFor="question" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Question or Requirement <span className="text-xs text-gray-400 block">「ペット可、保証人なし希望など…」</span>
                 </label>
                 <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
+                  id="question"
+                  name="question"
                   rows={4}
                   className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy focus:border-navy dark:bg-gray-700 dark:text-white"
-                  placeholder={language === 'en' 
-                    ? "Tell us about your requirements, questions, or anything else we should know..."
-                    : "ご要件、ご質問、または他に知っておくべきことについて教えてください..."}
-                ></textarea>
+                  placeholder="Tell us about pets, guarantor, etc."
+                />
               </div>
-
-              <Button 
-                type="submit" 
-                className="btn-primary w-full"
-                disabled={loading}
+              {/* Submit Button */}
+              <Button
+                type="submit"
+                className="mt-8 w-full bg-gold text-navy hover:bg-gold-dark font-semibold rounded-md py-3 px-4 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
               >
-                {loading 
-                  ? (language === 'en' ? 'Sending...' : '送信中...') 
-                  : t('sendMessage')}
+                Send My Request → / お問い合わせを送信 →
               </Button>
             </form>
           </div>
