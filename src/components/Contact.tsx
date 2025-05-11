@@ -59,7 +59,7 @@ const Contact = () => {
     <section id="contact" className="py-16 md:py-24 bg-white dark:bg-gray-900">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="section-title">{t('contact')}</h2>
+          <h2 className="section-title mt-8 text-3xl md:text-4xl font-bold text-center">{t('contact')}</h2>
           <p className="text-lg text-gray-600 dark:text-gray-300">
             {t('letsStart')}
           </p>

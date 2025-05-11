@@ -10,7 +10,7 @@ const About = () => {
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
-            <h2 className="section-title">{t('aboutAffarah')}</h2>
+            <h2 className="section-title mt-8 text-3xl md:text-4xl font-bold text-center">{t('aboutAffarah')}</h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
               {t('aboutDescription1')}
             </p>
@@ -27,7 +27,7 @@ const About = () => {
               </Button>
             </div>
           </div>
-          <div className="order-1 lg:order-2 relative">
+          <div className="order-1 lg:order-2 relative mt-8">
             <div className="relative z-10">
               <div className="polaroid -rotate-3 max-w-md mx-auto">
                 <img
