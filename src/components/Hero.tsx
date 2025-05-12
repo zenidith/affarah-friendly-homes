@@ -1,9 +1,38 @@
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
+// Declare YouFormWidget on window for TypeScript
+declare global {
+  interface Window {
+    YouFormWidget?: { init: () => void };
+  }
+}
+
 const Hero = () => {
   const { t, language } = useLanguage();
+  
+  React.useEffect(() => {
+    // Dynamically load the YouForm script if not already loaded
+    const scriptId = 'youform-widget-script';
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement('script');
+      script.id = scriptId;
+      script.src = 'https://app.youform.com/widgets/widget.js';
+      script.async = true;
+      script.onload = () => {
+        if (window.YouFormWidget && typeof window.YouFormWidget.init === 'function') {
+          window.YouFormWidget.init();
+        }
+      };
+      document.body.appendChild(script);
+    } else {
+      if (window.YouFormWidget && typeof window.YouFormWidget.init === 'function') {
+        window.YouFormWidget.init();
+      }
+    }
+  }, []);
   
   return (
     <section className="relative bg-white dark:bg-gray-900 overflow-hidden py-16 md:py-24">
@@ -40,11 +69,11 @@ const Hero = () => {
     </h1>
     {/* Subtext (very small) */}
     <div className="text-xs md:text-sm font-sans text-navy dark:text-white opacity-70 tracking-wide mb-2 mt-1">
-      A Friend Familiar About Renting a House
+      「A Friend Familiar About Renting a House」
     </div>
     {/* Headline */}
     <h2 className="font-bold font-sans text-2xl md:text-3xl text-navy dark:text-white mb-2 mt-4">
-      A Friend Familiar About Renting a House
+      Your trusted partner in your housing search
     </h2>
     {/* Subheadline */}
     <div className="font-normal font-sans text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-2">
@@ -57,10 +86,18 @@ const Hero = () => {
   </>
 )}
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-  <Button className="bg-navy hover:bg-navy-light text-white dark:bg-gold dark:text-navy dark:hover:bg-gold/90 group font-medium text-base px-6 py-6">
+          <Button
+  asChild
+  className="bg-navy hover:bg-navy-light text-white dark:bg-gold dark:text-navy dark:hover:bg-gold/90 group font-medium text-base px-6 py-6"
+>
+  <a
+    href="https://app.youform.com/forms/1taqrobw"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     Find My Next Home
-    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-  </Button>
+  </a>
+</Button>
   <Button asChild variant="outline" className="border-gold text-gold hover:bg-gold hover:text-navy dark:border-navy dark:text-navy dark:hover:bg-navy dark:hover:text-white font-medium text-base px-6 py-6">
   <a href="#services" style={{scrollBehavior: 'smooth'}}>How Affarah Helps</a>
 </Button>

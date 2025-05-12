@@ -36,13 +36,25 @@ const CTA = () => {
                 {currentContent.description}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="btn-secondary group">
-                  {currentContent.cta}
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-navy">
-                  {currentContent.contact}
-                </Button>
+                <Button className="btn-secondary group" asChild>
+  <a
+    href="https://app.youform.com/forms/1taqrobw"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    {currentContent.cta}
+    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+  </a>
+</Button>
+                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-navy" asChild>
+  <a
+    href="https://app.youform.com/forms/1taqrobw"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    {currentContent.contact}
+  </a>
+</Button>
               </div>
             </div>
             <div className="relative h-64 lg:h-auto">

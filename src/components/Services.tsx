@@ -127,9 +127,18 @@ const Services = () => {
                     </div>
                   ))}
                 </div>
-                <Button className="w-full bg-navy text-white dark:bg-white dark:text-navy hover:bg-navy-light dark:hover:bg-gray-200 group-hover:bg-gold group-hover:text-navy transition-colors duration-300">
-                  {service.cta}
-                </Button>
+                <Button
+  className="w-full bg-navy text-white dark:bg-white dark:text-navy hover:bg-navy-light dark:hover:bg-gray-200 group-hover:bg-gold group-hover:text-navy transition-colors duration-300"
+  asChild
+>
+  <a
+    href="https://app.youform.com/forms/1taqrobw"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    {service.cta}
+  </a>
+</Button>
               </div>
             </div>
           ))}
@@ -141,7 +150,15 @@ const Services = () => {
             <p className="text-white/80 mb-8 max-w-2xl mx-auto">
               {customSolution.description}
             </p>
-            <Button className="btn-secondary">{customSolution.cta}</Button>
+            <Button className="btn-secondary" asChild>
+  <a
+    href="https://app.youform.com/forms/1taqrobw"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    {customSolution.cta}
+  </a>
+</Button>
           </div>
         </div>
       </div>
