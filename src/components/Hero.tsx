@@ -3,27 +3,68 @@ import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 const Hero = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   return (
     <section className="relative bg-white dark:bg-gray-900 overflow-hidden py-16 md:py-24">
       <div className="container-custom grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-6 md:space-y-8 max-w-xl">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-serif text-navy dark:text-white leading-tight">
-            {t('findHome')}
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300">
-            {t('nextHome')}
-          </p>
+          {language === 'ja' ? (
+  <>
+    {/* Brand Name */}
+    <h1 className="font-bold font-sans text-[48px] leading-tight text-navy dark:text-white">
+      Affarah
+    </h1>
+    {/* Subtext (very small) */}
+    <div className="text-xs md:text-sm font-sans text-navy dark:text-white opacity-70 tracking-wide mb-2 mt-1">
+      「A Friend Familiar About Renting a House」の頭文字
+    </div>
+    {/* Headline */}
+    <h2 className="font-bold font-sans text-2xl md:text-3xl text-navy dark:text-white mb-2 mt-4">
+      住まい探しの、心強いパートナー
+    </h2>
+    {/* Subheadline */}
+    <div className="font-normal font-sans text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-2">
+      あなたの次の「家」を見つけ、愛するをサポート
+    </div>
+    {/* Paragraph */}
+    <div className="font-normal font-sans text-base md:text-lg text-gray-600 dark:text-gray-300 mt-2">
+      住まいの選択は、人生、お金、そして人間関係を変えます。180人以上のお客様をサポートした経験から、日本の賃貸の複雑なルールを、わかりやすくフレンドリーなアドバイスに変換。どんな質問も安心して聞いてください。自信を持って、理想の住まいを見つけましょう。
+    </div>
+  </>
+) : (
+  <>
+    {/* Brand Name */}
+    <h1 className="font-bold font-sans text-[48px] leading-tight text-navy dark:text-white">
+      Affarah
+    </h1>
+    {/* Subtext (very small) */}
+    <div className="text-xs md:text-sm font-sans text-navy dark:text-white opacity-70 tracking-wide mb-2 mt-1">
+      A Friend Familiar About Renting a House
+    </div>
+    {/* Headline */}
+    <h2 className="font-bold font-sans text-2xl md:text-3xl text-navy dark:text-white mb-2 mt-4">
+      A Friend Familiar About Renting a House
+    </h2>
+    {/* Subheadline */}
+    <div className="font-normal font-sans text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-2">
+      Your knowledgeable friend for finding—and loving—your next home in Japan.
+    </div>
+    {/* Paragraph */}
+    <div className="font-normal font-sans text-base md:text-lg text-gray-600 dark:text-gray-300 mt-2">
+      Housing choices shape your life, finances and friendships. With experience guiding <em>180+ renters</em>, we translate Japan’s rental rules into <em>friendly advice</em>—so you can ask <em>anything</em> and sign with <em>confidence</em>.
+    </div>
+  </>
+)}
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Button className="bg-navy hover:bg-navy-light text-white dark:bg-gold dark:text-navy dark:hover:bg-gold/90 group font-medium text-base px-6 py-6">
-              {t('startYourSearch')}
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button variant="outline" className="border-gold text-gold hover:bg-gold hover:text-navy dark:border-navy dark:text-navy dark:hover:bg-navy dark:hover:text-white font-medium text-base px-6 py-6">
-              {t('learnMore')}
-            </Button>
-          </div>
+  <Button className="bg-navy hover:bg-navy-light text-white dark:bg-gold dark:text-navy dark:hover:bg-gold/90 group font-medium text-base px-6 py-6">
+    Find My Next Home
+    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+  </Button>
+  <Button asChild variant="outline" className="border-gold text-gold hover:bg-gold hover:text-navy dark:border-navy dark:text-navy dark:hover:bg-navy dark:hover:text-white font-medium text-base px-6 py-6">
+  <a href="#services" style={{scrollBehavior: 'smooth'}}>How Affarah Helps</a>
+</Button>
+</div>
         </div>
         <div className="relative">
           <div className="relative z-10 h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl">
