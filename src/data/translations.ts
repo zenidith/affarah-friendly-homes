@@ -95,7 +95,7 @@ export const translations: Partial<Record<TranslationKey, { en: string; ja: stri
   },
   englishSupport: {
     en: 'English Support',
-    ja: '英語サポート'
+    ja: 'バイリンガルサポート'
   },
   happyClients: {
     en: 'Happy Clients',

@@ -10,7 +10,23 @@ declare global {
   }
 }
 
+const heroImages = [
+  '/hero-images/1.jpg',
+  '/hero-images/2.jpg',
+  '/hero-images/3.jpg',
+  '/hero-images/4.jpg',
+  '/hero-images/5.jpg',
+];
+
 const Hero = () => {
+  const [currentImage, setCurrentImage] = React.useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % heroImages.length);
+    }, 3500); // Change image every 3.5 seconds
+    return () => clearInterval(interval);
+  }, []);
   const { t, language } = useLanguage();
   
   React.useEffect(() => {
@@ -106,9 +122,10 @@ const Hero = () => {
         <div className="relative">
           <div className="relative z-10 h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl">
             <img
-              src="/lovable-uploads/0b59fd12-5ffa-4945-ba1c-120b81cc691f.png"
+              src={heroImages[currentImage]}
               alt="Traditional Japanese apartment interior with shoji screens and tatami mats"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-all duration-700"
+              key={heroImages[currentImage]}
             />
           </div>
           <div 

@@ -49,7 +49,7 @@ const About = () => {
 
         <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 text-center hover:shadow-md transition-shadow">
-            <h3 className="text-5xl font-bold text-gold mb-2">5+</h3>
+            <h3 className="text-5xl font-bold text-gold mb-2">4+</h3>
             <p className="text-navy dark:text-white">{t('yearsExperience')}</p>
           </div>
           <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 text-center hover:shadow-md transition-shadow">
@@ -57,7 +57,7 @@ const About = () => {
             <p className="text-navy dark:text-white">{t('englishSupport')}</p>
           </div>
           <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 text-center hover:shadow-md transition-shadow">
-            <h3 className="text-5xl font-bold text-gold mb-2">200+</h3>
+            <h3 className="text-5xl font-bold text-gold mb-2">180+</h3>
             <p className="text-navy dark:text-white">{t('happyClients')}</p>
           </div>
           <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 text-center hover:shadow-md transition-shadow">
