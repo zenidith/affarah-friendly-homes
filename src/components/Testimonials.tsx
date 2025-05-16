@@ -20,43 +20,53 @@ const Testimonials = () => {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      name: "Sarah Thompson",
-      location: language === 'en' ? "Tokyo, from Australia" : "東京、オーストラリア出身",
+      name: "Maya Tanaka",
+      location: language === 'en' ? "Saitama, Japan" : "埼玉、日本",
       quote: {
-        en: "Affarah made finding an apartment in Tokyo so easy! Their English support was invaluable, and I felt like I had a friend helping me through every step.",
-        ja: "アファラーのおかげで東京でのアパート探しがとても簡単でした！彼らの英語サポートは非常に貴重で、友人が一歩一歩助けてくれているような感覚でした。"
+        en: "Finding a home close to the best cycling routes has made every weekend an adventure. I love how easy it is to get outdoors!",
+        ja: "最高のサイクリングコースの近くに住めて、毎週末が冒険になりました。外に出るのがとても楽しいです！"
       },
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+      image: "/testimonials/maya_cyclist.png"
     },
     {
       id: 2,
-      name: "Michael Chen",
-      location: language === 'en' ? "Chiba, from Canada" : "千葉、カナダ出身",
+      name: "Emi Sato",
+      location: language === 'en' ? "Tokyo, Japan" : "東京、日本",
       quote: {
-        en: "I was nervous about renting in Japan with the language barrier, but Ibuki from Affarah made the process smooth and stress-free. Highly recommend!",
-        ja: "言葉の壁で日本での賃貸に不安がありましたが、アファラーのイブキさんがスムーズかつストレスフリーなプロセスを提供してくれました。強くお勧めします！"
+        en: "My new place is perfect for relaxing and listening to music. The peaceful atmosphere inspires my creativity.",
+        ja: "新しい家は音楽を聴きながらリラックスするのにぴったり。静かな雰囲気が創造力を引き出してくれます。"
       },
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+      image: "/testimonials/emi_music.png"
     },
     {
       id: 3,
-      name: "Emma Rodriguez",
-      location: language === 'en' ? "Funabashi, from Spain" : "船橋、スペイン出身",
+      name: "Takashi Yamada",
+      location: language === 'en' ? "Chiba, Japan" : "千葉、日本",
       quote: {
-        en: "The personalized service from Affarah was amazing. They found me a perfect apartment that matched all my requirements and my budget.",
-        ja: "アファラーのパーソナライズされたサービスは素晴らしかったです。彼らは私の全ての要件と予算に合った完璧なアパートを見つけてくれました。"
+        en: "I wanted a cozy, welcoming home, and that's exactly what I found. It's my favorite place to unwind after a long day.",
+        ja: "居心地の良い家を探していて、まさに理想の場所が見つかりました。毎日帰るのが楽しみです。"
       },
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+      image: "/testimonials/takashi_home.png"
     },
     {
       id: 4,
-      name: "Kayne Sheenan",
-      location: language === 'en' ? "Tokyo, from UK" : "東京、イギリス出身",
+      name: "Yuki Kobayashi",
+      location: language === 'en' ? "Tokyo, Japan" : "東京、日本",
       quote: {
-        en: "Ibuki went above and beyond. Picked me up, showed me through a bunch of fantastic places and even negotiated a better deal for me!",
-        ja: "アファラーが他と異なる点は、引っ越した後もサポートしてくれる献身さです。彼らは本当に賃貸プロセスにおける友人です。"
+        en: "Hosting friends and sharing good times has never been easier. My home is now the go-to spot for gatherings!",
+        ja: "友達を招いて楽しい時間を過ごすのがもっと簡単になりました。今では私の家が集まりの定番です！"
       },
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+      image: "/testimonials/yuki_social.png"
+    },
+    {
+      id: 5,
+      name: "Sanae Fujimoto",
+      location: language === 'en' ? "Kanagawa, Japan" : "神奈川、日本",
+      quote: {
+        en: "Living surrounded by greenery brings me peace every day. I feel refreshed and connected to nature.",
+        ja: "緑に囲まれた生活は毎日心を癒してくれます。自然とつながっている実感があります。"
+      },
+      image: "/testimonials/sanae_nature.png"
     }
   ];
 
@@ -116,7 +126,7 @@ const Testimonials = () => {
                         className="w-full aspect-square object-cover rounded-sm"
                       />
                       <div className="p-2 text-center">
-                        <p className="font-medium dark:text-gray-800">{testimonial.name}</p>
+                        <p className="font-medium dark:text-white">{testimonial.name}</p>
                       </div>
                     </div>
                     <div className="md:w-2/3">
