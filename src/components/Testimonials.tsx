@@ -20,7 +20,7 @@ const Testimonials = () => {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      name: "Maya Tanaka",
+      name: language === 'ja' ? "田中真也" : "Maya Tanaka",
       location: language === 'en' ? "Saitama, Japan" : "埼玉、日本",
       quote: {
         en: "Finding a home close to the best cycling routes has made every weekend an adventure. I love how easy it is to get outdoors!",
@@ -30,7 +30,7 @@ const Testimonials = () => {
     },
     {
       id: 2,
-      name: "Emi Sato",
+      name: language === 'ja' ? "佐藤恵美" : "Emi Sato",
       location: language === 'en' ? "Tokyo, Japan" : "東京、日本",
       quote: {
         en: "My new place is perfect for relaxing and listening to music. The peaceful atmosphere inspires my creativity.",
@@ -40,7 +40,7 @@ const Testimonials = () => {
     },
     {
       id: 3,
-      name: "Takashi Yamada",
+      name: language === 'ja' ? "山田孝志" : "Takashi Yamada",
       location: language === 'en' ? "Chiba, Japan" : "千葉、日本",
       quote: {
         en: "I wanted a cozy, welcoming home, and that's exactly what I found. It's my favorite place to unwind after a long day.",
@@ -50,7 +50,7 @@ const Testimonials = () => {
     },
     {
       id: 4,
-      name: "Yuki Kobayashi",
+      name: language === 'ja' ? "小林由紀" : "Yuki Kobayashi",
       location: language === 'en' ? "Tokyo, Japan" : "東京、日本",
       quote: {
         en: "Hosting friends and sharing good times has never been easier. My home is now the go-to spot for gatherings!",
@@ -60,7 +60,7 @@ const Testimonials = () => {
     },
     {
       id: 5,
-      name: "Sanae Fujimoto",
+      name: language === 'ja' ? "藤本早苗" : "Sanae Fujimoto",
       location: language === 'en' ? "Kanagawa, Japan" : "神奈川、日本",
       quote: {
         en: "Living surrounded by greenery brings me peace every day. I feel refreshed and connected to nature.",
@@ -118,8 +118,8 @@ const Testimonials = () => {
                   key={testimonial.id} 
                   className="w-full flex-shrink-0 px-4"
                 >
-                  <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                    <div className="polaroid rotate-1 md:w-1/3">
+                  <div className="flex flex-col md:flex-row items-center justify-center h-[340px] gap-8 md:gap-12 transition-all duration-300">
+                    <div className="polaroid rotate-1 md:w-1/3 h-full">
                       <img 
                         src={testimonial.image} 
                         alt={testimonial.name} 
@@ -129,8 +129,8 @@ const Testimonials = () => {
                         <p className="font-medium dark:text-white">{testimonial.name}</p>
                       </div>
                     </div>
-                    <div className="md:w-2/3">
-                      <blockquote className="text-xl md:text-2xl text-gray-700 dark:text-gray-200 italic mb-6">
+                    <div className="md:w-2/3 flex flex-col justify-center h-full">
+                      <blockquote className="text-xl md:text-2xl text-gray-700 dark:text-gray-200 italic mb-2">
                         "{testimonial.quote[language]}"
                       </blockquote>
                       <div className="flex items-center">
