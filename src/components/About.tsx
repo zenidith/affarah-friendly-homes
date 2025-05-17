@@ -28,12 +28,19 @@ const About = () => {
             </div>
           </div>
           <div className="order-1 lg:order-2 flex justify-center items-center mt-8 lg:mt-0 relative h-full w-full">
-            <div className="polaroid -rotate-2 w-[85%] max-w-[350px] aspect-square mx-auto shadow-lg overflow-hidden flex items-center justify-center">
-              <img
-                src="/about-affarah.png"
-                alt="Ibuki helping a client"
-                className="w-full h-full rounded-sm object-cover"
-              />
+            <div className="polaroid -rotate-2 w-[85%] max-w-[350px] aspect-square mx-auto shadow-lg overflow-hidden flex flex-col">
+              <div className="flex-grow overflow-hidden">
+                <img
+                  src="/about-affarah.png"
+                  alt="Ibuki helping a client"
+                  className="w-full h-full rounded-sm object-cover"
+                />
+              </div>
+              <div className="p-2 text-center bg-white dark:bg-gray-800">
+                <p className="text-sm font-medium text-navy dark:text-gold">
+                  {language === 'en' ? 'Your trusted guide in Japan' : '日本での信頼できるガイド'}
+                </p>
+              </div>
             </div>
 
             <div 

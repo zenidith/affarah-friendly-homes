@@ -119,8 +119,30 @@ const Hero = () => {
           </div>
         </div>
         <div className="relative">
+          {/* Decorative photo pile effect */}
+          <div className="absolute top-4 left-4 w-[90%] h-[90%] bg-white dark:bg-gray-800 rounded-2xl shadow-lg rotate-[-4deg] z-0"></div>
+          <div className="absolute top-2 left-2 w-[95%] h-[95%] bg-white dark:bg-gray-800 rounded-2xl shadow-lg rotate-[-2deg] z-0"></div>
+          
+          {/* Decorative Japanese-style elements */}
+          <div className="absolute top-[-15px] right-[-15px] w-[80px] h-[80px] z-20">
+            <div className="absolute inset-0 bg-gold/80 rounded-full animate-pulse"></div>
+            <div className="absolute inset-[10px] bg-white dark:bg-navy rounded-full flex items-center justify-center">
+              <span className="text-navy dark:text-gold text-2xl font-bold">東京</span>
+            </div>
+          </div>
+          
+          {/* Decorative corner elements */}
+          <div className="absolute top-[-5px] left-[-5px] w-[40px] h-[40px] border-t-4 border-l-4 border-gold z-20 rounded-tl-lg"></div>
+          <div className="absolute bottom-[-5px] right-[-5px] w-[40px] h-[40px] border-b-4 border-r-4 border-gold z-20 rounded-br-lg"></div>
+          
+          {/* Watery, shimmering border effect */}
+          <div className="absolute inset-0 rounded-2xl overflow-hidden z-5 animate-shimmer">
+            <div className="absolute inset-[-2px] bg-gradient-to-r from-blue-300/30 via-cyan-200/40 to-blue-300/30 rounded-2xl blur-md"></div>
+          </div>
+          
+          {/* No floating icons as requested */}
 
-          <div className="relative z-10 h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl">
+          <div className="relative z-10 h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl border-4 border-white dark:border-gray-800">
             {heroImages.map((image, index) => (
               <div 
                 key={index}

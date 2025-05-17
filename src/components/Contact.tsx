@@ -274,27 +274,28 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-gold/10 dark:bg-gold/5 rounded-2xl p-4 border border-gold/30">
-  <h3 className="text-base font-bold text-navy dark:text-white mb-1">
+            <div className="bg-gold/10 dark:bg-gold/5 rounded-2xl p-6 border border-gold/30 flex flex-col items-center">
+  <h3 className="text-base font-bold text-navy dark:text-white mb-2 text-center w-full">
     {language === 'en' ? 'Need Help Getting Started?' : '🏠 最初の一歩を踏み出そう'}
   </h3>
-  <p className="text-gray-600 dark:text-gray-300 mb-2 text-xs">
+  <p className="text-gray-600 dark:text-gray-300 mb-4 text-xs text-center w-full">
     {language === 'en' 
       ? "Answer a few quick questions and we'll guide you toward the right rental options."
       : "どこから始めればいいか分からない？"}
   </p>
-  {/* Image now appears before the button */}
-  <img
-    src="/renter-quiz-helper-ibuki-style.png"
-    alt="Quiz Helper Illustration"
-    className="mx-auto mb-3 max-w-[150px] rounded-xl shadow-lg border border-navy/10 bg-white/70"
-    style={{ objectFit: 'contain', height: '100px' }}
-  />
+  {/* Image now appears before the button with improved sizing */}
+  <div className="w-full flex justify-center mb-4">
+    <img
+      src="/renter-quiz-helper-ibuki-style.png"
+      alt="Quiz Helper Illustration"
+      className="rounded-xl shadow-lg border border-navy/10 bg-white/70 w-[180px] h-[120px] object-contain"
+    />
+  </div>
   <a
     href="https://app.youform.com/forms/1taqrobw"
     target="_blank"
     rel="noopener noreferrer"
-    className="bg-gold text-navy hover:bg-gold-dark w-full flex items-center justify-center rounded-md py-1.5 px-3 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
+    className="bg-gold text-navy hover:bg-gold-dark w-full flex items-center justify-center rounded-md py-2 px-4 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
   >
     {language === 'en' ? 'Start the Quiz' : 'クイック診断を始める'}
   </a>

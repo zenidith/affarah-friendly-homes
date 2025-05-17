@@ -160,15 +160,15 @@ const Services = () => {
       ref={sectionRef}
       className="pt-16 pb-0 md:pt-16 md:pb-0 bg-gray-50 dark:bg-gray-900 transition-colors duration-300 scroll-mt-20 fixed-height-section"
     >
-      {/* Top Button */}
+      {/* Top Button - Fixed position but visible in all modes */}
       {showTop && (
         <button
           onClick={scrollToTop}
-          className="fixed right-8 top-1/3 z-40 flex items-center px-3 py-2 rounded-full bg-gold text-navy font-bold shadow-lg hover:bg-navy hover:text-gold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gold dark:bg-navy dark:text-gold dark:hover:bg-gold dark:hover:text-navy text-xs md:text-sm"
+          className="fixed bottom-8 right-8 z-50 flex items-center px-3 py-2 rounded-full bg-gold text-navy font-bold shadow-xl hover:bg-navy hover:text-gold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gold dark:bg-navy dark:text-gold dark:hover:bg-gold dark:hover:text-navy text-xs md:text-sm"
           style={{ minWidth: 40, fontWeight: 700, letterSpacing: 0.5 }}
           aria-label={language === 'ja' ? 'トップへ戻る' : 'Back to Top'}
         >
-          <span style={{fontSize: '1em', marginRight: 3}}>↑</span> <span className="align-middle">{language === 'ja' ? 'トップ' : 'Top'}</span>
+          <span style={{fontSize: '1.2em', marginRight: 4}}>↑</span> <span className="align-middle">{language === 'ja' ? 'トップ' : 'Top'}</span>
         </button>
       )}
       <div className="container-custom">
