@@ -98,10 +98,10 @@ const Testimonials = () => {
   }, [isAutoplay]);
 
   return (
-    <section id="testimonials" className="py-16 md:py-24 bg-gray-50 dark:bg-gray-800">
+    <section id="testimonials" className="py-16 md:py-16 bg-gray-50 dark:bg-gray-800">
       <div className="container-custom">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="section-title mt-8 text-3xl md:text-4xl font-bold text-center">{t('testimonialsTitle')}</h2>
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <h2 className="section-title text-3xl md:text-4xl font-bold text-center">{t('testimonialsTitle')}</h2>
           <p className="text-lg text-gray-600 dark:text-gray-300">
             {t('testimonialsDescription')}
           </p>
@@ -118,15 +118,15 @@ const Testimonials = () => {
                   key={testimonial.id} 
                   className="w-full flex-shrink-0 px-4"
                 >
-                  <div className="flex flex-col md:flex-row items-center justify-center h-[340px] gap-8 md:gap-12 transition-all duration-300">
-                    <div className="polaroid rotate-1 md:w-1/3 h-full">
+                  <div className="flex flex-col md:flex-row items-center justify-center min-h-[400px] md:h-[340px] gap-8 md:gap-12 transition-all duration-300 py-4 md:py-0">
+                    <div className="polaroid rotate-1 w-[85%] max-w-[280px] md:w-1/3 mx-auto md:mx-0">
                       <img 
                         src={testimonial.image} 
                         alt={testimonial.name} 
                         className="w-full aspect-square object-cover rounded-sm"
                       />
                       <div className="p-2 text-center">
-                        <p className="font-bold dark:text-white">{language === 'ja' ? `${testimonial.name}さん` : testimonial.name}</p>
+                        <p className="font-bold text-navy dark:text-gold">{language === 'ja' ? `${testimonial.name}さん` : testimonial.name}</p>
                       </div>
                     </div>
                     <div className="md:w-2/3 flex flex-col justify-center h-full">
@@ -135,7 +135,7 @@ const Testimonials = () => {
                       </blockquote>
                       <div className="flex items-center">
                         <div>
-                          <p className="font-bold text-navy dark:text-white">{testimonial.name}</p>
+                          <p className="font-bold text-navy dark:text-gold">{testimonial.name}</p>
                           <p className="text-gray-500 dark:text-gray-400">{testimonial.location}</p>
                         </div>
                       </div>

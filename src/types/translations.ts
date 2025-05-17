@@ -92,6 +92,7 @@ export type TranslationKey =
   | 'cookiePolicy'
   | 'allRightsReserved'
   | 'affarahMeaning'
+  | 'findMyNextHome'
   | 'chibaAddress'
   | 'legal';
 

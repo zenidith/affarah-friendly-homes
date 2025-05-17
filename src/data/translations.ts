@@ -357,6 +357,10 @@ export const translations: Partial<Record<TranslationKey, { en: string; ja: stri
     en: "Affarah means joy, we hope to bring joy to your home search in Japan.",
     ja: "Affarahは喜びを意味します。日本の家探しに喜びをもたらすことを願っています。"
   },
+  findMyNextHome: {
+    en: "Find My Next Home!",
+    ja: "次の家を見つける！"
+  },
   legal: {
     en: 'Legal',
     ja: '法律'

@@ -14,9 +14,13 @@ const Index = () => {
       <NavBar />
       <main>
         <Hero />
-        <Services />
-        <About />
-        <Testimonials />
+        <div className="services-about-wrapper" style={{ marginBottom: '-80px' }}>
+          <Services />
+          <About />
+        </div>
+        <div className="about-testimonials-wrapper" style={{ marginTop: '-40px' }}>
+          <Testimonials />
+        </div>
         <CTA />
         <Contact />
       </main>

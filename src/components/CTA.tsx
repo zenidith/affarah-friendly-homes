@@ -35,28 +35,30 @@ const CTA = () => {
               <p className="text-white/80 text-lg mb-8">
                 {currentContent.description}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-  <Button className="btn-secondary group text-lg px-8 py-5 md:text-xl md:px-12 md:py-7" asChild>
-    <a
-      href="https://app.youform.com/forms/1taqrobw"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {currentContent.cta}
-      <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-    </a>
-  </Button>
-</div>
             </div>
-            <div className="relative h-64 lg:h-auto">
-              <img
-                src="/hero-images/3.jpg"
-                alt="Featured Home"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-navy/30"></div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy/80 to-transparent h-24"></div>
+            <div className="relative">
+              <div className="h-64 lg:h-full w-full">
+                <img
+                  src="/hero-images/3.jpg"
+                  alt="Featured Home"
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-navy/30"></div>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy/80 to-transparent h-24"></div>
+              </div>
             </div>
+          </div>
+          <div className="p-8 md:p-12 flex justify-center">
+            <Button className="btn-secondary group text-lg px-8 py-5 md:text-xl md:px-12 md:py-7 w-full md:w-auto" asChild>
+              <a
+                href="https://app.youform.com/forms/1taqrobw"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {currentContent.cta}
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </a>
+            </Button>
           </div>
         </div>
       </div>

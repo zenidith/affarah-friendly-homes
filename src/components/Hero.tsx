@@ -24,7 +24,7 @@ const Hero = () => {
   React.useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % heroImages.length);
-    }, 3500); // Change image every 3.5 seconds
+    }, 7000); // Change image every 7 seconds (slowed down from 3.5 seconds)
     return () => clearInterval(interval);
   }, []);
   const { t, language } = useLanguage();
@@ -51,8 +51,9 @@ const Hero = () => {
   }, []);
   
   return (
-    <section className="relative bg-white dark:bg-gray-900 overflow-hidden py-10 md:py-12 min-h-screen">
-      <div className="container-custom grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+    <section className="relative bg-white dark:bg-gray-900 overflow-hidden py-16 md:py-32 w-full min-h-[90vh] flex items-center">
+      <div className="container-custom">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         <div className="space-y-6 md:space-y-8 max-w-xl">
           {language === 'ja' ? (
             <>
@@ -101,18 +102,18 @@ const Hero = () => {
               </div>
             </>
           )}
-          <div className="pt-4">
+          <div className="pt-4 w-full">
             <Button
               asChild
-              className="bg-navy hover:bg-navy-light text-white dark:bg-gold dark:text-navy dark:hover:bg-gold/90 group font-medium text-lg px-8 py-7 transform transition-transform hover:scale-105"
+              className="bg-navy hover:bg-navy-light text-white dark:bg-gold dark:text-navy dark:hover:bg-gold/90 group font-medium text-lg px-8 py-7 transform transition-transform hover:scale-105 w-full md:w-auto"
             >
               <a
                 href="https://app.youform.com/forms/1taqrobw"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2"
+                className="flex items-center justify-center md:justify-start gap-2 w-full"
               >
-                Find My Next Home! <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                {t('findMyNextHome')} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
           </div>
@@ -120,12 +121,20 @@ const Hero = () => {
         <div className="relative">
 
           <div className="relative z-10 h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl">
-            <img
-              src={heroImages[currentImage]}
-              alt="Traditional Japanese apartment interior with shoji screens and tatami mats"
-              className="w-full h-full object-cover transition-all duration-700"
-              key={heroImages[currentImage]}
-            />
+            {heroImages.map((image, index) => (
+              <div 
+                key={index}
+                className={`absolute inset-0 transition-opacity duration-3000 ${index === currentImage ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+              >
+                <div className={`w-full h-full transition-transform duration-7000 ${index === currentImage ? 'scale-110' : 'scale-100'}`}>
+                  <img
+                    src={image}
+                    alt="Traditional Japanese apartment interior with shoji screens and tatami mats"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
           <div 
             className="absolute top-[-10%] right-[-10%] w-64 h-64 bg-gold/20 rounded-full blur-3xl -z-0"
@@ -136,6 +145,7 @@ const Hero = () => {
             aria-hidden="true"
           />
         </div>
+      </div>
       </div> {/* CLOSE the grid here */}
 
     </section>

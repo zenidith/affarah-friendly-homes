@@ -283,21 +283,21 @@ const Contact = () => {
       ? "Answer a few quick questions and we'll guide you toward the right rental options."
       : "どこから始めればいいか分からない？"}
   </p>
+  {/* Image now appears before the button */}
+  <img
+    src="/renter-quiz-helper-ibuki-style.png"
+    alt="Quiz Helper Illustration"
+    className="mx-auto mb-3 max-w-[150px] rounded-xl shadow-lg border border-navy/10 bg-white/70"
+    style={{ objectFit: 'contain', height: '100px' }}
+  />
   <a
     href="https://app.youform.com/forms/1taqrobw"
     target="_blank"
     rel="noopener noreferrer"
-    className="bg-gold text-navy hover:bg-gold-dark w-full flex items-center justify-center rounded-md py-1.5 px-3 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold mb-2"
+    className="bg-gold text-navy hover:bg-gold-dark w-full flex items-center justify-center rounded-md py-1.5 px-3 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
   >
     {language === 'en' ? 'Start the Quiz' : 'クイック診断を始める'}
   </a>
-  {/* Decorative property types image for desktop only, inside the card below the button */}
-  <img
-    src="/renter-quiz-helper-ibuki-style.png"
-    alt="Quiz Helper Illustration"
-    className="hidden lg:block mx-auto mt-2 max-w-[150px] rounded-xl shadow-lg border border-navy/10 bg-white/70"
-    style={{ objectFit: 'contain', height: '100px' }}
-  />
 </div>
           </div>
         </div>

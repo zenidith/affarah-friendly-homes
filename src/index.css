@@ -212,6 +212,15 @@ body.language-transition {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
+/* Custom transition durations */
+.duration-3000 {
+  transition-duration: 3000ms;
+}
+
+.duration-7000 {
+  transition-duration: 7000ms;
+}
+
 .language-toggle {
   @apply relative inline-block w-[80px] h-[32px] rounded-full bg-navy dark:bg-navy-light cursor-pointer transition-colors duration-300;
 }

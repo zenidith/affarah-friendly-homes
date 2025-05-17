@@ -158,7 +158,7 @@ const Services = () => {
     <section 
       id="services" 
       ref={sectionRef}
-      className="pt-16 pb-8 md:pt-20 md:pb-12 bg-gray-50 dark:bg-gray-900 transition-colors duration-300 scroll-mt-20 fixed-height-section"
+      className="pt-16 pb-0 md:pt-16 md:pb-0 bg-gray-50 dark:bg-gray-900 transition-colors duration-300 scroll-mt-20 fixed-height-section"
     >
       {/* Top Button */}
       {showTop && (
