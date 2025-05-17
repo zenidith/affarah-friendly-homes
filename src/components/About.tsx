@@ -6,11 +6,11 @@ const About = () => {
   const { t, language } = useLanguage();
   
   return (
-    <section id="about" className={`${language === 'ja' ? 'pt-44' : 'pt-28'} pb-16 md:pt-32 md:pb-24 bg-white dark:bg-gray-900`}>
+    <section id="about" className="pt-44 pb-16 md:pt-32 md:pb-24 bg-white dark:bg-gray-900 scroll-mt-20">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[400px] py-4">
           <div className="order-2 lg:order-1 flex flex-col justify-center h-full">
-            <h2 className={`section-title mb-8 text-3xl md:text-4xl font-bold text-left ${language === 'ja' ? 'mt-20' : ''}`}>{t('aboutAffarah')}</h2>
+            <h2 className="section-title mb-8 text-3xl md:text-4xl font-bold text-left mt-20">{t('aboutAffarah')}</h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">
               {t('aboutDescription1')}
             </p>
@@ -43,7 +43,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className={`${language === 'ja' ? 'mt-10' : 'mt-10'} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 min-w-0`}>
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 min-w-0">
           <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-3 text-center hover:shadow-md transition-shadow min-w-0">
             <h3 className="text-3xl font-bold text-gold mb-1">4+</h3>
             <p className="text-navy dark:text-white">{t('yearsExperience')}</p>

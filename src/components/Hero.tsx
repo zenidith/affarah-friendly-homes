@@ -101,21 +101,19 @@ const Hero = () => {
               </div>
             </>
           )}
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+          <div className="pt-4">
             <Button
               asChild
-              className="bg-navy hover:bg-navy-light text-white dark:bg-gold dark:text-navy dark:hover:bg-gold/90 group font-medium text-base px-6 py-6"
+              className="bg-navy hover:bg-navy-light text-white dark:bg-gold dark:text-navy dark:hover:bg-gold/90 group font-medium text-lg px-8 py-7 transform transition-transform hover:scale-105"
             >
               <a
                 href="https://app.youform.com/forms/1taqrobw"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="flex items-center gap-2"
               >
-                Find My Next Home
+                Find My Next Home! <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
-            </Button>
-            <Button asChild variant="outline" className="border-gold text-gold hover:bg-gold hover:text-navy dark:border-navy dark:text-navy dark:hover:bg-navy dark:hover:text-white font-medium text-base px-6 py-6">
-              <a href="#services" style={{scrollBehavior: 'smooth'}}>How Affarah Helps</a>
             </Button>
           </div>
         </div>

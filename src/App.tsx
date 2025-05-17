@@ -37,7 +37,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
         <TooltipProvider>
-          <div className="min-h-screen">
+          <div className="min-h-screen prevent-layout-shift">
             <Toaster />
             <Sonner />
             <BrowserRouter>

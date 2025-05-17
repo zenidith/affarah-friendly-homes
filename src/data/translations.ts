@@ -173,13 +173,101 @@ export const translations: Partial<Record<TranslationKey, { en: string; ja: stri
     en: 'Contact Information',
     ja: 'お問い合わせ情報'
   },
+  addressLabel: {
+    en: 'Address',
+    ja: '住所'
+  },
+  googleMapsLink: {
+    en: 'View on Google Maps',
+    ja: 'Google マップで見る'
+  },
   addressText: {
-    en: 'Chiba, Japan',
-    ja: '千葉県'
+    en: '1056‑30 Daizenno‑chō, Midori‑ku, Chiba‑shi, Chiba (most consultations, viewings, and contracts completed online).',
+    ja: '千葉県千葉市緑区大膳野町1056-30（基本的に相談や内見、契約までオンラインで完結します。）'
   },
   emailText: {
-    en: 'info@affarah.com',
-    ja: 'info@affarah.com'
+    en: 'info@affarah.co.jp (alt: affarah.japan@gmail.com)',
+    ja: 'info@affarah.co.jp（サブ: affarah.japan@gmail.com）'
+  },
+  formNameLabel: {
+    en: 'Your Name',
+    ja: 'お名前'
+  },
+  formNamePlaceholder: {
+    en: 'Jane Tanaka',
+    ja: '田中ジェーン'
+  },
+  formEmailLabel: {
+    en: 'Email Address',
+    ja: 'メールアドレス'
+  },
+  formEmailPlaceholder: {
+    en: 'name@example.com',
+    ja: 'name@example.com'
+  },
+  formContactMethodLabel: {
+    en: 'Preferred Contact Method',
+    ja: '希望連絡方法'
+  },
+  formPhoneIdLabel: {
+    en: 'Phone / Messaging ID',
+    ja: '電話番号 / メッセージID'
+  },
+  formPhoneIdPlaceholder: {
+    en: '+81 90‑… / @yourline',
+    ja: '+81 90‑… / @yourline'
+  },
+  formMoveInLabel: {
+    en: 'Move-in Window',
+    ja: '入居希望時期'
+  },
+  formMoveInSelect: {
+    en: 'Select',
+    ja: '選択してください'
+  },
+  formMoveInOption1: {
+    en: 'Next 30 days',
+    ja: '30日以内'
+  },
+  formMoveInOption2: {
+    en: '1-3 months',
+    ja: '1〜3ヶ月'
+  },
+  formMoveInOption3: {
+    en: '3-6 months',
+    ja: '3〜6ヶ月'
+  },
+  formMoveInOption4: {
+    en: 'Just researching',
+    ja: 'まだ調査中'
+  },
+  formBudgetLabel: {
+    en: 'Monthly Budget',
+    ja: '家賃予算'
+  },
+  formBudgetHelp: {
+    en: 'Helps us filter listings.',
+    ja: '物件を絞り込むのに役立ちます。'
+  },
+  formAreaLabel: {
+    en: 'Preferred Area(s)',
+    ja: '希望エリア'
+  },
+  formAreaPlaceholder: {
+    en: 'Chiba, Yokohama, open to 23-wards',
+    ja: '千葉、横浜、23区など'
+  },
+  formQuestionLabel: {
+    en: 'Question or Requirement',
+    ja: '質問・ご要望'
+  },
+  formQuestionPlaceholder: {
+    en: 'Tell us about pets, guarantor, etc.',
+    ja: 'ペット可、保証人なし希望など…'
+  },
+  formSubmitButton: {
+    en: 'Send My Request →',
+    ja: 'お問い合わせを送信 →'
   },
   phoneText: {
     en: '+81-123-456-7890',
@@ -268,10 +356,6 @@ export const translations: Partial<Record<TranslationKey, { en: string; ja: stri
   affarahMeaning: {
     en: "Affarah means joy, we hope to bring joy to your home search in Japan.",
     ja: "Affarahは喜びを意味します。日本の家探しに喜びをもたらすことを願っています。"
-  },
-  chibaAddress: {
-    en: "Chiba, Japan",
-    ja: "千葉県"
   },
   legal: {
     en: 'Legal',

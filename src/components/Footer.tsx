@@ -34,13 +34,11 @@ const Footer = () => {
           
           <div>
             <h3 className="text-lg font-bold mb-4 text-gold">{t('services')}</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('propertySearch')}</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('applicationSupport')}</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('moveInAssistance')}</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('rentalConsultations')}</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('neighborhoodGuides')}</a></li>
-            </ul>
+<ul className="space-y-2">
+  <li className="text-white/80">{t('propertySearch')}</li>
+  <li className="text-white/80">{t('applicationSupport')}</li>
+  <li className="text-white/80">{t('moveInAssistance')}</li>
+</ul>
           </div>
           
           <div>

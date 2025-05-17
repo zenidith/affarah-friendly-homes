@@ -5,6 +5,108 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
+  overflow-anchor: none;
+}
+
+body {
+  min-height: 100%;
+  overflow-anchor: none;
+}
+
+/* Fix for language switching scroll jump */
+html {
+  scroll-behavior: smooth !important;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+/* Force consistent section heights */
+#services, #about, #testimonials, #contact {
+  position: relative;
+  content-visibility: auto;
+  min-height: min-content;
+  height: auto !important;
+  overflow: hidden;
+  contain: layout paint;
+  contain-intrinsic-size: 1px 500px;
+  transition: none !important;
+}
+
+/* Prevent layout shifts during language transitions */
+#services, #about, #testimonials, #contact {
+  overflow: hidden;
+  contain: layout paint;
+  min-height: var(--section-min-height, auto);
+  transition: min-height 0.3s ease-out;
+}
+
+.fixed-height-section {
+  min-height: var(--prev-height, auto) !important;
+  transition: min-height 0.3s ease-out;
+}
+
+.language-transition {
+  overflow-y: hidden;
+}
+
+.language-changing #services,
+.language-changing #about,
+.language-changing #testimonials,
+.language-changing #contact {
+  height: var(--prev-height, auto);
+  overflow: hidden;
+}
+
+/* Ensure smooth transitions */
+.section-title, .section-description, p, h1, h2, h3, h4, h5, h6, span, button {
+  transition: all 0.2s ease-out;
+}
+
+/* Add CSS custom properties for scroll position tracking */
+:root {
+  --window-scroll-y: 0px;
+  --active-section: "";
+  --section-scroll-top: 0px;
+}
+
+/* Maintain section heights during language transitions */
+[data-prev-height] {
+  min-height: var(--prev-height) !important;
+  max-height: none !important;
+}
+
+/* Prevent content jumping during language switch */
+body.language-transition {
+  overflow-anchor: none;
+  scroll-behavior: auto !important;
+  overflow-y: scroll !important;
+  height: 100% !important;
+}
+
+/* Ensure consistent heights for language-specific content */
+[data-language="en"] .en-content,
+[data-language="ja"] .ja-content {
+  display: block;
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+}
+
+[data-language="en"] .ja-content,
+[data-language="ja"] .en-content {
+  display: none;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Ensure sections maintain consistent height */
+.fixed-height-section {
+  min-height: var(--section-min-height, auto);
 }
 
 

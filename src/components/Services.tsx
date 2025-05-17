@@ -1,9 +1,12 @@
 
+import React, { useState, useEffect, useRef } from 'react';
 import { Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/context/LanguageContext';
 
 const Services = () => {
+  // Reference to measure and maintain consistent heights
+  const sectionRef = React.useRef<HTMLElement>(null);
   const { t, language } = useLanguage();
   
   const services = {
@@ -96,12 +99,82 @@ const Services = () => {
 
   const customSolution = language === 'en' ? customSolutionContent.en : customSolutionContent.ja;
   
+  // State for showing the Top button
+  const [showTop, setShowTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show button if scrolled down more than 300px
+      setShowTop(window.scrollY > 300);
+    };
+    
+    // Initial check
+    handleScroll();
+    
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Function to handle smooth scrolling when the section is targeted by a hash link
+  useEffect(() => {
+    // Check if the URL hash is targeting this section
+    if (window.location.hash === '#services') {
+      const servicesSection = document.getElementById('services');
+      if (servicesSection) {
+        // Add a small delay to ensure the section is properly rendered
+        setTimeout(() => {
+          servicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, []);
+
+  // Effect to maintain consistent heights during language transitions
+  React.useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    
+    // Store initial height
+    const updateHeight = () => {
+      const height = section.offsetHeight;
+      section.style.setProperty('--section-min-height', `${height}px`);
+    };
+    
+    // Update height on mount and window resize
+    updateHeight();
+    window.addEventListener('resize', updateHeight);
+    
+    return () => {
+      window.removeEventListener('resize', updateHeight);
+    };
+  }, []);
+
   return (
-    <section id="services" className="py-16 md:py-24 min-h-[750px] bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <section 
+      id="services" 
+      ref={sectionRef}
+      className="pt-16 pb-8 md:pt-20 md:pb-12 bg-gray-50 dark:bg-gray-900 transition-colors duration-300 scroll-mt-20 fixed-height-section"
+    >
+      {/* Top Button */}
+      {showTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed right-8 top-1/3 z-40 flex items-center px-3 py-2 rounded-full bg-gold text-navy font-bold shadow-lg hover:bg-navy hover:text-gold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gold dark:bg-navy dark:text-gold dark:hover:bg-gold dark:hover:text-navy text-xs md:text-sm"
+          style={{ minWidth: 40, fontWeight: 700, letterSpacing: 0.5 }}
+          aria-label={language === 'ja' ? 'トップへ戻る' : 'Back to Top'}
+        >
+          <span style={{fontSize: '1em', marginRight: 3}}>↑</span> <span className="align-middle">{language === 'ja' ? 'トップ' : 'Top'}</span>
+        </button>
+      )}
       <div className="container-custom">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="section-title mt-8 text-3xl md:text-4xl font-bold text-center">{language === 'en' ? 'Our Friendly Services' : 'フレンドリーなサービス'}</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <h2 className="section-title text-3xl md:text-4xl font-bold text-center">{language === 'en' ? 'Our Friendly Services' : 'フレンドリーなサービス'}</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 mt-3">
             {language === 'en' 
               ? 'From searching for the perfect apartment to helping you settle in, we provide comprehensive support throughout your renting journey.' 
               : '理想的な物件探しから入居のお手伝いまで、賃貸の旅全体にわたって包括的なサポートを提供します。'}
@@ -112,53 +185,56 @@ const Services = () => {
           {currentServices.map((service, index) => (
             <div 
               key={index} 
-              className="card bg-white dark:bg-gray-800 hover:shadow-xl group"
+              className="rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden"
             >
-              <div className="h-full flex flex-col">
-                <h3 className="text-2xl font-bold text-navy dark:text-white mb-4">{service.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">{service.description}</p>
-                <div className="space-y-3 mb-8 flex-grow">
+              <div className="p-6 h-full flex flex-col">
+                <h3 className="text-xl font-bold text-navy dark:text-white mb-3">{service.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">{service.description}</p>
+                <div className="space-y-2 mb-6 flex-grow">
                   {service.features.map((feature, idx) => (
                     <div key={idx} className="flex items-start">
-                      <div className="mr-3 mt-1">
-                        <Check className="h-5 w-5 text-gold" />
+                      <div className="mr-2 mt-1 flex-shrink-0">
+                        <Check className="h-4 w-4 text-gold" />
                       </div>
-                      <span className="dark:text-gray-300">{feature}</span>
+                      <span className="dark:text-gray-300 text-sm">{feature}</span>
                     </div>
                   ))}
                 </div>
                 <Button
-  className="w-full bg-navy text-white dark:bg-white dark:text-navy hover:bg-navy-light dark:hover:bg-gray-200 group-hover:bg-gold group-hover:text-navy transition-colors duration-300"
-  asChild
->
-  <a
-    href="https://app.youform.com/forms/1taqrobw"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    {service.cta}
-  </a>
-</Button>
+                  className="w-full bg-navy text-white dark:bg-white dark:text-navy hover:bg-navy-light dark:hover:bg-gray-200 group-hover:bg-gold group-hover:text-navy transition-colors duration-300 mt-auto py-2 text-sm"
+                  asChild
+                >
+                  <a
+                    href="https://app.youform.com/forms/1taqrobw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {service.cta}
+                  </a>
+                </Button>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <div className="bg-navy dark:bg-navy-light rounded-2xl p-8 md:p-12 shadow-lg">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{customSolution.title}</h3>
-            <p className="text-white/80 mb-8 max-w-2xl mx-auto">
+        <div className="mt-10 text-center">
+          <div className="bg-navy dark:bg-navy-light rounded-2xl p-6 md:p-8 shadow-lg">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">{customSolution.title}</h3>
+            <p className="text-white/80 mb-4 max-w-2xl mx-auto text-sm">
               {customSolution.description}
             </p>
-            <Button className="btn-secondary" asChild>
-  <a
-    href="https://app.youform.com/forms/1taqrobw"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    {customSolution.cta}
-  </a>
-</Button>
+            <Button 
+              className="btn-secondary px-6 py-2 text-sm font-medium" 
+              asChild
+            >
+              <a
+                href="https://app.youform.com/forms/1taqrobw"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {customSolution.cta}
+              </a>
+            </Button>
           </div>
         </div>
       </div>
