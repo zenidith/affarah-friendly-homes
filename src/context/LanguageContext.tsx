@@ -17,8 +17,22 @@ const LanguageContext = createContext<LanguageContextType>({
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const getInitialLanguage = (): Language => {
+    // First check if there's a saved language preference
     const savedLanguage = localStorage.getItem('preferredLanguage');
-    return (savedLanguage === 'ja' || savedLanguage === 'en') ? savedLanguage : 'en';
+    if (savedLanguage === 'ja' || savedLanguage === 'en') {
+      return savedLanguage;
+    }
+    
+    // If no saved preference, detect system language
+    const userLanguages = navigator.languages || [navigator.language];
+    
+    // Check if any of the user's preferred languages start with 'ja'
+    const hasJapanese = userLanguages.some(lang => 
+      lang.toLowerCase().startsWith('ja') || lang.toLowerCase() === 'jp'
+    );
+    
+    // Return 'ja' if Japanese is detected, otherwise use English as default
+    return hasJapanese ? 'ja' : 'en';
   };
 
   const [language, setLanguage] = useState<Language>(getInitialLanguage);
@@ -139,6 +153,16 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   useEffect(() => {
     document.documentElement.setAttribute('lang', language);
     document.body.setAttribute('data-language', language);
+  }, [language]);
+
+  // Log initial language detection (for debugging)
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('preferredLanguage');
+    const userLanguages = navigator.languages || [navigator.language];
+    
+    console.log(`Language set to: ${language}`);
+    console.log(`System languages detected: ${userLanguages.join(', ')}`);
+    console.log(`Previously saved preference: ${savedLanguage || 'none'}`);
   }, [language]);
 
   return (

@@ -11,11 +11,13 @@ const Footer = () => {
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
-            <img 
-              src="/lovable-uploads/b3393a11-aa38-494e-a899-dcbc95e48f45.png" 
-              alt="Affarah Logo" 
-              className="h-16 mb-4 invert" 
-            />
+            <div className="inline-block">  {/* Wrapper div for better positioning control */}
+              <img 
+                src="/lovable-uploads/b3393a11-aa38-494e-a899-dcbc95e48f45.png" 
+                alt="Affarah Logo" 
+                className="h-16 mb-4 invert border-2 border-gold rounded-full p-1" 
+              />
+            </div>
             <p className="text-white/80 mb-4">
               {t('footerDescription')}
             </p>

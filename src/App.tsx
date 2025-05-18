@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from '@/context/LanguageContext';
 import BackToTopButton from './components/BackToTopButton';
+import ThemeInitializer from './components/ThemeInitializer';
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
@@ -37,6 +38,7 @@ const App = () => {
 
   return (
   <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <ThemeInitializer />
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
         <TooltipProvider>
