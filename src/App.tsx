@@ -7,12 +7,15 @@ import { ThemeProvider } from "next-themes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from '@/context/LanguageContext';
+import BackToTopButton from './components/BackToTopButton';
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
 const App = () => {
+  // Back to Top functionality moved to BackToTopButton component
+
   useEffect(() => {
     // Prevent duplicate script injection
     const youformScriptSrc = 'https://app.youform.com/widgets/widget.js';
@@ -37,7 +40,20 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
         <TooltipProvider>
-          <div className="min-h-screen prevent-layout-shift">
+          <div className="min-h-screen prevent-layout-shift transition-colors duration-500 relative overflow-hidden">
+            {/* Wave background */}
+            <div className="wave-background" />
+            {/* Wave pattern overlay */}
+            <div className="wave-pattern" />
+            {/* Green wave pattern */}
+            <div className="wave-green" />
+            {/* Decorative dots pattern */}
+            <div className="wave-dots" />
+            {/* Content overlay to ensure readability */}
+            <div className="absolute inset-0 bg-white/10 pointer-events-none" />
+            
+            {/* Back to Top button component */}
+            <BackToTopButton />
             <Toaster />
             <Sonner />
             <BrowserRouter>
