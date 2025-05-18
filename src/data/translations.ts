@@ -13,6 +13,10 @@ export const translations: Partial<Record<TranslationKey, { en: string; ja: stri
     en: 'Testimonials',
     ja: 'お客様の声'
   },
+  team: {
+    en: 'Our Team',
+    ja: 'チーム紹介'
+  },
   contact: {
     en: 'Contact',
     ja: 'お問い合わせ'

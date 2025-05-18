@@ -5,6 +5,7 @@ export type TranslationKey =
   | 'services' 
   | 'about' 
   | 'testimonials' 
+  | 'team'
   | 'contact'
   | 'getStarted'
   | 'startYourSearch'

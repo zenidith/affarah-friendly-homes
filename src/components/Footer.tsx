@@ -36,30 +36,65 @@ const Footer = () => {
           
           <div>
             <h3 className="text-lg font-bold mb-4 text-gold">{t('services')}</h3>
-<ul className="space-y-2">
-  <li className="text-white/80">{t('propertySearch')}</li>
-  <li className="text-white/80">{t('applicationSupport')}</li>
-  <li className="text-white/80">{t('moveInAssistance')}</li>
-</ul>
+            <ul className="space-y-2">
+              <li><a href="#services" className="text-white/80 hover:text-white transition-colors">{t('propertySearch')}</a></li>
+              <li><a href="#services" className="text-white/80 hover:text-white transition-colors">{t('applicationSupport')}</a></li>
+              <li><a href="#services" className="text-white/80 hover:text-white transition-colors">{t('moveInAssistance')}</a></li>
+            </ul>
           </div>
           
           <div>
             <h3 className="text-lg font-bold mb-4 text-gold">{t('about')}</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('aboutUs')}</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('ourTeam')}</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('testimonials')}</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('blog')}</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('careers')}</a></li>
+              <li><a href="#about" className="text-white/80 hover:text-white transition-colors">{t('aboutUs')}</a></li>
+              <li><a href="#team" className="text-white/80 hover:text-white transition-colors">{t('ourTeam')}</a></li>
+              <li><a href="#testimonials" className="text-white/80 hover:text-white transition-colors">{t('testimonials')}</a></li>
+              <li>
+                <span className="text-white/80 flex items-center">
+                  {t('blog')}
+                  <span className="ml-2 text-xs text-gold/80 whitespace-nowrap">
+                    {language === 'ja' ? '(近日公開)' : '(Coming Soon)'}
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span className="text-white/80 flex items-center">
+                  {t('careers')}
+                  <span className="ml-2 text-xs text-gold/80 whitespace-nowrap">
+                    {language === 'ja' ? '(近日公開)' : '(Coming Soon)'}
+                  </span>
+                </span>
+              </li>
             </ul>
           </div>
           
           <div>
             <h3 className="text-lg font-bold mb-4 text-gold">{t('legal')}</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('termsService')}</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('privacyPolicy')}</a></li>
-              <li><a href="#" className="text-white/80 hover:text-white transition-colors">{t('cookiePolicy')}</a></li>
+              <li>
+                <span className="text-white/80 flex items-center">
+                  {t('termsService')}
+                  <span className="ml-2 text-xs text-gold/80 whitespace-nowrap">
+                    {language === 'ja' ? '(近日公開)' : '(Coming Soon)'}
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span className="text-white/80 flex items-center">
+                  {t('privacyPolicy')}
+                  <span className="ml-2 text-xs text-gold/80 whitespace-nowrap">
+                    {language === 'ja' ? '(近日公開)' : '(Coming Soon)'}
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span className="text-white/80 flex items-center">
+                  {t('cookiePolicy')}
+                  <span className="ml-2 text-xs text-gold/80 whitespace-nowrap">
+                    {language === 'ja' ? '(近日公開)' : '(Coming Soon)'}
+                  </span>
+                </span>
+              </li>
             </ul>
           </div>
         </div>
