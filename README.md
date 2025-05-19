@@ -1,73 +1,105 @@
-# Welcome to your Lovable project
+# Affarah Friendly Homes
 
-## Project info
+![Affarah Friendly Homes](public/logo.png)
 
-**URL**: https://lovable.dev/projects/65eb0222-5e06-482c-a87d-4a4770e44fce
+A modern web platform designed to help people find their perfect home in Japan. Affarah Friendly Homes provides personalized housing solutions with a focus on customer satisfaction and cultural integration.
 
-## How can I edit this code?
+## About
 
-There are several ways of editing your application.
+Affarah Friendly Homes is a specialized real estate service dedicated to helping clients find comfortable housing in Japan. Our platform connects home seekers with vetted properties while providing cultural context and support throughout the entire process.
 
-**Use Lovable**
+## Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/65eb0222-5e06-482c-a87d-4a4770e44fce) and start prompting.
+- **Personalized Property Matching**: Find homes that match your specific needs and preferences
+- **Comprehensive Property Listings**: Browse through our extensive database of available homes
+- **Expert Consultation**: Get advice from our team of real estate professionals
+- **Cultural Integration Support**: Resources to help you adjust to living in Japan
+- **Multilingual Support**: Available in multiple languages for international clients
+- **Dark/Light Mode**: Comfortable viewing experience in any lighting condition
 
-Changes made via Lovable will be committed automatically to this repo.
+## Tech Stack
 
-**Use your preferred IDE**
+- **Frontend**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: TailwindCSS
+- **UI Components**: Shadcn UI (based on Radix UI)
+- **Routing**: React Router
+- **State Management**: React Context API
+- **Theme Management**: next-themes
+- **Data Fetching**: TanStack Query
+- **Form Handling**: React Hook Form with Zod validation
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Getting Started
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
 
-Follow these steps:
+- Node.js (v18+)
+- npm or yarn
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Installation
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+1. Clone the repository
+   ```bash
+   git clone https://github.com/zenidith/affarah-friendly-homes.git
+   cd affarah-friendly-homes
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+2. Install dependencies
+   ```bash
+   npm install
+   # or
+   yarn
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+3. Start the development server
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+## Available Scripts
+
+- `npm run dev` - Start the development server
+- `npm run build` - Build for production
+- `npm run build:dev` - Build for development environment
+- `npm run preview` - Preview the production build locally
+- `npm run lint` - Run ESLint
+
+## Project Structure
+
+```
+affarah-friendly-homes/
+├── public/              # Static assets
+├── src/
+│   ├── components/      # React components
+│   ├── context/         # React context providers
+│   ├── hooks/           # Custom React hooks
+│   ├── lib/             # Utility functions
+│   ├── pages/           # Page components
+│   ├── styles/          # Global styles
+│   ├── types/           # TypeScript type definitions
+│   ├── App.tsx          # Root application component
+│   ├── main.tsx         # Entry point
+│   └── index.css        # Global CSS
+├── .eslintrc.json       # ESLint configuration
+├── index.html           # HTML template
+├── package.json         # Project dependencies
+├── tailwind.config.js   # Tailwind configuration
+├── tsconfig.json        # TypeScript configuration
+└── vite.config.ts       # Vite configuration
 ```
 
-**Edit a file directly in GitHub**
+## Contributing
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-**Use GitHub Codespaces**
+## License
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+This project is licensed under the [MIT License](LICENSE).
 
-## What technologies are used for this project?
+## Contact
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/65eb0222-5e06-482c-a87d-4a4770e44fce) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+For any inquiries, please reach out to our team at [contact@affarah-homes.com](mailto:contact@affarah-homes.com).
