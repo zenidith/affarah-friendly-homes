@@ -93,15 +93,15 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-5 h-full">
+          <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-5 h-full flex flex-col">
             <h3 className="text-lg font-bold text-navy dark:text-white mb-3">{t('getInTouch')}</h3>
-            
-            <form action="https://formsubmit.co/k.sheenan@gmail.com" method="POST">
-              {/* Hidden fields for customization */}
-              <input type="hidden" name="_subject" value="New Contact Submission from Affarah" />
-              <input type="hidden" name="_next" value="https://affarah.com/thanks" />
-              <input type="hidden" name="_captcha" value="false" />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="flex-grow">
+              <form id="contact-form" action="https://formsubmit.co/k.sheenan@gmail.com" method="POST">
+                {/* Hidden fields for customization */}
+                <input type="hidden" name="_subject" value="New Contact Submission from Affarah" />
+                <input type="hidden" name="_next" value="https://affarah.com/thanks" />
+                <input type="hidden" name="_captcha" value="false" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {/* 1. Your Name */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
@@ -232,15 +232,19 @@ const Contact = () => {
                   className="w-full px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy focus:border-navy dark:bg-gray-700 dark:text-white"
                   placeholder={t('formQuestionPlaceholder')}
                 />
-              </div>
-              {/* Submit Button */}
+                </div>
+              </form>
+            </div>
+            {/* Submit Button */}
+            <div className="mt-auto pt-4">
               <Button
                 type="submit"
-                className="mt-3 w-full bg-gold text-navy hover:bg-gold-dark font-semibold rounded-md py-1.5 px-4 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
+                form="contact-form"
+                className="w-full bg-gold text-navy hover:bg-gold-dark font-semibold rounded-md py-2 px-4 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
               >
                 {t('formSubmitButton')}
               </Button>
-            </form>
+            </div>
           </div>
 
           <div className="grid grid-rows-2 h-full gap-3">
@@ -279,31 +283,37 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-gold/10 dark:bg-gold/5 rounded-2xl p-6 border border-gold/30 flex flex-col items-center">
-  <h3 className="text-base font-bold text-navy dark:text-white mb-2 text-center w-full">
-    {language === 'en' ? 'Need Help Getting Started?' : '🏠 最初の一歩を踏み出そう'}
-  </h3>
-  <p className="text-gray-600 dark:text-gray-300 mb-4 text-xs text-center w-full">
-    {language === 'en' 
-      ? "Answer a few quick questions and we'll guide you toward the right rental options."
-      : "どこから始めればいいか分からない？"}
-  </p>
-  {/* Image now appears before the button with improved sizing */}
-  <div className="w-full flex justify-center mb-4">
-    <img
-      src="/Ibuki.png"
-      alt="Quiz Helper Illustration"
-      className="rounded-xl shadow-lg border border-navy/10 bg-white/70 w-[180px] h-[120px] object-contain"
-    />
+            <div className="bg-gold/10 dark:bg-gold/5 rounded-2xl p-6 border border-gold/30 flex flex-col items-center h-full">
+  <div className="flex-grow flex flex-col w-full">
+    <h3 className="text-base font-bold text-navy dark:text-white mb-2 text-center w-full">
+      {language === 'en' ? 'Need Help Getting Started?' : '🏠 最初の一歩を踏み出そう'}
+    </h3>
+    <p className="text-gray-600 dark:text-gray-300 mb-4 text-xs text-center w-full">
+      {language === 'en' 
+        ? "Answer a few quick questions and we'll guide you toward the right rental options."
+        : "どこから始めればいいか分からない？"}
+    </p>
+    {/* Image now appears before the button with improved sizing */}
+    <div className="w-full flex justify-center mb-auto py-4">
+      <div className="w-[180px] h-[140px] rounded-xl shadow-lg border border-navy/10 bg-white/70 overflow-hidden flex items-center justify-center">
+        <img
+          src="/images/Ibuki2.png"
+          alt="Quiz Helper Illustration"
+          className="max-w-full max-h-full object-cover"
+        />
+      </div>
+    </div>
   </div>
-  <a
-    href="https://app.youform.com/forms/1taqrobw"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="bg-gold text-navy hover:bg-gold-dark w-full flex items-center justify-center rounded-md py-2 px-4 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
-  >
-    {language === 'en' ? 'Start the Quiz' : 'クイック診断を始める'}
-  </a>
+  <div className="w-full mt-auto pt-4">
+    <a
+      href="https://app.youform.com/forms/1taqrobw"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-gold text-navy hover:bg-gold-dark w-full flex items-center justify-center rounded-md py-2 px-4 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
+    >
+      {language === 'en' ? 'Start the Quiz' : 'クイック診断を始める'}
+    </a>
+  </div>
 </div>
           </div>
         </div>
