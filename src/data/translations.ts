@@ -186,8 +186,8 @@ export const translations: Partial<Record<TranslationKey, { en: string; ja: stri
     ja: 'Google マップで見る'
   },
   addressText: {
-    en: '1056‑30 Daizenno‑chō, Midori‑ku, Chiba‑shi, Chiba (most consultations, viewings, and contracts completed online).',
-    ja: '千葉県千葉市緑区大膳野町1056-30（基本的に相談や内見、契約までオンラインで完結します。）'
+    en: '1056‑30 Daizenno‑chō,<br/>Midori‑ku, Chiba‑shi,<br/>Chiba 〒266-0006 (most consultations, viewings, and contracts completed online).',
+    ja: '千葉県千葉市緑区大膳野町1056-30<br/>〒266-0006<br/>（基本的に相談や内見、契約までオンラインで完結します。）'
   },
   emailText: {
     en: 'info@affarah.co.jp (alt: affarah.japan@gmail.com)',

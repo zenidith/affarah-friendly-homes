@@ -254,7 +254,7 @@ const Contact = () => {
                   <div>
                     <h4 className="font-medium text-gold text-sm">{t('addressLabel')}</h4>
                     <p className="text-white/80 text-sm">
-                      {t('addressText')}{' '}
+                      <span dangerouslySetInnerHTML={{ __html: t('addressText') }} />{' '}
                       <a 
                         href="https://maps.app.goo.gl/UmtHAbAzg3dqSCYp6" 
                         target="_blank" 
