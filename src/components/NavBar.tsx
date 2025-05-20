@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LanguageToggle from './LanguageToggle';
@@ -12,6 +12,32 @@ const NavBar = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+  
+  // Handle smooth scrolling with correct offset
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
+    e.preventDefault();
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      // Find the Contact heading text
+      const heading = contactSection.querySelector('h2.section-title');
+      
+      if (heading) {
+        // Position to show the heading right below the navbar
+        const navbarHeight = 100; // Navbar height plus some padding
+        const yOffset = -navbarHeight;
+        const y = heading.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      } else {
+        // Fallback if heading not found
+        const navbarHeight = 100;
+        const yOffset = -navbarHeight;
+        const y = contactSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
   };
 
   return (
@@ -41,7 +67,13 @@ const NavBar = () => {
             </a>
             <LanguageToggle />
             <ThemeToggle />
-            <Button className="bg-navy hover:bg-navy-light text-white dark:bg-white dark:text-navy dark:hover:bg-gray-200">{t('getStarted')}</Button>
+            <a
+              href="#contact"
+              onClick={handleContactClick}
+              className="bg-navy hover:bg-navy-light text-white dark:bg-white dark:text-navy dark:hover:bg-gray-200 px-4 py-2 rounded-lg font-semibold transition-colors duration-200"
+            >
+              {t('getStarted')}
+            </a>
           </div>
 
           {/* Mobile Navigation Toggle */}
@@ -72,7 +104,12 @@ const NavBar = () => {
                 >
                   <Instagram size={24} />
                 </a>
-                <Button className="bg-navy hover:bg-navy-light text-white dark:bg-white dark:text-navy dark:hover:bg-gray-200 w-full">{t('getStarted')}</Button>
+                <Button 
+                  className="bg-navy hover:bg-navy-light text-white dark:bg-white dark:text-navy dark:hover:bg-gray-200 w-full"
+                  onClick={handleContactClick}
+                >
+                  {t('getStarted')}
+                </Button>
               </div>
             </div>
           </div>

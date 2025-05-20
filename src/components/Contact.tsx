@@ -7,6 +7,10 @@ import { useLanguage } from '@/context/LanguageContext';
 const Contact = () => {
   // Reference to measure and maintain consistent heights
   const sectionRef = useRef<HTMLElement>(null);
+
+  // --- Ensure Contact section is visible below navbar on anchor scroll ---
+  // Add scroll-mt-24 to the section element below
+
   const { toast } = useToast();
   const { t, language } = useLanguage();
   
@@ -79,9 +83,10 @@ const Contact = () => {
 
   return (
     <section 
-      id="contact" 
+      id="contact"
       ref={sectionRef}
-      className="py-8 md:py-12 bg-white dark:bg-gray-900 fixed-height-section">
+      style={{ scrollMarginTop: '80px' }}
+      className="pt-10 pb-8 md:pt-12 md:pb-12 bg-white dark:bg-gray-900 fixed-height-section">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-6">
           <h2 className="section-title text-2xl md:text-3xl font-bold text-center">{t('contact')}</h2>
