@@ -5,7 +5,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "next-themes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from '@/context/LanguageContext';
 import BackToTopButton from './components/BackToTopButton';
 import ThemeInitializer from './components/ThemeInitializer';
@@ -58,12 +58,12 @@ const App = () => {
             <BackToTopButton />
             <Toaster />
             <Sonner />
-            <BrowserRouter>
+            <HashRouter>
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
-            </BrowserRouter>
+            </HashRouter>
           </div>
         </TooltipProvider>
       </LanguageProvider>

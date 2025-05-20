@@ -28,3 +28,52 @@ Affarah Friendly Homes is a specialized real estate service dedicated to helping
 - **Theme Management**: next-themes
 - **Data Fetching**: TanStack Query
 - **Form Handling**: React Hook Form with Zod validation
+
+## Deployment
+
+### GitHub Pages Deployment
+
+This project is configured for easy deployment to GitHub Pages. Follow these steps to deploy:
+
+1. **Create a GitHub Repository**
+   - Create a new repository on GitHub named `affarah-friendly-homes`
+   - Initialize it with a README if you prefer
+
+2. **Push Your Code to GitHub**
+   ```bash
+   # Initialize git repository (if not already done)
+   git init
+   git add .
+   git commit -m "Initial commit"
+   
+   # Add your GitHub repository as remote
+   git remote add origin https://github.com/YOUR_USERNAME/affarah-friendly-homes.git
+   
+   # Push to GitHub
+   git push -u origin main
+   ```
+
+3. **Configure GitHub Pages**
+   - Go to your repository on GitHub
+   - Navigate to Settings > Pages
+   - Under "Source", select "GitHub Actions"
+   
+4. **Automatic Deployment**
+   - The included GitHub Actions workflow will automatically build and deploy your site when you push to the main branch
+   - Your site will be available at: `https://YOUR_USERNAME.github.io/affarah-friendly-homes/`
+
+### Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build locally
+npm run preview
+```
