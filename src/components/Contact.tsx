@@ -291,7 +291,7 @@ const Contact = () => {
   {/* Image now appears before the button with improved sizing */}
   <div className="w-full flex justify-center mb-4">
     <img
-      src="/renter-quiz-helper-ibuki-style.png"
+      src="/Ibuki.png"
       alt="Quiz Helper Illustration"
       className="rounded-xl shadow-lg border border-navy/10 bg-white/70 w-[180px] h-[120px] object-contain"
     />
