@@ -1,6 +1,7 @@
 
 import { Instagram } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -72,14 +73,14 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4 text-gold">{t('legal')}</h3>
             <ul className="space-y-2">
               <li>
-                <a href="/terms" className="text-white/80 hover:text-white transition-colors">
+                <Link to="/terms" className="text-white/80 hover:text-white transition-colors">
                   {t('termsService')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/privacy" className="text-white/80 hover:text-white transition-colors">
+                <Link to="/privacy" className="text-white/80 hover:text-white transition-colors">
                   {t('privacyPolicy')}
-                </a>
+                </Link>
               </li>
 
             </ul>
