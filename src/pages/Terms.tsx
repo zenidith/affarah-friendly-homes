@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
@@ -6,6 +6,11 @@ import Footer from '@/components/Footer';
 const Terms = () => {
   const { language } = useLanguage();
   const isJapanese = language === 'ja';
+
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
