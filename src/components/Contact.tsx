@@ -59,7 +59,32 @@ const Contact = () => {
     ]
   };
 
+  // Area options based on language
+  const areaOptions = {
+    en: [
+      { value: "", label: "Select preferred area(s)" },
+      { value: "Chiba City", label: "Chiba City" },
+      { value: "Yokohama", label: "Yokohama" },
+      { value: "Tokyo (23 Wards)", label: "Tokyo (23 Wards)" },
+      { value: "Tokyo (Outside 23 Wards)", label: "Tokyo (Outside 23 Wards)" },
+      { value: "Kawasaki", label: "Kawasaki" },
+      { value: "Saitama", label: "Saitama" },
+      { value: "Other", label: "Other (specify in message)" }
+    ],
+    ja: [
+      { value: "", label: "希望エリアを選択" },
+      { value: "千葉市", label: "千葉市" },
+      { value: "横浜市", label: "横浜市" },
+      { value: "東京23区内", label: "東京23区内" },
+      { value: "東京23区外", label: "東京23区外" },
+      { value: "川崎市", label: "川崎市" },
+      { value: "埼玉県", label: "埼玉県" },
+      { value: "その他", label: "その他（メッセージに記入）" }
+    ]
+  };
+
   const currentBudgetOptions = language === 'en' ? budgetOptions.en : budgetOptions.ja;
+  const currentAreaOptions = language === 'en' ? areaOptions.en : areaOptions.ja;
 
   // Effect to maintain consistent heights during language transitions
   useEffect(() => {
@@ -212,15 +237,37 @@ const Contact = () => {
                 <label htmlFor="areas" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   {t('formAreaLabel')} <span className="text-xs text-gray-400 inline-block ml-1">「千葉、横浜、23区など」</span>
                 </label>
-                <input
-                  type="text"
+                <select
                   id="areas"
                   name="areas"
-                  className="w-full px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy focus:border-navy dark:bg-gray-700 dark:text-white"
-                  placeholder={t('formAreaPlaceholder')}
-                />
+                  className="w-full px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy focus:border-navy appearance-none dark:bg-gray-700 dark:text-white"
+                  defaultValue=""
+                >
+                  {currentAreaOptions.map((option, index) => (
+                    <option key={index} value={option.value}>{option.label}</option>
+                  ))}
+                </select>
               </div>
-              {/* 8. Question or Requirement */}
+              {/* 8. Property Type Preference */}
+              <div className="mt-3">
+                <label htmlFor="propertyType" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  {language === 'en' ? 'Property Type Preference' : '物件タイプの希望'} <span className="text-xs text-gray-400 inline-block ml-1">「アパート、マンション、一戸建てなど」</span>
+                </label>
+                <select
+                  id="propertyType"
+                  name="propertyType"
+                  className="w-full px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-navy focus:border-navy appearance-none dark:bg-gray-700 dark:text-white"
+                  defaultValue=""
+                >
+                  <option value="">{language === 'en' ? 'Select property type' : '物件タイプを選択'}</option>
+                  <option value="Apartment">{language === 'en' ? 'Apartment (Apāto)' : 'アパート'}</option>
+                  <option value="Mansion">{language === 'en' ? 'Mansion (Manshon)' : 'マンション'}</option>
+                  <option value="House">{language === 'en' ? 'House (Detached)' : '一戸建て'}</option>
+                  <option value="Share House">{language === 'en' ? 'Share House' : 'シェアハウス'}</option>
+                  <option value="No Preference">{language === 'en' ? 'No Preference' : '特に希望なし'}</option>
+                </select>
+              </div>
+              {/* 9. Question or Requirement */}
               <div className="mt-3">
                 <label htmlFor="question" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   {t('formQuestionLabel')} <span className="text-xs text-gray-400 inline-block ml-1">「ペット可、保証人なし希望など…」</span>
