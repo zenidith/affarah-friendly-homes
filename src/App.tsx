@@ -11,6 +11,8 @@ import BackToTopButton from './components/BackToTopButton';
 import ThemeInitializer from './components/ThemeInitializer';
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
 
 const queryClient = new QueryClient();
 
@@ -61,6 +63,8 @@ const App = () => {
             <BrowserRouter>
               <Routes>
                 <Route path="/" element={<Index />} />
+                <Route path="/terms" element={<Terms />} />
+                <Route path="/privacy" element={<Privacy />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>

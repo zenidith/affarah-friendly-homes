@@ -72,29 +72,16 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4 text-gold">{t('legal')}</h3>
             <ul className="space-y-2">
               <li>
-                <span className="text-white/80 flex items-center">
+                <a href="/terms" className="text-white/80 hover:text-white transition-colors">
                   {t('termsService')}
-                  <span className="ml-2 text-xs text-gold/80 whitespace-nowrap">
-                    {language === 'ja' ? '(近日公開)' : '(Coming Soon)'}
-                  </span>
-                </span>
+                </a>
               </li>
               <li>
-                <span className="text-white/80 flex items-center">
+                <a href="/privacy" className="text-white/80 hover:text-white transition-colors">
                   {t('privacyPolicy')}
-                  <span className="ml-2 text-xs text-gold/80 whitespace-nowrap">
-                    {language === 'ja' ? '(近日公開)' : '(Coming Soon)'}
-                  </span>
-                </span>
+                </a>
               </li>
-              <li>
-                <span className="text-white/80 flex items-center">
-                  {t('cookiePolicy')}
-                  <span className="ml-2 text-xs text-gold/80 whitespace-nowrap">
-                    {language === 'ja' ? '(近日公開)' : '(Coming Soon)'}
-                  </span>
-                </span>
-              </li>
+
             </ul>
           </div>
         </div>

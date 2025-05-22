@@ -70,7 +70,7 @@ dark .bg-texture {
   transition: background-color 0.5s ease, color 0.3s ease;
 }
 
-/* Subtle wave-inspired background gradient */
+/* Modern gradient background */
 .wave-background {
   position: fixed;
   top: 0;
@@ -81,18 +81,17 @@ dark .bg-texture {
   min-height: 100vh;
   height: 100%;
   z-index: -1;
-  /* Subtle professional gradient */
-  background: linear-gradient(135deg,
-    #f5f7fa 0%,
-    #e4e8ed 20%,
-    #d4dbe4 40%,
-    #c4cfd9 60%,
-    #b4c2cc 80%,
-    #a5b6c0 100%
+  /* Smooth gradient with the specified colors */
+  background: linear-gradient(135deg, 
+    #34A5D1 0%, 
+    #46B1B9 25%, 
+    #57C795 50%,
+    #46B1B9 75%, 
+    #34A5D1 100%
   );
-  opacity: 0.95;
-  background-size: 200% 200%;
-  animation: gradient-shift 30s ease infinite;
+  opacity: 0.12; /* Very subtle to not distract from content */
+  background-size: 400% 400%;
+  animation: gradient-shift 20s ease infinite;
 }
 
 @keyframes gradient-shift {
@@ -101,7 +100,7 @@ dark .bg-texture {
   100% { background-position: 0% 50%; }
 }
 
-/* Add wave patterns using SVG-like pseudo-elements */
+/* Subtle accent gradient overlay */
 .wave-pattern {
   position: fixed;
   top: 0;
@@ -111,47 +110,20 @@ dark .bg-texture {
   width: 100%;
   min-height: 100vh;
   height: 100%;
-  z-index: -1;
-  overflow: hidden;
+  z-index: -2;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(87, 199, 149, 0.05) 0%,
+    rgba(52, 165, 209, 0.07) 60%,
+    rgba(52, 165, 209, 0.03) 100%
+  );
 }
 
-/* Upper wave pattern - subtle light shade */
-.wave-pattern::before {
-  content: '';
-  position: absolute;
-  width: 300%;
-  height: 100%;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath fill='rgba(255,255,255,0.4)' d='M0,0 C150,80 300,0 450,80 C600,160 750,0 900,80 C1050,160 1200,80 1350,0 L1350,120 L0,120 Z'%3E%3C/path%3E%3C/svg%3E");
-  background-size: 80% 120px;
-  background-position: 0 35%;
-  top: 35%;
-  left: -100%;
-  animation: wave-move 25s linear infinite;
-  z-index: -1;
-}
-
-/* Middle wave pattern - medium shade */
-.wave-pattern::after {
-  content: '';
-  position: absolute;
-  width: 300%;
-  height: 100%;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath fill='rgba(200,215,225,0.5)' d='M0,120 C200,60 400,100 600,60 C800,20 1000,80 1200,40 L1200,120 L0,120 Z'%3E%3C/path%3E%3C/svg%3E");
-  background-size: 70% 150px;
-  background-position: 0 65%;
-  top: 65%;
-  left: -150%;
-  animation: wave-move 30s linear infinite;
-  z-index: -1;
-}
-
-/* Lower wave pattern - darker shade */
+/* Diagonal gradient accent */
 .wave-green {
   content: '';
   position: fixed;
-  width: 300%;
+  width: 100%;
   height: 100%;
   min-height: 100vh;
   top: 0;
@@ -159,16 +131,14 @@ dark .bg-texture {
   right: 0;
   bottom: 0;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath fill='rgba(150,170,185,0.3)' d='M0,40 C100,80 200,20 300,60 C400,100 500,40 600,80 C700,120 800,60 900,100 C1000,60 1100,100 1200,60 L1200,120 L0,120 Z'%3E%3C/path%3E%3C/svg%3E");
-  background-size: 60% 100px;
-  background-position: 0 15%;
-  top: 15%;
-  left: -100%;
-  animation: wave-move 20s linear infinite reverse;
-  z-index: -1;
+  background: linear-gradient(45deg, 
+    rgba(52, 165, 209, 0.04) 0%,
+    rgba(87, 199, 149, 0.08) 100%
+  );
+  z-index: -3;
 }
 
-/* Add some additional decorative elements - very subtle dots */
+/* Subtle dot pattern overlay */
 .wave-dots {
   position: fixed;
   top: 0;
@@ -178,9 +148,9 @@ dark .bg-texture {
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  background-image: radial-gradient(circle at 1px 1px, rgba(180, 190, 200, 0.05) 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, rgba(52, 165, 209, 0.04) 1px, transparent 0);
   background-size: 30px 30px;
-  z-index: -1;
+  z-index: -4;
   pointer-events: none;
 }
 
