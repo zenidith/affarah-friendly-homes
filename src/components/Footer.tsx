@@ -38,18 +38,18 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4 text-gold">{t('services')}</h3>
             <ul className="space-y-2">
-              <li><a href="#services" className="text-white/80 hover:text-white transition-colors">{t('propertySearch')}</a></li>
-              <li><a href="#services" className="text-white/80 hover:text-white transition-colors">{t('applicationSupport')}</a></li>
-              <li><a href="#services" className="text-white/80 hover:text-white transition-colors">{t('moveInAssistance')}</a></li>
+              <li><Link to="/#services" className="text-white/80 hover:text-white transition-colors">{t('propertySearch')}</Link></li>
+              <li><Link to="/#services" className="text-white/80 hover:text-white transition-colors">{t('applicationSupport')}</Link></li>
+              <li><Link to="/#services" className="text-white/80 hover:text-white transition-colors">{t('moveInAssistance')}</Link></li>
             </ul>
           </div>
           
           <div>
             <h3 className="text-lg font-bold mb-4 text-gold">{t('about')}</h3>
             <ul className="space-y-2">
-              <li><a href="#about" className="text-white/80 hover:text-white transition-colors">{t('aboutUs')}</a></li>
-              <li><a href="#team" className="text-white/80 hover:text-white transition-colors">{t('ourTeam')}</a></li>
-              <li><a href="#testimonials" className="text-white/80 hover:text-white transition-colors">{t('testimonials')}</a></li>
+              <li><Link to="/#about" className="text-white/80 hover:text-white transition-colors">{t('aboutUs')}</Link></li>
+              <li><Link to="/#team" className="text-white/80 hover:text-white transition-colors">{t('ourTeam')}</Link></li>
+              <li><Link to="/#testimonials" className="text-white/80 hover:text-white transition-colors">{t('testimonials')}</Link></li>
               <li>
                 <span className="text-white/80 flex items-center">
                   {t('blog')}
