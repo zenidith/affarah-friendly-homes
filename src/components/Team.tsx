@@ -26,7 +26,7 @@ const Team = () => {
           <div className="lg:col-span-2 flex justify-center">
             <div className="relative rounded-lg overflow-hidden shadow-lg border-2 border-gold max-w-xs h-auto lg:h-[600px]">
               <img 
-                src="/images/Ibuki 1-1.png" 
+                src="/images/Ibuki.png" 
                 alt="Ibuki - Affarah Founder" 
                 className="w-full h-auto object-cover"
               />
