@@ -14,7 +14,7 @@ const Footer = () => {
           <div>
             <div className="inline-block">  {/* Wrapper div for better positioning control */}
               <img 
-                src="/lovable-uploads/b3393a11-aa38-494e-a899-dcbc95e48f45.png" 
+                src="/assets/logo.png" 
                 alt="Affarah Logo" 
                 className="h-16 mb-4 invert border-2 border-gold rounded-full p-1" 
               />
@@ -38,18 +38,18 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4 text-gold">{t('services')}</h3>
             <ul className="space-y-2">
-              <li><Link to="/#services" className="text-white/80 hover:text-white transition-colors">{t('propertySearch')}</Link></li>
-              <li><Link to="/#services" className="text-white/80 hover:text-white transition-colors">{t('applicationSupport')}</Link></li>
-              <li><Link to="/#services" className="text-white/80 hover:text-white transition-colors">{t('moveInAssistance')}</Link></li>
+              <li><Link to={`/${language}#services`} className="text-white/80 hover:text-white transition-colors">{t('propertySearch')}</Link></li>
+              <li><Link to={`/${language}#services`} className="text-white/80 hover:text-white transition-colors">{t('applicationSupport')}</Link></li>
+              <li><Link to={`/${language}#services`} className="text-white/80 hover:text-white transition-colors">{t('moveInAssistance')}</Link></li>
             </ul>
           </div>
           
           <div>
             <h3 className="text-lg font-bold mb-4 text-gold">{t('about')}</h3>
             <ul className="space-y-2">
-              <li><Link to="/#about" className="text-white/80 hover:text-white transition-colors">{t('aboutUs')}</Link></li>
-              <li><Link to="/#team" className="text-white/80 hover:text-white transition-colors">{t('ourTeam')}</Link></li>
-              <li><Link to="/#testimonials" className="text-white/80 hover:text-white transition-colors">{t('testimonials')}</Link></li>
+              <li><Link to={`/${language}#about`} className="text-white/80 hover:text-white transition-colors">{t('aboutUs')}</Link></li>
+              <li><Link to={`/${language}#team`} className="text-white/80 hover:text-white transition-colors">{t('ourTeam')}</Link></li>
+              <li><Link to={`/${language}#testimonials`} className="text-white/80 hover:text-white transition-colors">{t('testimonials')}</Link></li>
               <li>
                 <span className="text-white/80 flex items-center">
                   {t('blog')}
@@ -73,12 +73,12 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4 text-gold">{t('legal')}</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/terms" className="text-white/80 hover:text-white transition-colors">
+                <Link to={`/${language}/terms`} className="text-white/80 hover:text-white transition-colors">
                   {t('termsService')}
                 </Link>
               </li>
               <li>
-                <Link to="/privacy" className="text-white/80 hover:text-white transition-colors">
+                <Link to={`/${language}/privacy`} className="text-white/80 hover:text-white transition-colors">
                   {t('privacyPolicy')}
                 </Link>
               </li>

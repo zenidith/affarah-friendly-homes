@@ -8,7 +8,7 @@ import { useLanguage } from '@/context/LanguageContext';
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -45,9 +45,9 @@ const NavBar = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md py-4 shadow-sm border-b border-gray-100 dark:border-gray-800">
         <div className="container-custom flex items-center justify-between">
           <div className="flex items-center">
-            <a href="/" className="flex items-center">
+            <a href={`/${language}`} className="flex items-center">
               <img 
-                src="/lovable-uploads/b3393a11-aa38-494e-a899-dcbc95e48f45.png" 
+                src="/assets/logo.png" 
                 alt="Affarah Logo" 
                 className="h-12 md:h-16 mr-2 border-2 border-navy dark:border-gold rounded-full"
               />
@@ -68,7 +68,7 @@ const NavBar = () => {
             <LanguageToggle />
             <ThemeToggle />
             <a
-              href="#contact"
+              href={`/${language}#contact`}
               onClick={handleContactClick}
               className="bg-navy hover:bg-navy-light text-white dark:bg-white dark:text-navy dark:hover:bg-gray-200 px-4 py-2 rounded-lg font-semibold transition-colors duration-200"
             >
@@ -107,8 +107,11 @@ const NavBar = () => {
                 <Button 
                   className="bg-navy hover:bg-navy-light text-white dark:bg-white dark:text-navy dark:hover:bg-gray-200 w-full"
                   onClick={handleContactClick}
+                  asChild
                 >
-                  {t('getStarted')}
+                  <a href={`/${language}#contact`}>
+                    {t('getStarted')}
+                  </a>
                 </Button>
               </div>
             </div>

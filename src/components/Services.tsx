@@ -176,7 +176,7 @@ const Services = () => {
                   asChild
                 >
                   <a
-                    href="https://app.youform.com/forms/1taqrobw"
+                    href={language === 'en' ? 'https://app.youform.com/forms/1taqrobw' : 'https://app.youform.com/forms/1taqrobw?lang=ja'}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -199,7 +199,7 @@ const Services = () => {
               asChild
             >
               <a
-                href="https://app.youform.com/forms/1taqrobw"
+                href={language === 'en' ? 'https://app.youform.com/forms/1taqrobw' : 'https://app.youform.com/forms/1taqrobw?lang=ja'}
                 target="_blank"
                 rel="noopener noreferrer"
               >

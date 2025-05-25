@@ -121,7 +121,7 @@ const Contact = () => {
           <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-5 h-full flex flex-col">
             <h3 className="text-lg font-bold text-navy dark:text-white mb-3">{t('getInTouch')}</h3>
             <div className="flex-grow">
-              <form id="contact-form" action="https://formsubmit.co/k.sheenan@gmail.com" method="POST">
+              <form id="contact-form" action="https://formsubmit.co/affarah.japan@gmail.com" method="POST">
                 {/* Hidden fields for customization */}
                 <input type="hidden" name="_subject" value="New Contact Submission from Affarah" />
                 <input type="hidden" name="_next" value="https://affarah.com/thanks" />
@@ -353,7 +353,7 @@ const Contact = () => {
   </div>
   <div className="w-full mt-auto pt-4">
     <a
-      href="https://app.youform.com/forms/1taqrobw"
+      href={language === 'en' ? 'https://app.youform.com/forms/1taqrobw' : 'https://app.youform.com/forms/1taqrobw?lang=ja'}
       target="_blank"
       rel="noopener noreferrer"
       className="bg-gold text-navy hover:bg-gold-dark w-full flex items-center justify-center rounded-md py-2 px-4 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"

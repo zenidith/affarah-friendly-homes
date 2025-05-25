@@ -3,14 +3,19 @@ import { useLanguage } from '@/context/LanguageContext';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 
-const Privacy = () => {
-  const { language } = useLanguage();
+interface PrivacyProps {
+  lang: "en" | "ja";
+}
+
+const Privacy = ({ lang }: PrivacyProps) => {
+  const { language, setLanguageFromUrl } = useLanguage();
   const isJapanese = language === 'ja';
 
-  // Scroll to top when page loads
+  // Scroll to top when page loads and set language from URL
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    setLanguageFromUrl(lang);
+  }, [lang, setLanguageFromUrl]);
 
   return (
     <>

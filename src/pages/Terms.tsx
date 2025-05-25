@@ -3,14 +3,19 @@ import { useLanguage } from '@/context/LanguageContext';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 
-const Terms = () => {
-  const { language } = useLanguage();
+interface TermsProps {
+  lang: "en" | "ja";
+}
+
+const Terms = ({ lang }: TermsProps) => {
+  const { language, setLanguageFromUrl } = useLanguage();
   const isJapanese = language === 'ja';
 
-  // Scroll to top when page loads
+  // Scroll to top when page loads and set language from URL
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    setLanguageFromUrl(lang);
+  }, [lang, setLanguageFromUrl]);
 
   return (
     <>
