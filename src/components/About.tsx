@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -21,9 +20,13 @@ const About = () => {
               {t('aboutDescription3')}
             </p>
             <div className="flex flex-wrap gap-4 mt-4">
-              <Button className="btn-primary">{t('ourStory')}</Button>
-              <Button variant="outline" className="border-navy text-navy dark:border-white dark:text-white hover:bg-navy hover:text-white dark:hover:bg-white dark:hover:text-navy">
-                {t('meetTheTeam')}
+              <Button 
+                asChild 
+                className="bg-navy hover:bg-navy-light text-white dark:bg-gold dark:text-navy dark:hover:bg-gold/90 font-medium text-lg px-8 py-4"
+              >
+                <a href={`/${language}#team`}>
+                  {t('meetTheTeam')}
+                </a>
               </Button>
             </div>
           </div>

@@ -117,7 +117,7 @@ const Hero = () => {
               className="bg-navy hover:bg-navy-light text-white dark:bg-gold dark:text-navy dark:hover:bg-gold/90 group font-medium text-lg px-8 py-7 transform transition-transform hover:scale-105 w-full md:w-auto"
             >
               <a
-                href={language === 'en' ? 'https://app.youform.com/forms/1taqrobw' : 'https://app.youform.com/forms/1taqrobw?lang=ja'}
+                href={language === 'en' ? 'https://app.youform.com/forms/1taqrobw' : 'https://app.youform.com/forms/z5fhozwc'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center md:justify-start gap-2 w-full"

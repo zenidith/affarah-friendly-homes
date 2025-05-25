@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -176,7 +175,7 @@ const Services = () => {
                   asChild
                 >
                   <a
-                    href={language === 'en' ? 'https://app.youform.com/forms/1taqrobw' : 'https://app.youform.com/forms/1taqrobw?lang=ja'}
+                    href={language === 'en' ? 'https://app.youform.com/forms/1taqrobw' : 'https://app.youform.com/forms/z5fhozwc'}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -199,7 +198,7 @@ const Services = () => {
               asChild
             >
               <a
-                href={language === 'en' ? 'https://app.youform.com/forms/1taqrobw' : 'https://app.youform.com/forms/1taqrobw?lang=ja'}
+                href={language === 'en' ? 'https://app.youform.com/forms/1taqrobw' : 'https://app.youform.com/forms/z5fhozwc'}
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -353,7 +353,7 @@ const Contact = () => {
   </div>
   <div className="w-full mt-auto pt-4">
     <a
-      href={language === 'en' ? 'https://app.youform.com/forms/1taqrobw' : 'https://app.youform.com/forms/1taqrobw?lang=ja'}
+      href={language === 'en' ? 'https://app.youform.com/forms/1taqrobw' : 'https://app.youform.com/forms/z5fhozwc'}
       target="_blank"
       rel="noopener noreferrer"
       className="bg-gold text-navy hover:bg-gold-dark w-full flex items-center justify-center rounded-md py-2 px-4 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
@@ -370,5 +370,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-

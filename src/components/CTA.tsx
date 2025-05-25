@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -51,7 +50,7 @@ const CTA = () => {
           <div className="p-8 md:p-12 flex justify-center">
             <Button className="btn-secondary group text-lg px-8 py-5 md:text-xl md:px-12 md:py-7 w-full md:w-auto" asChild>
               <a
-                href={language === 'en' ? 'https://app.youform.com/forms/1taqrobw' : 'https://app.youform.com/forms/1taqrobw?lang=ja'}
+                href={language === 'en' ? 'https://app.youform.com/forms/1taqrobw' : 'https://app.youform.com/forms/z5fhozwc'}
                 target="_blank"
                 rel="noopener noreferrer"
               >
