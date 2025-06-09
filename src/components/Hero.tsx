@@ -124,13 +124,13 @@ const Hero = () => {
 
           <div className="relative z-10 h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl border-4 border-white dark:border-gray-800">
             <img
-              src={`/hero-images/${staticHeroImageId}-1280.jpg`} // Default src
-              srcSet={`
-                /hero-images/${staticHeroImageId}-640.jpg 640w,
-                /hero-images/${staticHeroImageId}-800.jpg 800w,
-                /hero-images/${staticHeroImageId}-1280.jpg 1280w,
-                /hero-images/${staticHeroImageId}-1920.jpg 1920w
-              `}
+              src="/hero-images/4-1280.jpg" // Default src
+              srcSet="
+                /hero-images/4-640.jpg 640w,
+                /hero-images/4-800.jpg 800w,
+                /hero-images/4-1280.jpg 1280w,
+                /hero-images/4-1920.jpg 1920w
+              "
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 70vw"
               alt="Hero image for Affarah: A view of Tokyo Tower at dusk, showcasing Japanese housing and lifestyle"
               className="w-full h-full object-cover"
