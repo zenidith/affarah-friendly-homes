@@ -18,14 +18,6 @@ const heroImages = [
   '/hero-images/5.jpg', // Daytime apartment blocks
 ];
 
-// Japanese words/kanji that match each hero image
-const heroKanji = [
-  { text: '安心', meaning: 'Comfort' },     // For the relaxing apartment scene
-  { text: '下町', meaning: 'Shitamachi' },  // For the traditional backstreet
-  { text: '眺望', meaning: 'View' },        // For the apartment with city view
-  { text: '夕景', meaning: 'Twilight' },    // For the dusk scene with Tokyo Tower
-  { text: '住区', meaning: 'Residence' },   // For the apartment buildings
-];
 
 const Hero = () => {
   const [currentImage, setCurrentImage] = React.useState(0);
@@ -132,14 +124,6 @@ const Hero = () => {
           <div className="absolute top-4 left-4 w-[90%] h-[90%] bg-white dark:bg-gray-800 rounded-2xl shadow-lg rotate-[-4deg] z-0"></div>
           <div className="absolute top-2 left-2 w-[95%] h-[95%] bg-white dark:bg-gray-800 rounded-2xl shadow-lg rotate-[-2deg] z-0"></div>
           
-          {/* Decorative Japanese-style elements with changing kanji */}
-          <div className="absolute top-[-15px] right-[-15px] w-[80px] h-[80px] z-20">
-            <div className="absolute inset-0 bg-gold/80 rounded-full animate-pulse"></div>
-            <div className="absolute inset-[10px] bg-white dark:bg-navy rounded-full flex flex-col items-center justify-center">
-              <span className="text-navy dark:text-gold text-2xl font-bold">{heroKanji[currentImage].text}</span>
-              <span className="text-navy dark:text-gold text-[8px] mt-[-2px]">{heroKanji[currentImage].meaning}</span>
-            </div>
-          </div>
           
           {/* Decorative corner elements */}
           <div className="absolute top-[-5px] left-[-5px] w-[40px] h-[40px] border-t-4 border-l-4 border-gold z-20 rounded-tl-lg"></div>

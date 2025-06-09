@@ -39,14 +39,14 @@ const Team = () => {
 
           {/* Content Column - Single Card */}
           <div className="lg:col-span-3 h-full">
-            <div className="bg-white dark:bg-navy-light rounded-lg shadow-md p-6 border-l-4 border-gold h-auto lg:h-[600px] flex flex-col">
+            <div className="bg-white dark:bg-navy-light rounded-lg shadow-md p-6 border-l-4 border-gold h-auto lg:h-[600px] flex flex-col relative">
               <div className="space-y-6 overflow-y-auto pr-2 max-h-full">
                 <div>
                   <h3 className="font-bold text-xl mb-2 flex items-center text-navy dark:text-gold">
                     <span className="mr-2 text-2xl">💬</span> 
                     {isJapanese ? 'ただの不動産屋ではなく、友だちのように' : 'A Friend, Not Just an Agent'}
                   </h3>
-                  <p className="text-gray-700 dark:text-gray-300">
+                  <p className="text-gray-900 dark:text-gray-100">
                     {isJapanese 
                       ? 'Affarahは「家を借りることに詳しい友だち」という意味。気軽に、なんでも相談できる存在です。' 
                       : 'Affarah stands for "A Friend Familiar About Renting A House." You can ask us anything — no stress, no pressure.'}
@@ -58,7 +58,7 @@ const Team = () => {
                     <span className="mr-2 text-2xl">🌍</span> 
                     {isJapanese ? '多言語・多文化に対応' : 'Multilingual & Culturally Aware'}
                   </h3>
-                  <p className="text-gray-700 dark:text-gray-300">
+                  <p className="text-gray-900 dark:text-gray-100">
                     {isJapanese 
                       ? '代表のIbukiをはじめ、海外経験のあるスタッフが、日本人にも外国人にも寄り添って丁寧にサポートします。' 
                       : 'With international experience, we support Japanese and foreign clients with empathy and clarity.'}
@@ -70,7 +70,7 @@ const Team = () => {
                     <span className="mr-2 text-2xl">👟</span> 
                     {isJapanese ? '信頼から始まったブランド' : 'Built on Real Trust'}
                   </h3>
-                  <p className="text-gray-700 dark:text-gray-300">
+                  <p className="text-gray-900 dark:text-gray-100">
                     {isJapanese 
                       ? '最初のお客様は、ダンス仲間。Affarahはコミュニティから生まれ、信頼関係を大切にしています。' 
                       : 'The first client came from Ibuki\'s dance circle. Affarah grew from community, not commissions.'}
@@ -82,7 +82,7 @@ const Team = () => {
                     <span className="mr-2 text-2xl">🏠</span> 
                     {isJapanese ? '家は、人生の土台' : 'Homes Shape Lives'}
                   </h3>
-                  <p className="text-gray-700 dark:text-gray-300">
+                  <p className="text-gray-900 dark:text-gray-100">
                     {isJapanese 
                       ? '家選びは、出会い・生活・お金・価値観すべてに影響する大切な決断。私たちは一緒に「納得できる選択」を目指します。' 
                       : 'We believe renting isn\'t just paperwork — it shapes who you meet, how you live, and where you grow.'}
@@ -94,13 +94,20 @@ const Team = () => {
                     <span className="mr-2 text-2xl">🧭</span> 
                     {isJapanese ? '未来志向 × 地域密着' : 'Looking Forward'}
                   </h3>
-                  <p className="text-gray-700 dark:text-gray-300">
+                  <p className="text-gray-900 dark:text-gray-100">
                     {isJapanese 
                       ? '千葉を拠点に、関東全域でオンライン対応。賃貸だけでなく、売買・民泊・空き家活用にも力を入れています。' 
                       : 'From Chiba to all of Kanto, we\'re expanding into sales, minpaku, and akiya to build better futures.'}
                   </p>
                 </div>
               </div>
+              {/* === POSTCARD IMAGE IN TEXT AREA START === */}
+              <img
+                src="/images/ibuki_real.jpg"
+                alt="Ibuki - Real Photo (Postcard in text area)"
+                className="absolute bottom-4 right-4 w-72 h-auto p-1 bg-white border-2 border-gold shadow-xl transform rotate-[6deg] transition-all duration-300 ease-in-out z-10 opacity-50"
+              />
+              {/* === POSTCARD IMAGE IN TEXT AREA END === */}
             </div>
           </div>
         </div>
