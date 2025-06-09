@@ -38,6 +38,16 @@ const Index = ({ lang }: IndexProps) => {
     <>
       <Helmet>
         <link rel="canonical" href={canonicalUrl.replace(/\/$/, '') + '/'} />
+        <meta name="description" content={
+          lang === 'ja'
+            ? '東京・千代田区を中心に、外国人向けのバイリンガル賃貸コンサルティングサービス。日本でのお部屋探し、契約、サポートはAffarahにお任せ！'
+            : 'Affarah offers friendly, bilingual rental consulting for foreigners in Tokyo, Chiyoda, and across Japan. Find your new home with expert local support—search, negotiate, and sign with ease.'
+        } />
+        <meta name="keywords" content={
+          lang === 'ja'
+            ? '東京, 千代田区, 賃貸, 外国人, バイリンガル, 不動産, 住まい, 部屋探し, サポート, 日本, アファラ'
+            : 'Tokyo, Chiyoda, rental, apartment, housing, foreigner, expat, bilingual, real estate, Japan, Affarah, relocation, support, lease, consulting'
+        } />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

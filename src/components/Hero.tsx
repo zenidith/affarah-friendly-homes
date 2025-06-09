@@ -10,24 +10,10 @@ declare global {
   }
 }
 
-const heroImages = [
-  1, // Apartment with guy reading
-  2, // Tokyo backstreet with old man
-  3, // Apartment with plants overlooking Tokyo
-  4, // Dusk with Tokyo Tower
-  5, // Daytime apartment blocks
-];
-
+// Define the single hero image to use (image #4: Tokyo Tower at dusk)
+const staticHeroImageId = 4;
 
 const Hero = () => {
-  const [currentImage, setCurrentImage] = React.useState(0);
-
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % heroImages.length);
-    }, 7000); // Change image every 7 seconds (slowed down from 3.5 seconds)
-    return () => clearInterval(interval);
-  }, []);
   const { t, language } = useLanguage();
   
   React.useEffect(() => {
@@ -137,30 +123,22 @@ const Hero = () => {
           {/* No floating icons as requested */}
 
           <div className="relative z-10 h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl border-4 border-white dark:border-gray-800">
-            {heroImages.map((image, index) => (
-              <div 
-                key={index}
-                className={`absolute inset-0 transition-opacity duration-3000 ${index === currentImage ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
-              >
-                <div className={`w-full h-full transition-transform duration-7000 ${index === currentImage ? 'scale-110' : 'scale-100'}`}>
-                  <img
-                    src={`/hero-images/${heroImages[index]}-1280.jpg`}
-                    srcSet={`
-                      /hero-images/${heroImages[index]}-640.jpg 640w,
-                      /hero-images/${heroImages[index]}-800.jpg 800w,
-                      /hero-images/${heroImages[index]}-1280.jpg 1280w,
-                      /hero-images/${heroImages[index]}-1920.jpg 1920w
-                    `}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 70vw"
-                    alt={`Hero image ${index + 1} for Affarah, showcasing Japanese housing and lifestyle`}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    width="1920"
-                    height="1080"
-                  />
-                </div>
-              </div>
-            ))}
+            <img
+              src={`/hero-images/${staticHeroImageId}-1280.jpg`} // Default src
+              srcSet={`
+                /hero-images/${staticHeroImageId}-640.jpg 640w,
+                /hero-images/${staticHeroImageId}-800.jpg 800w,
+                /hero-images/${staticHeroImageId}-1280.jpg 1280w,
+                /hero-images/${staticHeroImageId}-1920.jpg 1920w
+              `}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 70vw"
+              alt="Hero image for Affarah: A view of Tokyo Tower at dusk, showcasing Japanese housing and lifestyle"
+              className="w-full h-full object-cover"
+              loading="eager" // Eager load as it's the primary hero image
+              width="1920" // Intrinsic width of the largest image
+              height="1080" // Intrinsic height of the largest image
+              fetchPriority="high" // Hint to the browser to prioritize this image
+            />
           </div>
           <div 
             className="absolute top-[-10%] right-[-10%] w-64 h-64 bg-gold/20 rounded-full blur-3xl -z-0"
