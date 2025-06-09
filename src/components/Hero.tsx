@@ -11,11 +11,11 @@ declare global {
 }
 
 const heroImages = [
-  '/hero-images/1.jpg', // Apartment with guy reading
-  '/hero-images/2.jpg', // Tokyo backstreet with old man
-  '/hero-images/3.jpg', // Apartment with plants overlooking Tokyo
-  '/hero-images/4.jpg', // Dusk with Tokyo Tower
-  '/hero-images/5.jpg', // Daytime apartment blocks
+  1, // Apartment with guy reading
+  2, // Tokyo backstreet with old man
+  3, // Apartment with plants overlooking Tokyo
+  4, // Dusk with Tokyo Tower
+  5, // Daytime apartment blocks
 ];
 
 
@@ -144,12 +144,19 @@ const Hero = () => {
               >
                 <div className={`w-full h-full transition-transform duration-7000 ${index === currentImage ? 'scale-110' : 'scale-100'}`}>
                   <img
-                    src={image}
+                    src={`/hero-images/${heroImages[index]}-1280.jpg`}
+                    srcSet={`
+                      /hero-images/${heroImages[index]}-640.jpg 640w,
+                      /hero-images/${heroImages[index]}-800.jpg 800w,
+                      /hero-images/${heroImages[index]}-1280.jpg 1280w,
+                      /hero-images/${heroImages[index]}-1920.jpg 1920w
+                    `}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 70vw"
                     alt={`Hero image ${index + 1} for Affarah, showcasing Japanese housing and lifestyle`}
                     className="w-full h-full object-cover"
                     loading="lazy"
-                    width="1920" // TODO: Replace with actual intrinsic width of your images
-                    height="1080" // TODO: Replace with actual intrinsic height of your images
+                    width="1920"
+                    height="1080"
                   />
                 </div>
               </div>
