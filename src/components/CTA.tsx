@@ -35,14 +35,14 @@ const CTA = () => {
                 {currentContent.description}
               </p>
             </div>
-            <div className="relative">
-              <div className="h-64 lg:h-full w-full">
+            <div className="relative p-4 md:p-6">
+              <div className="relative h-64 lg:h-full w-full rounded-xl md:rounded-2xl overflow-hidden">
                 <img
                   src="/hero-images/3.jpg"
                   alt="Featured Home"
                   className="h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-navy/30"></div>
+                <div className="absolute inset-0 bg-navy/10"></div>
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy/80 to-transparent h-24"></div>
               </div>
             </div>
