@@ -38,6 +38,44 @@ const Index = ({ lang }: IndexProps) => {
     <>
       <Helmet>
         <link rel="canonical" href={canonicalUrl.replace(/\/$/, '') + '/'} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Affarah",
+            "image": "https://affarah.com/assets/logo.png",
+            "url": "https://affarah.com/",
+            // No telephone provided
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": lang === 'ja' ? "東京都千代田区サンプル123" : "Sample 123, Chiyoda, Tokyo",
+              "addressLocality": lang === 'ja' ? "千代田区" : "Chiyoda",
+              "addressRegion": "Tokyo",
+              "postalCode": "100-0001",
+              "addressCountry": "JP"
+            },
+            "description": lang === 'ja'
+              ? "外国人向けのフレンドリーなバイリンガル賃貸コンサルティングサービス。日本での住まい探しをサポートします。"
+              : "A friendly, bilingual rental consulting service for foreigners in Japan.",
+            "priceRange": "$$",
+            "areaServed": "Japan",
+            "openingHours": ["Mo-Fr 10:00-18:00"],
+            "sameAs": [
+              "https://www.instagram.com/affarah_tomodachintai/"
+            ],
+            "serviceType": lang === 'ja' ? "賃貸コンサルティング" : "Rental Consulting",
+            "makesOffer": {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": lang === 'ja' ? "賃貸コンサルティング" : "Rental Consulting",
+                "description": lang === 'ja'
+                  ? "外国人のための日本の賃貸住宅探しを、バイリンガルでサポート。交渉や書類作成もお任せください。"
+                  : "Personalized support for foreigners seeking rental housing in Japan, including bilingual guidance, negotiation, and paperwork assistance."
+              }
+            }
+          })}
+        </script>
       </Helmet>
       <div className="min-h-screen flex flex-col aurora-bg">
         <NavBar />
