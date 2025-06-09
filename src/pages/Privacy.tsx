@@ -20,31 +20,26 @@ const Privacy = ({ lang }: PrivacyProps) => {
   return (
     <>
       <NavBar />
-      <main className="pt-24 pb-16 min-h-screen relative overflow-hidden">
-        {/* Background elements using the new gradient */}
-        <div className="wave-background" />
-        <div className="wave-pattern" />
-        <div className="wave-green" />
-        <div className="wave-dots" />
+      <main className="pt-24 pb-16 min-h-screen relative overflow-hidden bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
         
         {/* Content container with solid background for better readability */}
         <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="max-w-4xl mx-auto bg-white dark:bg-navy-dark rounded-xl shadow-lg p-6 md:p-8 border border-gray-100 dark:border-navy-light">
-            <h1 className="text-3xl md:text-4xl font-bold mb-8 text-navy dark:text-gold text-center">
+          <div className="max-w-4xl mx-auto bg-gradient-to-r from-navy to-navy-light rounded-xl shadow-lg p-6 md:p-8 overflow-hidden">
+            <h1 className="text-3xl md:text-4xl font-bold mb-8 text-white text-center">
               {isJapanese ? 'プライバシーポリシー' : 'Privacy Policy'}
             </h1>
             
             {isJapanese ? (
               // Japanese Privacy Policy
-              <div className="space-y-6 text-gray-800 dark:text-white/90">
+              <div className="space-y-6 text-white/90">
                 <section>
                   <p>本プライバシーポリシーは、当社サービスご利用時における情報の収集・利用・開示に関する方針および手続きについて説明し、利用者のプライバシー権利や法的保護についてご案内するものです。</p>
                   <p className="mt-4">当社は、お客様の個人情報をサービスの提供および改善のために利用します。本サービスをご利用いただくことで、本プライバシーポリシーに従った情報の収集および利用に同意したものとみなされます。</p>
                 </section>
 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">用語の解釈および定義</h2>
-                  <h3 className="text-lg font-medium mb-2 text-navy dark:text-gold/90">解釈</h3>
+                  <h2 className="text-xl font-semibold mb-3 text-white">用語の解釈および定義</h2>
+                  <h3 className="text-lg font-medium mb-2 text-white/90">解釈</h3>
                   <p>本ポリシーで冒頭が大文字の単語は、以下の定義に従います。単数・複数を問わず同一の意味を持ちます。</p>
                   
                   <h3 className="text-lg font-medium mt-4 mb-2 text-navy dark:text-gold/90">定義</h3>
@@ -62,25 +57,25 @@ const Privacy = ({ lang }: PrivacyProps) => {
                 </section>
 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">個人情報の収集と利用</h2>
-                  <h3 className="text-lg font-medium mb-2 text-navy dark:text-gold/90">収集するデータの種類</h3>
-                  <h4 className="font-medium mb-1 text-navy dark:text-gold/80">個人情報</h4>
+                  <h2 className="text-xl font-semibold mb-3 text-white">個人情報の収集と利用</h2>
+                  <h3 className="text-lg font-medium mb-2 text-white/90">収集するデータの種類</h3>
+                  <h4 className="font-medium mb-1 text-white/80">個人情報</h4>
                   <p>サービスのご利用にあたり、氏名、メールアドレス、電話番号などの個人情報の提供をお願いする場合があります。</p>
                   
-                  <h4 className="font-medium mt-3 mb-1 text-navy dark:text-gold/80">利用データ</h4>
+                  <h4 className="font-medium mt-3 mb-1 text-white/80">利用データ</h4>
                   <p>サービス利用時には、IPアドレス、ブラウザ種類・バージョン、アクセス日時、滞在時間、端末識別情報等を自動的に収集します。</p>
                   
-                  <h4 className="font-medium mt-3 mb-1 text-navy dark:text-gold/80">第三者ソーシャルメディアサービスからの情報</h4>
+                  <h4 className="font-medium mt-3 mb-1 text-white/80">第三者ソーシャルメディアサービスからの情報</h4>
                   <p>GoogleやFacebook等のアカウントで当社サービスにログイン・登録する場合、当該アカウントに関連する情報（氏名、メールアドレス等）を取得することがあります。</p>
                 </section>
 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">クッキーや追跡技術について</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">クッキーや追跡技術について</h2>
                   <p>クッキーや類似技術を使用して利用状況の分析や利便性向上を行います。お使いのブラウザでクッキーの拒否や通知設定が可能ですが、一部サービスが利用できなくなる場合があります。</p>
                 </section>
 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">個人情報の利用目的</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">個人情報の利用目的</h2>
                   <p>Affarahは以下の目的でお客様の個人情報を利用します。</p>
                   <ul className="list-disc pl-6 space-y-1 mt-2">
                     <li>サービス提供および利用状況の把握</li>
@@ -97,60 +92,60 @@ const Privacy = ({ lang }: PrivacyProps) => {
                 </section>
 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">個人情報の保管期間</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">個人情報の保管期間</h2>
                   <p>個人情報は、本ポリシーに記載の利用目的に必要な期間のみ保管します。利用データもサービス改善のために一定期間保管します。</p>
                 </section>
 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">個人情報の移転</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">個人情報の移転</h2>
                   <p>お客様の情報は、日本国内外のサーバーで処理・保管される場合があります。適切なセキュリティ対策を講じ、個人情報の保護に努めます。</p>
                 </section>
 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">個人情報の開示</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">個人情報の開示</h2>
                   <p>事業譲渡や法的要請等があった場合、またはお客様や第三者の権利・安全保護のため、個人情報を開示することがあります。</p>
                 </section>
 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">セキュリティ</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">セキュリティ</h2>
                   <p>お客様の個人情報保護のため合理的な手段を講じますが、インターネット上の完全な安全性は保証できません。</p>
                 </section>
 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">13歳未満のお客様について</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">13歳未満のお客様について</h2>
                   <p>本サービスは13歳未満の方を対象としていません。13歳未満の方から個人情報を取得したことが判明した場合は速やかに削除します。</p>
                 </section>
 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">外部サイトへのリンク</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">外部サイトへのリンク</h2>
                   <p>本サービスには、当社以外が運営するウェブサイトへのリンクが含まれる場合があります。他サイトのプライバシーポリシーもご確認ください。</p>
                 </section>
 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">プライバシーポリシーの変更</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">プライバシーポリシーの変更</h2>
                   <p>当社はプライバシーポリシーを適宜更新することがあります。最新の内容は本ページに掲載し、日付を更新します。</p>
                 </section>
 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">お問い合わせ</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">お問い合わせ</h2>
                   <p>プライバシーポリシーに関するご質問は下記までご連絡ください。</p>
                   <p className="mt-2">メールアドレス: info@affarah.co.jp</p>
                   <p className="mt-1">住所: 千葉県千葉市緑区大膳野町1056-30</p>
                 </section>
                 
-                <p className="text-sm text-gray-600 dark:text-gold/70 mt-8 text-right">最終更新日：2025年5月20日</p>
+                <p className="text-sm text-white/70 mt-8 text-right">最終更新日：2025年5月20日</p>
               </div>
             ) : (
               // English Privacy Policy
-              <div className="space-y-6 text-gray-800 dark:text-white/90">
+              <div className="space-y-6 text-white/90">
                 <section>
                   <p>This Privacy Policy describes our policies and procedures on the collection, use, and disclosure of your information when you use our services and tells you about your privacy rights and how the law protects you.</p>
                   <p className="mt-4">We use your personal data to provide and improve our services. By using our services, you agree to the collection and use of information in accordance with this Privacy Policy.</p>
                 </section>
                 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">Interpretation and Definitions</h2>
-                  <h3 className="text-lg font-medium mb-2 text-navy dark:text-gold/90">Interpretation</h3>
+                  <h2 className="text-xl font-semibold mb-3 text-white">Interpretation and Definitions</h2>
+                  <h3 className="text-lg font-medium mb-2 text-white/90">Interpretation</h3>
                   <p>The words in which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning whether they appear in singular or plural.</p>
                   
                   <h3 className="text-lg font-medium mt-4 mb-2 text-navy dark:text-gold/90">Definitions</h3>
@@ -169,9 +164,9 @@ const Privacy = ({ lang }: PrivacyProps) => {
                 </section>
                 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">Collecting and Using Your Personal Data</h2>
-                  <h3 className="text-lg font-medium mb-2 text-navy dark:text-gold/90">Types of Data Collected</h3>
-                  <h4 className="font-medium mb-1 text-navy dark:text-gold/80">Personal Data</h4>
+                  <h2 className="text-xl font-semibold mb-3 text-white">Collecting and Using Your Personal Data</h2>
+                  <h3 className="text-lg font-medium mb-2 text-white/90">Types of Data Collected</h3>
+                  <h4 className="font-medium mb-1 text-white/80">Personal Data</h4>
                   <p>While using our service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. Personally identifiable information may include, but is not limited to:</p>
                   <ul className="list-disc pl-6 space-y-1 mt-2">
                     <li>Email address</li>
@@ -180,21 +175,21 @@ const Privacy = ({ lang }: PrivacyProps) => {
                     <li>Usage Data</li>
                   </ul>
                   
-                  <h4 className="font-medium mt-3 mb-1 text-navy dark:text-gold/80">Usage Data</h4>
+                  <h4 className="font-medium mt-3 mb-1 text-white/80">Usage Data</h4>
                   <p>Usage Data is collected automatically when using our service. Usage Data may include information such as your device's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers, and other diagnostic data.</p>
                   <p className="mt-2">If you access our service through a mobile device, we may collect certain information automatically, including, but not limited to, the type of mobile device you use, your mobile device unique ID, the IP address of your mobile device, your mobile operating system, the type of mobile Internet browser you use, unique device identifiers and other diagnostic data.</p>
                   
-                  <h4 className="font-medium mt-3 mb-1 text-navy dark:text-gold/80">Information from Third-Party Social Media Services</h4>
+                  <h4 className="font-medium mt-3 mb-1 text-white/80">Information from Third-Party Social Media Services</h4>
                   <p>You may be able to create an account and log in to use our service through Third-party Social Media Services (such as Google, Facebook, etc.). If you do so, we may collect personal data already associated with your third-party account, such as your name, email address, and contact list.</p>
                 </section>
                 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">Tracking Technologies and Cookies</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">Tracking Technologies and Cookies</h2>
                   <p>We use cookies and similar tracking technologies to track activity on our service and store certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. If you do not accept cookies, you may not be able to use some parts of our service.</p>
                 </section>
                 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">Use of Your Personal Data</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">Use of Your Personal Data</h2>
                   <p>Affarah may use your Personal Data for the following purposes:</p>
                   <ul className="list-disc pl-6 space-y-1 mt-2">
                     <li>To provide and maintain our service, including to monitor usage.</li>
@@ -218,48 +213,48 @@ const Privacy = ({ lang }: PrivacyProps) => {
                 </section>
                 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">Retention of Your Personal Data</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">Retention of Your Personal Data</h2>
                   <p>Affarah will retain your personal data only as long as necessary for the purposes set out in this Privacy Policy. We may also retain usage data for internal analysis purposes.</p>
                 </section>
                 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">Transfer of Your Personal Data</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">Transfer of Your Personal Data</h2>
                   <p>Your information may be transferred to and maintained on computers located outside your jurisdiction where the data protection laws may differ. We will take reasonable steps to ensure your data is treated securely.</p>
                 </section>
                 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">Disclosure of Your Personal Data</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">Disclosure of Your Personal Data</h2>
                   <p>We may disclose your personal data for business transactions, legal requirements, or to protect the rights, safety, or property of Affarah, our users, or the public.</p>
                 </section>
                 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">Security of Your Personal Data</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">Security of Your Personal Data</h2>
                   <p>We strive to use commercially acceptable means to protect your personal data but cannot guarantee its absolute security.</p>
                 </section>
                 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">Children's Privacy</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">Children's Privacy</h2>
                   <p>Our service does not address anyone under the age of 13. We do not knowingly collect personal information from children under 13.</p>
                 </section>
                 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">Links to Other Websites</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">Links to Other Websites</h2>
                   <p>Our service may contain links to other websites not operated by us. We strongly advise you to review the privacy policy of every site you visit.</p>
                 </section>
                 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">Changes to This Privacy Policy</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">Changes to This Privacy Policy</h2>
                   <p>We may update our Privacy Policy from time to time. Changes will be posted on this page with an updated date.</p>
                 </section>
                 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-navy dark:text-gold">Contact Us</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-white">Contact Us</h2>
                   <p>If you have any questions about this Privacy Policy, you can contact us:</p>
                   <p className="mt-2">By email: info@affarah.co.jp</p>
                   <p className="mt-1">Address: 千葉県千葉市緑区大膳野町1056-30</p>
                 </section>
                 
-                <p className="text-sm text-gray-600 dark:text-gold/70 mt-8 text-right">Last updated: May 20, 2025</p>
+                <p className="text-sm text-white/70 mt-8 text-right">Last updated: May 20, 2025</p>
               </div>
             )}
           </div>
