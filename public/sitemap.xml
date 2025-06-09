@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://affarah.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://affarah.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://affarah.com/ja/" />
+  </url>
+  <url>
+    <loc>https://affarah.com/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://affarah.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://affarah.com/en/" />
+  </url>
+  <url>
+    <loc>https://affarah.com/en/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://affarah.com/en/terms" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://affarah.com/ja/terms" />
+  </url>
+  <url>
+    <loc>https://affarah.com/ja/terms</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://affarah.com/ja/terms" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://affarah.com/en/terms" />
+  </url>
+  <url>
+    <loc>https://affarah.com/en/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://affarah.com/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://affarah.com/ja/privacy" />
+  </url>
+  <url>
+    <loc>https://affarah.com/ja/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://affarah.com/ja/privacy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://affarah.com/en/privacy" />
+  </url>
+</urlset>
