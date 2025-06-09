@@ -38,7 +38,7 @@ const CTA = () => {
             <div className="relative p-4 md:p-6">
               <div className="relative h-64 lg:h-full w-full rounded-xl md:rounded-2xl overflow-hidden">
                 <img
-                  src="/hero-images/3.jpg"
+                  src="/hero-images/3-1280.jpg"
                   alt="Featured Home"
                   className="h-full w-full object-cover"
                   loading="lazy"

@@ -3,6 +3,12 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
+// Import images directly
+import heroImage640 from '@/../public/hero-images/4-640.jpg';
+import heroImage800 from '@/../public/hero-images/4-800.jpg';
+import heroImage1280 from '@/../public/hero-images/4-1280.jpg';
+import heroImage1920 from '@/../public/hero-images/4-1920.jpg';
+
 // Declare YouFormWidget on window for TypeScript
 declare global {
   interface Window {
