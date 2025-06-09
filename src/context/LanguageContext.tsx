@@ -67,14 +67,16 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     const currentSearch = location.search;
     let newPath = '';
 
-    if (currentPath.startsWith('/en/') || currentPath.startsWith('/ja/')) {
-      newPath = `/${newLang}${currentPath.substring(3)}`;
-    } else if (currentPath === '/') { // Handle root path
+    // Replace the leading /en or /ja if present, otherwise add /<lang> at the root
+    if (currentPath === '/' || currentPath === '') {
       newPath = `/${newLang}`;
-    } else { // For other paths, prepend language if not already there
-      newPath = `/${newLang}${currentPath}`;
+    } else {
+      // Replace only the leading /en or /ja (with or without trailing slash)
+      newPath = currentPath.replace(/^\/(en|ja)(\/|$)/, `/${newLang}/`).replace(/\/+/g, '/');
+      // Remove trailing slash for root language path
+      if (newPath === `/${newLang}/`) newPath = `/${newLang}`;
     }
-    
+
     // Remove 'lang' param from search if it exists, as path now reflects language
     const params = new URLSearchParams(currentSearch);
     if (params.has('lang')) {
@@ -85,6 +87,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
       navigate(newPath, { replace: true });
     }
   };
+
   
   const toggleLanguage = () => {
     const newLang = language === 'en' ? 'ja' : 'en';

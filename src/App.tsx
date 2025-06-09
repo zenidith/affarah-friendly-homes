@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "next-themes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HelmetProvider } from 'react-helmet-async';
 import { LanguageProvider } from '@/context/LanguageContext';
 import BackToTopButton from './components/BackToTopButton';
 import ThemeInitializer from './components/ThemeInitializer';
@@ -38,57 +39,56 @@ const App = () => {
   }, []);
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <ThemeInitializer />
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <div className="min-h-screen prevent-layout-shift transition-colors duration-500 relative overflow-hidden">
-            {/* Wave background */}
-            <div className="wave-background" />
-            {/* Wave pattern overlay */}
-            <div className="wave-pattern" />
-            {/* Green wave pattern */}
-            <div className="wave-green" />
-            {/* Decorative dots pattern */}
-            <div className="wave-dots" />
-            {/* Content overlay to ensure readability */}
-            <div className="absolute inset-0 bg-white/10 pointer-events-none" />
-            
-            {/* Back to Top button component */}
-            <BackToTopButton />
-            <Toaster />
-            <Sonner />
-            <BrowserRouter>
-              <LanguageProvider>
-                <Routes>
-                  {/* Redirect root to preferred language */}
-                  <Route path="/" element={<Navigate to="/en" replace />} />
-                  
-                  {/* Language-specific routes - handle both with and without trailing slash */}
-                  <Route path="/en" element={<Index lang="en" />} />
-                  <Route path="/en/" element={<Index lang="en" />} />
-                  <Route path="/ja" element={<Index lang="ja" />} />
-                  <Route path="/ja/" element={<Index lang="ja" />} />
-                  
-                  {/* Language-specific terms and privacy routes */}
-                  <Route path="/en/terms" element={<Terms lang="en" />} />
-                  <Route path="/ja/terms" element={<Terms lang="ja" />} />
-                  <Route path="/en/privacy" element={<Privacy lang="en" />} />
-                  <Route path="/ja/privacy" element={<Privacy lang="ja" />} />
-                  
-                  {/* Legacy routes for backward compatibility */}
-                  <Route path="/terms" element={<Navigate to="/en/terms" replace />} />
-                  <Route path="/privacy" element={<Navigate to="/en/privacy" replace />} />
-                  
-                  {/* 404 route */}
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </LanguageProvider>
-            </BrowserRouter>
-          </div>
-        </TooltipProvider>
-      </QueryClientProvider>
-    </ThemeProvider>
+    <HelmetProvider>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeInitializer />
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
+            <div className="min-h-screen prevent-layout-shift transition-colors duration-500 relative overflow-hidden">
+              {/* Wave background */}
+              <div className="wave-background" />
+              {/* Wave pattern overlay */}
+              <div className="wave-pattern" />
+              {/* Green wave pattern */}
+              <div className="wave-green" />
+              {/* Decorative dots pattern */}
+              <div className="wave-dots" />
+              {/* Content overlay to ensure readability */}
+              <div className="absolute inset-0 bg-white/10 pointer-events-none" />
+              
+              {/* Back to Top button component */}
+              <BackToTopButton />
+              <Toaster />
+              <Sonner />
+              <BrowserRouter>
+                <LanguageProvider>
+                  <Routes>
+                    {/* Redirect root to preferred language */}
+                    <Route path="/" element={<Navigate to="/en" replace />} />
+                    
+                    {/* Language-specific routes - handle both with and without trailing slash */}
+                    <Route path="/en" element={<Index lang="en" />} />
+                    <Route path="/en/" element={<Index lang="en" />} />
+                    <Route path="/ja" element={<Index lang="ja" />} />
+                    <Route path="/ja/" element={<Index lang="ja" />} />
+                    
+                    {/* Language-specific terms and privacy routes */}
+                    <Route path="/en/terms" element={<Terms lang="en" />} />
+                    <Route path="/ja/terms" element={<Terms lang="ja" />} />
+                    <Route path="/en/privacy" element={<Privacy lang="en" />} />
+                    <Route path="/ja/privacy" element={<Privacy lang="ja" />} />
+                    
+                    {/* Legacy routes for backward compatibility */}
+                    <Route path="/terms" element={<Navigate to="/en/terms" replace />} />
+                    <Route path="/privacy" element={<Navigate to="/en/privacy" replace />} />
+                  </Routes>
+                </LanguageProvider>
+              </BrowserRouter>
+            </div>
+          </TooltipProvider>
+        </QueryClientProvider>
+      </ThemeProvider>
+    </HelmetProvider>
   );
 };
 
