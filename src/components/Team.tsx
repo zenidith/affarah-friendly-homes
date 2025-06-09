@@ -29,6 +29,9 @@ const Team = () => {
                 src="/images/Ibuki.png" 
                 alt="Ibuki - Affarah Founder" 
                 className="w-full h-auto object-cover"
+                loading="lazy"
+                width="320" // TODO: Replace with actual intrinsic width of /images/Ibuki.png
+                height="600" // TODO: Replace with actual intrinsic height of /images/Ibuki.png
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 text-center">
                 <h4 className="text-white font-bold">Ibuki</h4>
@@ -106,6 +109,9 @@ const Team = () => {
                 src="/images/ibuki_real.jpg"
                 alt="Ibuki - Real Photo (Postcard in text area)"
                 className="absolute bottom-4 right-4 w-72 h-auto p-1 bg-white border-2 border-gold shadow-xl transform rotate-[6deg] transition-all duration-300 ease-in-out z-10 opacity-50"
+                loading="lazy"
+                width="288" // Corresponds to w-72, verify actual intrinsic width
+                height="192" // Placeholder, verify actual intrinsic height for aspect ratio
               />
               {/* === POSTCARD IMAGE IN TEXT AREA END === */}
             </div>

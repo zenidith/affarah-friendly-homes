@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, ReactNode } from 'react';
+import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 import { Language, TranslationKey } from '@/types/translations';
 import { translations } from '@/data/translations';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -7,15 +7,15 @@ import { useNavigate, useLocation } from 'react-router-dom';
 interface LanguageContextType {
   language: Language;
   toggleLanguage: () => void;
-  setLanguageFromUrl: (lang: Language) => void;
+  // setLanguageFromUrl: (lang: Language) => void; // We can simplify by handling this internally
   t: (key: TranslationKey) => string;
 }
 
 // Create the context with default values
 const LanguageContext = createContext<LanguageContextType>({
-  language: 'en',
+  language: 'en', // Default language
   toggleLanguage: () => {},
-  setLanguageFromUrl: () => {},
+  // setLanguageFromUrl: () => {},
   t: () => '',
 });
 
@@ -23,9 +23,21 @@ const LanguageContext = createContext<LanguageContextType>({
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  
-  // Simple function to get initial language
+
   const getInitialLanguage = (): Language => {
+    // 1. Check URL parameter first
+    const params = new URLSearchParams(location.search);
+    const langFromUrl = params.get('lang');
+    if (langFromUrl === 'ja' || langFromUrl === 'en') {
+      try {
+        localStorage.setItem('preferredLanguage', langFromUrl); // Update localStorage
+      } catch (e) {
+        console.warn('Error writing to localStorage from URL param', e);
+      }
+      return langFromUrl;
+    }
+
+    // 2. Check localStorage
     try {
       const savedLanguage = localStorage.getItem('preferredLanguage');
       if (savedLanguage === 'ja' || savedLanguage === 'en') {
@@ -35,52 +47,58 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
       console.warn('Error reading from localStorage', e);
     }
     
-    // Default to English
+    // 3. Default to English (or your preferred default)
     return 'en';
   };
 
-  // State for current language
-  const [language, setLanguage] = useState<Language>(getInitialLanguage);
+  const [language, setLanguageState] = useState<Language>(getInitialLanguage);
 
-  // Function to toggle between languages
-  const toggleLanguage = () => {
-    const newLang = language === 'en' ? 'ja' : 'en';
-    
+  // Function to set language and update persistence/URL
+  const setLanguage = (newLang: Language) => {
     try {
       localStorage.setItem('preferredLanguage', newLang);
     } catch (e) {
       console.warn('Error writing to localStorage', e);
     }
-    
+    setLanguageState(newLang);
+
     // Update URL path based on current location
     const currentPath = location.pathname;
+    const currentSearch = location.search;
     let newPath = '';
-    
+
     if (currentPath.startsWith('/en/') || currentPath.startsWith('/ja/')) {
       newPath = `/${newLang}${currentPath.substring(3)}`;
-    } else {
+    } else if (currentPath === '/') { // Handle root path
       newPath = `/${newLang}`;
+    } else { // For other paths, prepend language if not already there
+      newPath = `/${newLang}${currentPath}`;
     }
     
-    // Update language state
+    // Remove 'lang' param from search if it exists, as path now reflects language
+    const params = new URLSearchParams(currentSearch);
+    if (params.has('lang')) {
+      params.delete('lang');
+      const newSearch = params.toString();
+      navigate(`${newPath}${newSearch ? `?${newSearch}` : ''}`, { replace: true });
+    } else {
+      navigate(newPath, { replace: true });
+    }
+  };
+  
+  const toggleLanguage = () => {
+    const newLang = language === 'en' ? 'ja' : 'en';
     setLanguage(newLang);
-    
-    // Navigate to new URL path
-    navigate(newPath);
   };
 
-  // Function to update language from URL
-  const setLanguageFromUrl = (lang: Language) => {
-    if (lang !== language) {
-      try {
-        localStorage.setItem('preferredLanguage', lang);
-      } catch (e) {
-        console.warn('Error writing to localStorage', e);
-      }
-      
-      setLanguage(lang);
+  // Effect to handle initial URL parameter and update context if needed
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const langFromUrl = params.get('lang');
+    if ((langFromUrl === 'ja' || langFromUrl === 'en') && langFromUrl !== language) {
+      setLanguage(langFromUrl); // This will also update localStorage and path
     }
-  };
+  }, [location.search, language]); // Rerun if search params or context language changes
 
   // Translation function
   const t = (key: TranslationKey): string => {
@@ -88,7 +106,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   };
 
   // Set HTML lang attribute when language changes
-  React.useEffect(() => {
+  useEffect(() => {
     document.documentElement.setAttribute('lang', language);
     document.body.setAttribute('data-language', language);
   }, [language]);
@@ -97,7 +115,6 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     <LanguageContext.Provider value={{ 
       language, 
       toggleLanguage, 
-      setLanguageFromUrl, 
       t 
     }}>
       {children}

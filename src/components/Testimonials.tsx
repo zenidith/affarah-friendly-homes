@@ -124,6 +124,9 @@ const Testimonials = () => {
                         src={testimonial.image} 
                         alt={testimonial.name} 
                         className="w-full aspect-square object-cover rounded-sm"
+                        loading="lazy"
+                        width="280" // TODO: Replace with actual intrinsic width of testimonial images
+                        height="280" // TODO: Replace with actual intrinsic height of testimonial images
                       />
                       <div className="p-2 text-center">
                         <p className="font-bold text-navy dark:text-gold">{language === 'ja' ? `${testimonial.name}さん` : testimonial.name}</p>

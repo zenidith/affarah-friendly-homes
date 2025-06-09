@@ -17,6 +17,9 @@ const Footer = () => {
                 src="/assets/logo.png" 
                 alt="Affarah Logo" 
                 className="h-16 mb-4 invert border-2 border-gold rounded-full p-1" 
+                loading="lazy"
+                width="64" // TODO: Replace with actual intrinsic width of /assets/logo.png
+                height="64" // Corresponds to h-16, verify actual intrinsic height
               />
             </div>
             <p className="text-white/80 mb-4">

@@ -41,6 +41,9 @@ const CTA = () => {
                   src="/hero-images/3.jpg"
                   alt="Featured Home"
                   className="h-full w-full object-cover"
+                  loading="lazy"
+                  width="1920" // TODO: Replace with actual intrinsic width of /hero-images/3.jpg
+                  height="1080" // TODO: Replace with actual intrinsic height of /hero-images/3.jpg
                 />
                 <div className="absolute inset-0 bg-navy/10"></div>
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy/80 to-transparent h-24"></div>

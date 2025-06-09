@@ -37,6 +37,9 @@ const About = () => {
                   src="/about-affarah.png"
                   alt="Ibuki helping a client"
                   className="w-full h-full rounded-sm object-cover"
+                  loading="lazy"
+                  width="350" // TODO: Replace with actual intrinsic width of /about-affarah.png
+                  height="350" // TODO: Replace with actual intrinsic height of /about-affarah.png
                 />
               </div>
               <div className="p-2 text-center bg-white dark:bg-gray-800">

@@ -145,8 +145,11 @@ const Hero = () => {
                 <div className={`w-full h-full transition-transform duration-7000 ${index === currentImage ? 'scale-110' : 'scale-100'}`}>
                   <img
                     src={image}
-                    alt="Traditional Japanese apartment interior with shoji screens and tatami mats"
+                    alt={`Hero image ${index + 1} for Affarah, showcasing Japanese housing and lifestyle`}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    width="1920" // TODO: Replace with actual intrinsic width of your images
+                    height="1080" // TODO: Replace with actual intrinsic height of your images
                   />
                 </div>
               </div>
