@@ -20,54 +20,34 @@ const Testimonials = () => {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      name: language === 'ja' ? "田中真也" : "Maya Tanaka",
+      name: language === 'ja' ? "リナ" : "Rina",
       location: language === 'en' ? "Saitama, Japan" : "埼玉",
       quote: {
-        en: "Finding a home close to the best cycling routes has made every weekend an adventure. I love how easy it is to get outdoors!",
-        ja: "最高のサイクリングコースの近くに住めて、毎週末が冒険になりました。外に出るのがとても楽しいです！"
+        en: "Rina is thrilled with her new home and praises the agent's integrity and helpfulness, which made her first home search a happy and reassuring experience. She would definitely use their services again.",
+        ja: "リナさんは新しい家に大満足で、担当者の誠実さと親切さを称賛しています。初めての家探しも安心して楽しい経験となり、また利用したいと述べています。"
       },
       image: "/testimonials/maya_cyclist.png"
     },
     {
       id: 2,
-      name: language === 'ja' ? "佐藤恵美" : "Emi Sato",
+      name: language === 'ja' ? "カーソン＆ホノミ" : "Carson & Honomi",
       location: language === 'en' ? "Tokyo, Japan" : "東京",
       quote: {
-        en: "My new place is perfect for relaxing and listening to music. The peaceful atmosphere inspires my creativity.",
-        ja: "新しい家は音楽を聴きながらリラックスするのにぴったり。静かな雰囲気が創造力を引き出してくれます。"
+        en: "Carson and Honomi, as foreigners, found renting in Tokyo challenging but had a perfect experience with Ibuki. They highlight her attentiveness to their needs, lack of pressure, and help with paperwork, calling her a lifesaver.",
+        ja: "外国人であるカーソンさんとホノミさんは、東京での賃貸物件探しに苦労しましたが、イブキさんのおかげで完璧な経験ができました。彼らのニーズへの配慮、プレッシャーのなさ、書類手続きのサポートを特筆し、命の恩人と呼んでいます。"
       },
       image: "/testimonials/emi_music.png"
     },
     {
       id: 3,
-      name: language === 'ja' ? "山田孝志" : "Takashi Yamada",
+      name: language === 'ja' ? "ケイン" : "Kayne",
       location: language === 'en' ? "Chiba, Japan" : "千葉",
       quote: {
-        en: "I wanted a cozy, welcoming home, and that's exactly what I found. It's my favorite place to unwind after a long day.",
-        ja: "居心地の良い家を探していて、まさに理想の場所が見つかりました。毎日帰るのが楽しみです。"
+        en: "Kayne was highly impressed with Ibuki's service, noting her efficiency in vetting options, understanding his needs to suggest even better places, and providing flawless support from viewing to after-service, including negotiating a discount.",
+        ja: "ケインさんはイブキさんのサービスに非常に感銘を受け、物件の選定の効率性、ニーズを理解してより良い物件を提案する能力、内見からアフターサービスまでの完璧なサポート、さらに値引き交渉までしてくれた点を挙げています。"
       },
       image: "/testimonials/takashi_home.png"
     },
-    {
-      id: 4,
-      name: language === 'ja' ? "小林由紀" : "Yuki Kobayashi",
-      location: language === 'en' ? "Tokyo, Japan" : "東京",
-      quote: {
-        en: "Hosting friends and sharing good times has never been easier. My home is now the go-to spot for gatherings!",
-        ja: "友達を招いて楽しい時間を過ごすのがもっと簡単になりました。今では私の家が集まりの定番です！"
-      },
-      image: "/testimonials/yuki_social.png"
-    },
-    {
-      id: 5,
-      name: language === 'ja' ? "藤本早苗" : "Sanae Fujimoto",
-      location: language === 'en' ? "Kanagawa, Japan" : "神奈川",
-      quote: {
-        en: "Living surrounded by greenery brings me peace every day. I feel refreshed and connected to nature.",
-        ja: "緑に囲まれた生活は毎日心を癒してくれます。自然とつながっている実感があります。"
-      },
-      image: "/testimonials/sanae_nature.png"
-    }
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
