@@ -347,6 +347,7 @@ const Contact = () => {
           src="/images/Ibuki2.png"
           alt="Quiz Helper Illustration"
           className="max-w-full max-h-full object-cover"
+          loading="lazy"
         />
       </div>
     </div>
