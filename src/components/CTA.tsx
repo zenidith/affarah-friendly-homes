@@ -4,6 +4,17 @@ import { useLanguage } from '@/context/LanguageContext';
 
 const CTA = () => {
   const { t, language } = useLanguage();
+
+  // Handle smooth scrolling to the contact form
+  const handleContactClick = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      const navbarHeight = 100; // Approximate height of the fixed navbar
+      const yOffset = -navbarHeight; 
+      const y = contactSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
   
   const content = {
     en: {
@@ -38,12 +49,14 @@ const CTA = () => {
             <div className="relative p-4 md:p-6">
               <div className="relative h-64 lg:h-full w-full rounded-xl md:rounded-2xl overflow-hidden">
                 <img
-                  src="/hero-images/3-1280.jpg"
+                  src="/hero-images/3-640.jpg"
+                  srcSet="/hero-images/3-640.jpg 640w, /hero-images/3-800.jpg 800w, /hero-images/3-1280.jpg 1280w, /hero-images/3-1920.jpg 1920w"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                   alt="Featured Home"
                   className="h-full w-full object-cover"
                   loading="lazy"
-                  width="1920" // TODO: Replace with actual intrinsic width of /hero-images/3.jpg
-                  height="1080" // TODO: Replace with actual intrinsic height of /hero-images/3.jpg
+                  width="1920"
+                  height="1080"
                 />
                 <div className="absolute inset-0 bg-navy/10"></div>
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy/80 to-transparent h-24"></div>
@@ -51,15 +64,12 @@ const CTA = () => {
             </div>
           </div>
           <div className="p-8 md:p-12 flex justify-center">
-            <Button className="btn-secondary group text-lg px-8 py-5 md:text-xl md:px-12 md:py-7 w-full md:w-auto" asChild>
-              <a
-                href={language === 'en' ? 'https://app.youform.com/forms/1taqrobw' : 'https://app.youform.com/forms/z5fhozwc'}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {currentContent.cta}
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </a>
+            <Button
+              onClick={handleContactClick}
+              className="btn-secondary group text-lg px-8 py-5 md:text-xl md:px-12 md:py-7 w-full md:w-auto flex items-center justify-center"
+            >
+              {currentContent.cta}
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
         </div>

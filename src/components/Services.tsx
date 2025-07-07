@@ -97,6 +97,17 @@ const Services = () => {
   };
 
   const customSolution = language === 'en' ? customSolutionContent.en : customSolutionContent.ja;
+
+  // Handle smooth scrolling to the contact form
+  const handleContactClick = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      const navbarHeight = 100; // Approximate height of the fixed navbar
+      const yOffset = -navbarHeight; 
+      const y = contactSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
   
   // Back to Top button has been moved to App.tsx for better positioning
 
@@ -171,16 +182,10 @@ const Services = () => {
                   ))}
                 </div>
                 <Button
+                  onClick={handleContactClick}
                   className="w-full bg-navy text-white dark:bg-white dark:text-navy hover:bg-navy-light dark:hover:bg-gray-200 group-hover:bg-gold group-hover:text-navy transition-colors duration-300 mt-auto py-2 text-sm"
-                  asChild
                 >
-                  <a
-                    href={language === 'en' ? 'https://app.youform.com/forms/1taqrobw' : 'https://app.youform.com/forms/z5fhozwc'}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {service.cta}
-                  </a>
+                  {service.cta}
                 </Button>
               </div>
             </div>
@@ -194,16 +199,10 @@ const Services = () => {
               {customSolution.description}
             </p>
             <Button 
-              className="btn-secondary px-6 py-2 text-sm font-medium" 
-              asChild
+              onClick={handleContactClick}
+              className="btn-secondary px-6 py-2 text-sm font-medium"
             >
-              <a
-                href={language === 'en' ? 'https://app.youform.com/forms/1taqrobw' : 'https://app.youform.com/forms/z5fhozwc'}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {customSolution.cta}
-              </a>
+              {customSolution.cta}
             </Button>
           </div>
         </div>

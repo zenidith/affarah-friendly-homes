@@ -13,6 +13,17 @@ const Contact = () => {
 
   const { toast } = useToast();
   const { t, language } = useLanguage();
+
+  // Handle smooth scrolling to the contact form
+  const handleContactClick = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      const navbarHeight = 100; // Approximate height of the fixed navbar
+      const yOffset = -navbarHeight; 
+      const y = contactSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
   
   // Track preferred contact method and whether to show the ID field
   const [contactMethod, setContactMethod] = useState('Email');
@@ -330,39 +341,31 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-gold/10 dark:bg-gold/5 rounded-2xl p-6 border border-gold/30 flex flex-col items-center h-full">
-  <div className="flex-grow flex flex-col w-full">
-    <h3 className="text-base font-bold text-navy dark:text-white mb-2 text-center w-full">
-      {language === 'en' ? 'Need Help Getting Started?' : '🏠 最初の一歩を踏み出そう'}
-    </h3>
-    <p className="text-gray-600 dark:text-gray-300 mb-4 text-xs text-center w-full">
-      {language === 'en' 
-        ? "Answer a few quick questions and we'll guide you toward the right rental options."
-        : "どこから始めればいいか分からない？"}
-    </p>
-    {/* Image now appears before the button with improved sizing */}
-    <div className="w-full flex justify-center mb-auto py-4">
-      <div className="w-[180px] h-[140px] rounded-xl shadow-lg border border-navy/10 bg-white/70 overflow-hidden flex items-center justify-center">
-        <img
-          src="/images/Ibuki2.png"
-          alt="Quiz Helper Illustration"
-          className="max-w-full max-h-full object-cover"
-          loading="lazy"
-        />
-      </div>
-    </div>
-  </div>
-  <div className="w-full mt-auto pt-4">
-    <a
-      href={language === 'en' ? 'https://app.youform.com/forms/1taqrobw' : 'https://app.youform.com/forms/z5fhozwc'}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-gold text-navy hover:bg-gold-dark w-full flex items-center justify-center rounded-md py-2 px-4 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
-    >
-      {language === 'en' ? 'Start the Quiz' : 'クイック診断を始める'}
-    </a>
-  </div>
-</div>
+            <button
+              onClick={handleContactClick}
+              className="bg-gold/10 dark:bg-gold/5 rounded-2xl p-6 border border-gold/30 flex flex-col items-center h-full text-left w-full transition-all duration-300 hover:bg-gold/20 dark:hover:bg-gold/10 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
+            >
+              <div className="flex-grow flex flex-col w-full">
+                <h3 className="text-base font-bold text-navy dark:text-white mb-2 text-center w-full">
+                  {language === 'en' ? 'Need Help Getting Started?' : '🏠 最初の一歩を踏み出そう'}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 text-xs text-center w-full">
+                  {language === 'en' 
+                    ? "Answer a few quick questions and we'll guide you toward the right rental options."
+                    : "どこから始めればいいか分からない？"}
+                </p>
+                <div className="w-full flex justify-center mb-auto py-4">
+                  <div className="w-[200px] h-[160px] rounded-xl shadow-lg border border-navy/10 bg-white/70 overflow-hidden flex items-center justify-center">
+                    <img
+                      src="/images/Ibuki2.png"
+                      alt="Quiz Helper Illustration"
+                      className="max-w-full max-h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+            </button>
           </div>
         </div>
       </div>

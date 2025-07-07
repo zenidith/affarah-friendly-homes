@@ -9,12 +9,7 @@ import heroImage800 from '@/../public/hero-images/4-800.jpg';
 import heroImage1280 from '@/../public/hero-images/4-1280.jpg';
 import heroImage1920 from '@/../public/hero-images/4-1920.jpg';
 
-// Declare YouFormWidget on window for TypeScript
-declare global {
-  interface Window {
-    YouFormWidget?: { init: () => void };
-  }
-}
+
 
 // Define the single hero image to use (image #4: Tokyo Tower at dusk)
 const staticHeroImageId = 4;
@@ -22,26 +17,16 @@ const staticHeroImageId = 4;
 const Hero = () => {
   const { t, language } = useLanguage();
   
-  React.useEffect(() => {
-    // Dynamically load the YouForm script if not already loaded
-    const scriptId = 'youform-widget-script';
-    if (!document.getElementById(scriptId)) {
-      const script = document.createElement('script');
-      script.id = scriptId;
-      script.src = 'https://app.youform.com/widgets/widget.js';
-      script.async = true;
-      script.onload = () => {
-        if (window.YouFormWidget && typeof window.YouFormWidget.init === 'function') {
-          window.YouFormWidget.init();
-        }
-      };
-      document.body.appendChild(script);
-    } else {
-      if (window.YouFormWidget && typeof window.YouFormWidget.init === 'function') {
-        window.YouFormWidget.init();
-      }
+  // Handle smooth scrolling to the contact form
+  const handleContactClick = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      const navbarHeight = 100; // Approximate height of the fixed navbar
+      const yOffset = -navbarHeight; 
+      const y = contactSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
-  }, []);
+  };
   
   return (
     <section className="relative bg-white dark:bg-gray-900 overflow-hidden py-16 md:py-32 w-full min-h-[90vh] flex items-center">
@@ -97,17 +82,10 @@ const Hero = () => {
           )}
           <div className="pt-4 w-full">
             <Button
-              asChild
-              className="bg-navy hover:bg-navy-light text-white dark:bg-gold dark:text-navy dark:hover:bg-gold/90 group font-medium text-lg px-8 py-7 transform transition-transform hover:scale-105 w-full md:w-auto"
+              onClick={handleContactClick}
+              className="bg-navy hover:bg-navy-light text-white dark:bg-gold dark:text-navy dark:hover:bg-gold/90 group font-medium text-lg px-8 py-7 transform transition-transform hover:scale-105 w-full md:w-auto flex items-center justify-center md:justify-start gap-2"
             >
-              <a
-                href={language === 'en' ? 'https://app.youform.com/forms/1taqrobw' : 'https://app.youform.com/forms/z5fhozwc'}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center md:justify-start gap-2 w-full"
-              >
-                {t('findMyNextHome')} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
+              {t('findMyNextHome')} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
         </div>
