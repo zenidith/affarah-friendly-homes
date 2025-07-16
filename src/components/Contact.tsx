@@ -135,7 +135,7 @@ const Contact = () => {
               <form id="contact-form" action="https://formsubmit.co/affarah.japan@gmail.com" method="POST">
                 {/* Hidden fields for customization */}
                 <input type="hidden" name="_subject" value="New Contact Submission from Affarah" />
-                <input type="hidden" name="_next" value="https://affarah.com/thanks" />
+                <input type="hidden" name="_next" value="/thanks" />
                 <input type="hidden" name="_captcha" value="false" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {/* 1. Your Name */}

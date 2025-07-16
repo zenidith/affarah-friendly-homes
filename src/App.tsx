@@ -16,6 +16,7 @@ const Index = lazy(() => import('./pages/Index'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const Terms = lazy(() => import('./pages/Terms'));
 const Privacy = lazy(() => import('./pages/Privacy'));
+const Thanks = lazy(() => import('./pages/Thanks'));
 
 const queryClient = new QueryClient();
 
@@ -62,8 +63,11 @@ const App = () => {
                       <Route path="/ja/terms" element={<Terms lang="ja" />} />
                       <Route path="/en/privacy" element={<Privacy lang="en" />} />
                       <Route path="/ja/privacy" element={<Privacy lang="ja" />} />
-                      
-                      {/* Legacy routes for backward compatibility */}
+
+                      {/* Thank you page */}
+                      <Route path="/thanks" element={<Thanks />} />
+
+                      {/* Redirects for language-agnostic paths */}
                       <Route path="/terms" element={<Navigate to="/en/terms" replace />} />
                       <Route path="/privacy" element={<Navigate to="/en/privacy" replace />} />
 
