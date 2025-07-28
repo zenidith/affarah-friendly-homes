@@ -128,7 +128,7 @@ const Contact = () => {
           <h2 className="section-title text-2xl md:text-3xl font-bold text-center">{t('contact')}</h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-stretch">
           <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-5 h-full flex flex-col">
             <h3 className="text-lg font-bold text-navy dark:text-white mb-3">{t('getInTouch')}</h3>
             <div className="flex-grow">
@@ -305,7 +305,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="grid grid-rows-2 h-full gap-3">
+          <div className="flex flex-col gap-3 h-full">
             <div className="bg-navy rounded-2xl p-4 text-white shadow-lg">
               <h3 className="text-lg font-bold mb-2">{t('contactInfo')}</h3>
               <div className="space-y-2">
@@ -343,27 +343,15 @@ const Contact = () => {
 
             <button
               onClick={handleContactClick}
-              className="bg-gold/10 dark:bg-gold/5 rounded-2xl p-6 border border-gold/30 flex flex-col items-center h-full text-left w-full transition-all duration-300 hover:bg-gold/20 dark:hover:bg-gold/10 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
+              className="bg-gold/10 dark:bg-gold/5 rounded-2xl border border-gold/30 text-left w-full h-full transition-all duration-300 hover:bg-gold/20 dark:hover:bg-gold/10 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold overflow-hidden flex items-center justify-center p-0"
             >
-              <div className="flex-grow flex flex-col w-full">
-                <h3 className="text-base font-bold text-navy dark:text-white mb-2 text-center w-full">
-                  {language === 'en' ? 'Need Help Getting Started?' : '🏠 最初の一歩を踏み出そう'}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 text-xs text-center w-full">
-                  {language === 'en' 
-                    ? "Answer a few quick questions and we'll guide you toward the right rental options."
-                    : "どこから始めればいいか分からない？"}
-                </p>
-                <div className="w-full flex justify-center mb-auto py-4">
-                  <div className="w-[200px] h-[160px] rounded-xl shadow-lg border border-navy/10 bg-white/70 overflow-hidden flex items-center justify-center">
-                    <img
-                      src="/images/Ibuki2.png"
-                      alt="Quiz Helper Illustration"
-                      className="max-w-full max-h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
+              <div className="w-full h-full flex justify-center items-center">
+                <img
+                  src="/images/Ibuki2.png"
+                  alt="Quiz Helper Illustration"
+                  className="rounded-xl object-cover w-full h-full shadow-sm border border-gold/40"
+                  loading="lazy"
+                />
               </div>
             </button>
           </div>
