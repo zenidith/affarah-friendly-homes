@@ -18,7 +18,7 @@ const Thanks = () => {
       />
       <div className="relative z-10 flex flex-col items-center justify-center">
         <img 
-          src="/images/affaran-logo-circle.png" 
+          src="/assets/logo.png" 
           alt="Affaran Logo" 
           className="w-32 h-32 mb-6"
         />

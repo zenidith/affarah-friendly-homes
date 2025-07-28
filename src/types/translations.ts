@@ -70,6 +70,7 @@ export type TranslationKey =
   | 'formQuestionLabel'
   | 'formQuestionPlaceholder'
   | 'formSubmitButton'
+  | 'formSubmitting'
   | 'phoneText'
   | 'hoursText'
   | 'mondayFriday'

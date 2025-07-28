@@ -273,6 +273,10 @@ export const translations: Partial<Record<TranslationKey, { en: string; ja: stri
     en: 'Send My Request →',
     ja: 'お問い合わせを送信 →'
   },
+  formSubmitting: {
+    en: 'Submitting...',
+    ja: '送信中...'
+  },
   phoneText: {
     en: '+81-123-456-7890',
     ja: '+81-123-456-7890'

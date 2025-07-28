@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { MapPin, Mail, Phone, Clock, HelpCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
@@ -13,6 +14,7 @@ const Contact = () => {
 
   const { toast } = useToast();
   const { t, language } = useLanguage();
+  const navigate = useNavigate();
 
   // Handle smooth scrolling to the contact form
   const handleContactClick = () => {
@@ -39,6 +41,51 @@ const Contact = () => {
     message: ''
   });
   const [loading, setLoading] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const form = formRef.current;
+    if (!form) {
+      setLoading(false);
+      return;
+    }
+
+    const formData = new FormData(form);
+    const action = form.action;
+
+    try {
+      const response = await fetch(action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        navigate('/thanks');
+      } else {
+        const data = await response.json();
+        toast({
+          title: "Error submitting form",
+          description: data.errors ? data.errors.map((error: any) => error.message).join(', ') : 'An unknown error occurred.',
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      toast({
+        title: "Network Error",
+        description: "Could not submit the form. Please check your connection.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -74,21 +121,19 @@ const Contact = () => {
   const areaOptions = {
     en: [
       { value: "", label: "Select preferred area(s)" },
-      { value: "Chiba City", label: "Chiba City" },
-      { value: "Yokohama", label: "Yokohama" },
       { value: "Tokyo (23 Wards)", label: "Tokyo (23 Wards)" },
       { value: "Tokyo (Outside 23 Wards)", label: "Tokyo (Outside 23 Wards)" },
-      { value: "Kawasaki", label: "Kawasaki" },
-      { value: "Saitama", label: "Saitama" },
+      { value: "Chiba Prefecture", label: "Chiba (e.g., Chiba City, Funabashi)" },
+      { value: "Kanagawa Prefecture", label: "Kanagawa (e.g., Yokohama, Kawasaki)" },
+      { value: "Saitama Prefecture", label: "Saitama" },
       { value: "Other", label: "Other (specify in message)" }
     ],
     ja: [
       { value: "", label: "希望エリアを選択" },
-      { value: "千葉市", label: "千葉市" },
-      { value: "横浜市", label: "横浜市" },
       { value: "東京23区内", label: "東京23区内" },
       { value: "東京23区外", label: "東京23区外" },
-      { value: "川崎市", label: "川崎市" },
+      { value: "千葉県", label: "千葉県（例：千葉市、船橋市）" },
+      { value: "神奈川県", label: "神奈川県（例：横浜市、川崎市）" },
       { value: "埼玉県", label: "埼玉県" },
       { value: "その他", label: "その他（メッセージに記入）" }
     ]
@@ -132,7 +177,13 @@ const Contact = () => {
           <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-5 h-full flex flex-col">
             <h3 className="text-lg font-bold text-navy dark:text-white mb-3">{t('getInTouch')}</h3>
             <div className="flex-grow">
-              <form id="contact-form" action="https://formsubmit.co/affarah.japan@gmail.com" method="POST">
+              <form 
+  ref={formRef}
+  id="contact-form" 
+  action="https://formsubmit.co/affarah.japan@gmail.com"
+  method="POST"
+  onSubmit={handleSubmit}
+>
                 {/* Hidden fields for customization */}
                 <input type="hidden" name="_subject" value="New Contact Submission from Affarah" />
                 <input type="hidden" name="_next" value="/thanks" />
@@ -291,17 +342,16 @@ const Contact = () => {
                   placeholder={t('formQuestionPlaceholder')}
                 />
                 </div>
-              </form>
-            </div>
-            {/* Submit Button */}
-            <div className="mt-auto pt-4">
-              <Button
-                type="submit"
-                form="contact-form"
-                className="w-full bg-gold text-navy hover:bg-gold-dark font-semibold rounded-md py-2 px-4 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
-              >
-                {t('formSubmitButton')}
-              </Button>
+                <div className="mt-auto pt-4">
+    <Button
+      type="submit"
+      disabled={loading}
+      className="w-full bg-gold text-navy hover:bg-gold-dark font-semibold rounded-md py-2 px-4 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold disabled:opacity-50 disabled:cursor-not-allowed"
+    >
+      {loading ? t('formSubmitting') : t('formSubmitButton')}
+    </Button>
+  </div>
+</form>
             </div>
           </div>
 
