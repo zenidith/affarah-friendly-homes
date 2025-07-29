@@ -1,6 +1,8 @@
+/// <reference types="vitest" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import path from "path";
+import tsconfigPaths from 'vite-tsconfig-paths';
+
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -11,12 +13,10 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
+    tsconfigPaths(),
+
   ],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
+
   // Ensure public directory is served at root
   publicDir: 'public',
   // Force Vite to correctly resolve paths in the public directory
@@ -24,5 +24,12 @@ export default defineConfig(({ mode }) => ({
     assetsDir: 'assets',
     outDir: 'dist',
     emptyOutDir: true,
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/setupTests.ts',
+    css: true,
+    include: ['**/*.test.tsx'],
   },
 }));

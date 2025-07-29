@@ -1,22 +1,16 @@
-import React, { Suspense, lazy, useEffect } from 'react';
+import React from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "next-themes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
 import { LanguageProvider } from '@/context/LanguageContext';
 import BackToTopButton from './components/BackToTopButton';
 import ThemeInitializer from './components/ThemeInitializer';
-import PageLoader from './components/PageLoader';
-
-// Lazy load pages for code splitting
-const Index = lazy(() => import('./pages/Index'));
-const NotFound = lazy(() => import('./pages/NotFound'));
-const Terms = lazy(() => import('./pages/Terms'));
-const Privacy = lazy(() => import('./pages/Privacy'));
-const Thanks = lazy(() => import('./pages/Thanks'));
+import AppRouter from '@/router';
+import ErrorBoundary from './components/ErrorBoundary';
 
 const queryClient = new QueryClient();
 
@@ -47,34 +41,9 @@ const App = () => {
               <Sonner />
               <BrowserRouter>
                 <LanguageProvider>
-                  <Suspense fallback={<PageLoader />}>
-                    <Routes>
-                      {/* Redirect root to preferred language */}
-                      <Route path="/" element={<Navigate to="/en" replace />} />
-                      
-                      {/* Language-specific routes - handle both with and without trailing slash */}
-                      <Route path="/en" element={<Index lang="en" />} />
-                      <Route path="/en/" element={<Index lang="en" />} />
-                      <Route path="/ja" element={<Index lang="ja" />} />
-                      <Route path="/ja/" element={<Index lang="ja" />} />
-                      
-                      {/* Language-specific terms and privacy routes */}
-                      <Route path="/en/terms" element={<Terms lang="en" />} />
-                      <Route path="/ja/terms" element={<Terms lang="ja" />} />
-                      <Route path="/en/privacy" element={<Privacy lang="en" />} />
-                      <Route path="/ja/privacy" element={<Privacy lang="ja" />} />
-
-                      {/* Thank you page */}
-                      <Route path="/thanks" element={<Thanks />} />
-
-                      {/* Redirects for language-agnostic paths */}
-                      <Route path="/terms" element={<Navigate to="/en/terms" replace />} />
-                      <Route path="/privacy" element={<Navigate to="/en/privacy" replace />} />
-
-                      {/* Fallback for any other route */}
-                      <Route path="*" element={<NotFound />} />
-                    </Routes>
-                  </Suspense>
+                  <ErrorBoundary>
+                    <AppRouter />
+                  </ErrorBoundary>
                 </LanguageProvider>
               </BrowserRouter>
             </div>
